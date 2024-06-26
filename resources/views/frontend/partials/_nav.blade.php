@@ -1,20 +1,7 @@
 <!--========== HEADER PART START ===========-->
 <header class="heder-padding">
     <div class="header fixed sticky">
-        <style>
-            @media (max-width: 767px) {
-    .section-gap-90 {
-        margin-bottom: 50px;
-    }
-    .section-gap-90{
-        margin-top:20px;
-
-      }
-      .nav-header{
-        height: 15vh;
-        }
-    }
-        </style>
+       
         <div class="container nav-header">
             <div class="header-content" style="height: 11vh;flex-wrap:wrap;">
 
@@ -25,29 +12,7 @@
                          @else {{ asset('images/' . setting('site_logo')) }} @endif"
                         data-sticky-logo="{{ asset('images/' . setting('site_logo')) }}" alt="logo">
                 </a>
-                <a href="javascript:void(0)">
-                                    <span id="locationIcon" onclick="getLocation()">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M12 19.5C16.1421 19.5 19.5 16.1421 19.5 12C19.5 7.85786 16.1421 4.5 12 4.5C7.85786 4.5 4.5 7.85786 4.5 12C4.5 16.1421 7.85786 19.5 12 19.5Z"
-                                                stroke="#EE1D48" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z"
-                                                stroke="#EE1D48" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path d="M12 4V2" stroke="#EE1D48" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path d="M4 12H2" stroke="#EE1D48" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path d="M12 20V22" stroke="#EE1D48" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path d="M20 12H22" stroke="#EE1D48" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                    </span>
-                </a>
+               
                 </div>
 
                 @php
@@ -57,7 +22,6 @@
                         $href = $routeName != 'restaurant.show' ? route('restaurant.show', [session()->get('session_cart_restaurant')]) : 'javascript:void(0)';
                     }
                 @endphp
-
                 <!-- addding search bar -->
                 <!-- <div style="height: 80%;" class="main-search-input">
                             <input type="hidden" id="lat" name="lat" required="" value="">
@@ -107,7 +71,7 @@
                                     <input id="autocomplete-input" type="text" placeholder="{{ __('frontend.search') }}">
                                 </div>
                                 <!-- Disable location icon -->
-                                <!-- <a href="javascript:void(0)">
+                                <a href="javascript:void(0)">
                                     <span id="locationIcon" onclick="getLocation()">
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
@@ -129,8 +93,8 @@
                                                 stroke-linejoin="round" />
                                         </svg>
                                     </span>
-                                </a> -->
-                                <button type="submit" style="font-size: 20px;">{{ __('frontend.search') }}</button>
+                                </a>
+                                <button type="submit" style="font-size: 15px;">{{ __('frontend.search') }}</button>
                             </div>
                         </div>
                     </form>

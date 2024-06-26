@@ -22,14 +22,14 @@ class PurchaseCodeController extends Controller
     public function action(PurchaseCodeRequest $request)
     {
         // Check purchase code
-        $purchase_code_data = $this->purchaseCodeChecker($request);
+        // $purchase_code_data = $this->purchaseCodeChecker($request);
 
-        if ($purchase_code_data->status == false) {
-            return redirect()->back()->withInput($request->all())->withErrors($purchase_code_data->message);
-        } else {
-            Session::put('license_code', $request->get('purchase_code'));
+        // if ($purchase_code_data->status == false) {
+        //     return redirect()->back()->withInput($request->all())->withErrors($purchase_code_data->message);
+        // } else {
+        //     Session::put('license_code', $request->get('purchase_code'));
 
-        }
+        // }
 
         return redirect()->route('LaravelInstaller::environment');
     }

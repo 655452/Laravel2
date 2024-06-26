@@ -150,7 +150,7 @@
     <!--========  FEATURE PART START ========-->
     <section class="feature">
         <div class="container">
-            <span class="section-subtitle"> {{ __('How to Order') }} </span>
+            <span class="section-subtitle" style="margin-top: 5vh;"> {{ __('How to Order') }} </span>
             <h2 class="section-title"> {{ __('It’s as easy as this ') }} </h2>
 
             <div class="swiper feature-swiper">
@@ -293,7 +293,7 @@
         <section class="restaurant section-gap-66"  >
             <div class="container">
                 <!-- <h2 class="section-title borderd">{{ __('frontend.most_visited_restaurants') }}</h2> -->
-                <h2 class="section-title borderd">Most Loved Restaurants</h2>
+                <h2 class="section-title borderd">Most Loved </h2>
 
                 <div class="row">
                     @foreach ($bestSellingRestaurants as $restaurant)
