@@ -1,0 +1,15 @@
+.thin-scroll {
+    overflow-y: auto;
+    @include transition-linear;
+
+    &::-webkit-scrollbar {
+        width: 7px;
+        background-color: transparent;
+    } 
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: rgba($text, 70%);
+        border: 2px solid var(--white);
+    }
+}

@@ -1,0 +1,298 @@
+.cart-flow {
+    @include laptop-breakpoint {
+        overflow-y: hidden;
+    }
+}
+
+.cart-sidebar {
+    @include laptop-breakpoint {
+        position: fixed;
+        inset: 0;
+        z-index: 5;
+        opacity: 0;
+        visibility: hidden;
+        background-color: rgba($black, 50%);
+        @include transition-linear;
+    }
+
+    &.active {
+        @include laptop-breakpoint {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cart-content {
+            transform: translateX(0%);
+        }
+    }
+}
+
+.cart-content {
+    width: 100%;
+    max-width: 380px;
+    position: fixed;
+    isolation: isolate;
+    top: 71px;
+    right: 0px;
+    transform: translateX(105%);
+    background-color: var(--white);
+    border-left: 1px solid var(--border-slate);
+    @include transition-linear;
+
+    @include custom-breakpoint(992px, 1100px) {
+        max-width: 320px;
+    }
+
+    @include laptop-breakpoint {
+        top: 0px;
+    }
+
+    .cart-close {
+        cursor: pointer;
+        font-size: 16px;
+        position: absolute;
+        top: 20px;
+        left: -13px;
+        z-index: 1;
+        @include center(26px, 26px, 50%);
+        background-color: var(--white);
+        color: var(--red);
+        @include transition-linear;
+
+        @include custom-breakpoint(0px, 400px) {
+            border: 1px solid var(--border-slate);
+            line-height: 24px;
+            left: 20px;
+        }
+
+        &:hover {
+            background-color: var(--red);
+            border-color: var(--red);
+            color: var(--white);
+        }
+    }
+}
+
+.cart-empty {
+    width: 100%;
+    height: 100vh;
+
+    h2 {
+        margin-bottom: 60px;
+    }
+
+    img {
+        width: 100%;
+        max-width: 160px;
+        margin-bottom: 40px;
+        margin-inline: auto;
+        display: block;
+    }
+    p {
+        padding: 0px 35px;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16px;
+        color: var(--text);
+    }
+}
+
+.cart-title {
+    width: 100%;
+    padding: 15px;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 34px;
+    text-align: center;
+    text-transform: capitalize;
+    border-bottom: 1px solid var(--border-slate);
+    color: var(--blue);
+}
+
+.cart-switch-group {
+    margin-top: 20px;
+    margin-bottom: 18px;
+}
+
+.cart-heading {
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.cart-scroll-group {
+    height: calc(100vh - 215px);
+    overflow-y: auto;
+
+    @include laptop-breakpoint {
+        height: calc(100vh - 145px);
+    }
+
+    &::-webkit-scrollbar { 
+        width: 4px; 
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb { 
+        border-radius: 8px;
+        background-color: var(--placeholder);
+    }
+}
+
+.cart-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 12px 16px;
+    border-top: 1px solid var(--border-slate);
+
+    &:last-child {
+        border-bottom: 1px solid var(--border-slate);
+    }
+}
+
+.cart-delete {
+    flex-shrink: 0;
+    margin-top: 2px;
+    display: inline-flex;
+    cursor: pointer;
+}
+
+.cart-meta-group {
+    width: 100%;
+    flex: auto;
+    overflow: hidden;
+
+    .cart-name {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 20px;
+        margin-bottom: 5px;
+        text-transform: capitalize;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        cursor: pointer;
+        @include transition-linear;
+
+        &:hover {
+            color: var(--primary);
+        }
+    }
+    
+    .cart-size {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 20px;
+        margin-bottom: 2px;
+        text-transform: capitalize;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    .cart-extra {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 20px;
+        text-transform: capitalize;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        color: var(--text);
+    }
+}
+
+.cart-action-group {
+    .cart-price {
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 20px;
+        margin-bottom: 5px;
+        text-align: right;
+        text-transform: capitalize;
+        color: var(--primary);
+    }
+}
+
+.cart-price-group {
+    padding: 16px 16px 0px;
+}
+
+.cart-coupon {
+    height: 38px;
+    display: flex;
+    margin-bottom: 16px;
+
+    input {
+        width: 100%;
+        height: 100%;
+        padding: 0px 16px;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        border: 1px solid var(--border-gray);
+        border-right: none;
+
+        &::placeholder {
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 16px;
+        }
+    }
+
+    button {
+        height: 100%;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 16px;
+        padding: 0px 18px;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        text-transform: capitalize;
+        cursor: pointer;
+        color: var(--white);
+        background-color: var(--green);
+    }
+}
+
+.cart-amount-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cart-amount-item {
+    @include flex(flex, center, space-between);
+
+    &:last-child {
+        span {
+            font-weight: 600;
+            color: var(--heading);
+        }
+    }
+
+    span {
+        font-size: 14px;
+        text-transform: capitalize;
+        color: var(--text);
+    }
+}
+
+.cart-amount-btn-div {
+    padding: 16px;
+}
+
+.cart-amount-btn {
+    width: 100%;
+    height: 48px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 48px;
+    border-radius: 30px;
+    text-align: center;
+    cursor: pointer;
+    color: var(--white);
+    background-color: var(--primary);
+}

@@ -1,0 +1,82 @@
+.settings {
+    padding: 24px 0px 50px;
+}
+
+.settings-group {
+    overflow: hidden;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    background-color: var(--white);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+
+    &.active {
+        .settings-navs {
+            padding: 20px 0px;
+            display: block;
+        }
+    }
+}
+
+.settings-btn {
+    width: 100%;
+    padding: 12px 0px;
+    color: var(--primary);
+    background-color: rgba($primary, 10%);
+    @include font(12px, 600);
+    @include flex(none, center, center);
+    text-transform: uppercase;
+    gap: 6px;
+
+    @include laptop-breakpoint {
+        display: flex;
+    }
+}
+
+.settings-navs {
+    padding: 20px 0px;
+    @include transition-linear;
+
+    @include laptop-breakpoint {
+        padding: 0px;
+        display: none;
+    }
+
+    a,
+    button {
+        gap: 20px;
+        width: 100%;
+        padding: 12px 20px;
+        @include flex(flex, center, start);
+        @include transition-linear;
+
+        &:hover {
+            background-color: var(--primary);
+            svg { stroke: var(--white); }
+            span { color: var(--white); }
+        }
+
+        &.active {
+            background-color: var(--primary);
+            svg { stroke: var(--white); }
+            span { color: var(--white); }
+        }
+
+        svg {
+            stroke: #6E7191;
+            flex-shrink: 0;
+        }
+
+        span {
+            @include font(16px, 500px);
+            text-transform: capitalize;
+            text-align: left;
+            color: var(--secondary);
+        }
+    }
+}
+
+.settings-title {
+    @include font(22px, 600);
+    text-transform: capitalize;
+    margin-bottom: 16px;
+}

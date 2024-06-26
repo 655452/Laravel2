@@ -1,0 +1,81 @@
+// TRANSITION LINEAR PROPERTY
+@mixin transition-linear {
+    transition: all linear .3s;
+    -webkit-transition: all linear .3s;
+    -moz-transition: all linear .3s;
+    -ms-transition: all linear .3s;
+    -o-transition: all linear .3s;
+}
+
+// BACKGROUND IMAGE PROPERTY
+@mixin background-image($url) {
+    background-image: url($url);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+// FLEX STYLE PROPERTY
+@mixin flex ($flex, $alignItems, $justifyContent) {
+    display: $flex;
+    align-items: $alignItems;
+    justify-content: $justifyContent;
+}
+
+// CENTER STYLE PROPERTY
+@mixin center ($widthHeight, $lineHeight, $radius) {
+    width: $widthHeight;
+    height: $widthHeight;
+    line-height: $lineHeight;
+    border-radius: $radius;
+    text-align: center;
+}
+
+// FONT STYLE PROPERTY
+@mixin font ($fontSize, $fontWeight) {
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+}
+
+// GRID COLUMN STYLE PROPERTY
+@mixin grid-column ($gridGap, $gridColumn) {
+    display: grid;
+    grid-gap: $gridGap;
+    grid-template-columns: repeat($gridColumn, 1fr);
+    grid-template-rows: auto;
+}
+
+// GRID MINMAX STYLE PROPERTY
+@mixin grid-minmax ($gridGap, $gridMinmax) {
+    display: grid;
+    grid-gap: $gridGap;
+    grid-template-columns: repeat(auto-fit, minmax($gridMinmax, 1fr));
+    grid-template-rows: auto;
+}
+
+// MARGIN STYLE PROPERTY
+@mixin margin ($top, $right, $bottom, $left) {
+    margin-top: $top;
+    margin-bottom: $bottom;
+    margin-#{$end-direction}: $right;
+    margin-#{$start-direction}: $left;
+}
+
+// PADDING STYLE PROPERTY
+@mixin padding ($top, $right, $bottom, $left) {
+    padding-top: $top;
+    padding-bottom: $bottom;
+    padding-#{$end-direction}: $right;
+    padding-#{$start-direction}: $left;
+}
+
+// RADIUS STYLE PROPERTY
+@mixin radius ($topLeft, $topRight, $bottomRight, $bottomLeft) {
+    border-top-#{$start-direction}-radius: $topLeft;
+    border-top-#{$end-direction}-radius: $topRight;
+    border-bottom-#{$end-direction}-radius: $bottomRight;
+    border-bottom-#{$start-direction}-radius: $bottomLeft;
+}
+
+
+

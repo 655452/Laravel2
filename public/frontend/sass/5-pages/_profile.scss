@@ -1,0 +1,84 @@
+.profile-user {
+    padding: 24px;
+    margin-bottom: 24px;
+    border-radius: 16px;
+    border: 1px solid var(--border-gray);
+
+    @include mobile-breakpoint {
+        padding: 16px;
+    }
+}
+
+.profile-meta {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-slate);
+
+    @include mobile-breakpoint {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    img {
+        width: 84px;
+        border-radius: 12px;
+        flex-shrink: 0;
+    }
+
+    dt {
+        width: 100%;
+        @include font(22px, 600);
+        text-transform: capitalize;
+        margin-bottom: 12px;
+    }
+
+    dd {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        column-gap: 56px;
+        row-gap: 20px;
+    }
+
+    span {
+        @include font(14px, 600);
+    }
+
+    small {
+        display: block;
+        @include font(12px, 400);
+        text-transform: capitalize;
+        margin-bottom: 2px;
+    }
+}
+
+.profile-data {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+
+    li {
+        width: 100%;
+        max-width: 250px;
+        display: inline-block;
+        @include font(14px, 500);
+
+        @include tablet-breakpoint {
+            max-width: 200px;
+        }
+
+        @include mobile-breakpoint {
+            max-width: 100%;
+        }
+
+        span {
+            display: block;
+            @include font(12px, 400);
+            text-transform: capitalize;
+            margin-bottom: 2px;
+        }
+    }
+}

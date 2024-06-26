@@ -1,0 +1,15 @@
+body {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'OpenSauceOne', sans-serif;
+}
+
+input,
+textarea {
+    &::placeholder {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        color: var(--text);
+    }
+}

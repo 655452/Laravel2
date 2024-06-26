@@ -1,0 +1,310 @@
+//======================================
+//         BANNER PART STYLE                              
+//======================================
+.banner {
+    padding: 15px 0px;
+    background-color: #FFF9FA;
+
+    @include laptop-breakpoint {
+        padding: 55px 0px 70px;
+    }
+
+    @include tablet-breakpoint {
+        padding: 40px 0px 10px;
+    }
+}
+
+.banner-title {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 80px;
+    margin-bottom: 58px;
+
+    @include desktop-breakpoint {
+        font-size: 45px;
+        line-height: 65px;
+    }
+
+    @include laptop-breakpoint {
+        font-size: 38px;
+        line-height: 58px;
+    }
+
+    @include tablet-breakpoint {
+        font-size: 48px;
+        line-height: 68px;
+    }
+
+    @include mobile-breakpoint {
+        font-size: 28px;
+        line-height: 38px;
+        margin-bottom: 45px;
+    }
+
+    span {
+        color: var(--primary);
+    }
+}
+
+.banner-subtitle {
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 34px;
+    margin-bottom: 16px;
+    color: var(--secondary);
+
+    @include laptop-breakpoint {
+        font-size: 22px;
+        line-height: 30px;
+    }
+
+    @include mobile-breakpoint {
+        font-size: 18px;
+        line-height: 28px;
+    }
+}
+
+.banner-search {
+    width: 100%;
+    height: 72px;
+    padding: 12px;
+    border-radius: 35px;
+    background-color: var(--white);
+    box-shadow: 0px 6px 32px rgba(237, 32, 73, 0.06);
+    @include flex(flex, center, center);
+    gap: 26px;
+
+    @include mobile-breakpoint {
+        height: 56px;
+        padding: 8px;
+        gap: 10px;
+    }
+
+    input {
+        width: 100%;
+        height: 100%;
+        padding: 0px 12px;
+
+        @include mobile-breakpoint {
+            padding: 0px 8px;
+        }
+
+        &::placeholder {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 24px;
+
+            @include mobile-breakpoint {
+                font-size: 14px;
+                line-height: 24px;
+            }
+        }
+    }
+
+    a {
+        @include flex(flex, center, center);
+    }
+
+    button {
+        flex-shrink: 0;
+        font-size: 22px;
+        font-weight: 500;
+        line-height: 34px;
+        border-radius: 25px;
+        padding: 7px 24px;
+        cursor: pointer;
+        text-transform: capitalize;
+        color: var(--white);
+        background-color: var(--primary);
+
+        @include mobile-breakpoint {
+            font-size: 14px;
+            line-height: 24px;
+            padding: 5px 15px;
+        }
+    }
+}
+
+.banner-image {
+    img {
+        width: 100%;
+        margin-left: 40px;
+
+        @include custom-breakpoint(0px, 991px) {
+            margin-left: 0px;
+        }
+
+        @include tablet-breakpoint {
+            margin-top: 20px;
+        }
+    }
+}
+
+//======================================
+//         FEATURE PART STYLE          
+//======================================
+.feature-swiper {
+    padding-bottom: 90px;
+
+    .swiper-slide {
+        width: 100%;
+        text-align: center;
+    
+        svg {
+            margin-bottom: 26px;
+        }
+    
+        h3 {
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 30px;
+            margin-bottom: 12px;
+        }
+    
+        p {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+        }
+    }
+
+    .swiper-pagination {
+        position: absolute;
+        bottom: 40px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .swiper-pagination-bullet {
+        opacity: 1;
+        @include center(8px, 8px, 50%);
+        background-color: var(--gray);
+    }
+
+    .swiper-pagination-bullet-active {
+        background-color: var(--primary);
+    }
+}
+
+//======================================
+//         APP PART STYLE          
+//======================================
+.app {
+    padding: 120px 0px;
+    background-color: #FFF6F5;
+    overflow: hidden;
+
+    @include tablet-breakpoint {
+        padding: 60px 0px;
+    }
+}
+
+.app-content {
+    @include mobile-breakpoint {
+        width: 100%;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 60px;
+        font-weight: 700;
+        line-height: 74px;
+        margin-bottom: 24px;
+
+        @include desktop-breakpoint {
+            font-size: 48px;
+            line-height: 60px;
+        }
+
+        @include laptop-breakpoint {
+            font-size: 35px;
+            line-height: 45px;
+        }
+
+        @include tablet-breakpoint {
+            font-size: 25px;
+            line-height: 35px;
+            margin-bottom: 15px;
+        }
+
+        @include mobile-breakpoint {
+            font-size: 28px;
+            line-height: 38px;
+        }
+    }
+
+    p {
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 30px;
+        margin-bottom: 32px;
+
+        @include laptop-breakpoint {
+            font-size: 18px;
+            line-height: 28px;
+            margin-bottom: 25px;
+        }
+
+        @include custom-breakpoint(576px, 767px) {
+            font-size: 16px;
+            line-height: 26px;
+        }
+    }
+
+    nav {
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: 12px;
+
+        @include mobile-breakpoint {
+            margin-bottom: 40px;
+            justify-content: center;
+        }
+
+        img {
+            width: 130px;
+
+            @include tablet-breakpoint {
+                width: 100px;
+            }
+
+            @include mobile-breakpoint {
+                width: 110px;
+            }
+        }
+    }
+}
+
+.app-image {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    @include mobile-breakpoint {
+        height: 180px;
+    }
+
+    img {
+        width: 100%;
+        max-width: 400px;
+        position: absolute;
+        bottom: -220px;
+        #{$end-direction}: 0px;
+
+        @include tablet-breakpoint {
+            bottom: -150px;
+        }
+
+        @include mobile-breakpoint {
+            max-width: 270px;
+            #{$end-direction}: 50%;
+            transform: translateX(50%);
+        }
+    }
+}
+
+
+

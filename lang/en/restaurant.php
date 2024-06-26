@@ -1,0 +1,27 @@
+<?php
+
+return array (
+  'import_restaurant'            => 'Import Restaurant',
+  'restaurant_information'       => 'Restaurant Information',
+  'restaurant_status'            => 'Restaurant Status',
+  'restaurant_location'          => 'Restaurant Location',
+  'restaurant_owner_information' => 'Restaurant Owner Information',
+  'add_restaurant'               => 'Add Restaurant',
+  'opens_at'                     => 'Opens at',
+  'closes_at'                    => 'Closes at',
+  'import'                       => 'Import',
+  'logo'                         => 'Logo',
+  'background_image'             => 'Restaurant Image',
+  'sample'                       => 'Sample',
+  'image'                        => 'Restaurant Image',
+  'validation_log'               => 'Validation Log',
+  'in_row_number'                => 'In Row Number',
+  'menu_items'                   => 'Menu Items',
+  'menu_item'                    => 'Menu Item',
+  'add_menu_item'                => 'Add Menu Item',
+  'categories'                   => 'Categories',
+  'add_category'                 => 'Add category',
+  'category_image'               => 'Category Image',
+  'delete_category'              => 'Yes, Delete category',
+  'product_variation'            => 'Product Variation',
+);

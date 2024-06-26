@@ -1,0 +1,27 @@
+<?php
+
+return array (
+    'import_restaurant'            => 'রেস্তোরাঁ ইম্পোর্ট করুন',
+    'restaurant_information'       => 'রেস্তোরাঁ তথ্য',
+    'restaurant_status'            => 'রেস্তোরাঁ স্থিতি',
+    'restaurant_location'          => 'রেস্তোরাঁ অবস্থান',
+    'restaurant_owner_information' => 'রেস্তোরাঁ মালিকের তথ্য',
+    'add_restaurant'               => 'রেস্তোরাঁ যোগ করুন',
+    'opens_at'                     => 'এটি খোলা হয়',
+    'closes_at'                    => 'এটি বন্ধ হয়',
+    'import'                       => 'ইম্পোর্ট করুন',
+    'logo'                         => 'লোগো',
+    'background_image'             => 'রেস্তোরাঁ চিত্র',
+    'sample'                       => 'নমুনা',
+    'image'                        => 'রেস্তোরাঁ চিত্র',
+    'validation_log'               => 'যাচাই লগ',
+    'in_row_number'                => 'সারিতে নম্বর',
+    'menu_items'                   => 'মেনু আইটেম',
+    'menu_item'                    => 'মেনু আইটেম',
+    'add_menu_item'                => 'মেনু আইটেম যোগ করুন',
+    'categories'                   => 'বিভাগসমূহ',
+    'add_category'                 => 'বিভাগ যোগ করুন',
+    'category_image'               => 'বিভাগ চিত্র',
+    'delete_category'              => 'হ্যাঁ, বিভাগ মুছে ফেলুন',
+    'product_variation'            => 'পণ্য পরিবর্তন',
+  );

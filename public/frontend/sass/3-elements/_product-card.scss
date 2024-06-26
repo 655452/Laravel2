@@ -1,0 +1,128 @@
+.product-card-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-rows: auto;
+    gap: 24px;
+
+    @include desktop-breakpoint {
+        grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    }
+}
+
+.product-card {
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border: 1px solid var(--border-slate);
+}
+
+.product-card-media {
+    flex-shrink: 0;
+    width: 110px;
+    height: 100%;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.product-card-content {
+    width: 100%;
+    height: 100%;
+    padding: 10px 12px 12px;
+    gap: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.product-card-title {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+    width: inherit;
+    @include transition-linear;
+
+    &:hover {
+        color: var(--primary);
+    }
+}
+
+.product-card-text {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 16px;
+    color: var(--text);
+}
+
+.product-card-info {
+    width: 100%;
+    @include flex(flex, center, space-between);
+}
+
+.product-card-price {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    del {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 20px;
+        color: var(--text);
+    }
+
+    span {
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 20px;
+    }
+}
+
+.product-card-add {
+    cursor: pointer;
+    @include flex(flex, center, center);
+    gap: 6px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    background-color: var(--white);
+    box-shadow: 0px 8px 16px rgba(23, 31, 70, 0.08);
+    @include transition-linear;
+
+    &:hover {
+        background-color: var(--primary);
+
+        span {
+            color: var(--white);
+        }
+
+        svg {
+            fill: var(--white);
+        }
+    }
+
+    span {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 16px;
+        text-transform: capitalize;
+        color: var(--primary);
+        @include transition-linear;
+    }
+
+    svg {
+        fill: var(--primary);
+        @include transition-linear;
+    }
+}

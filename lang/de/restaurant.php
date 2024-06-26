@@ -1,0 +1,27 @@
+<?php
+
+return array (
+    'import_restaurant' => 'Restaurant importieren',
+    'restaurant_information' => 'Restaurantinformationen',
+    'restaurant_status' => 'Status des Restaurants',
+    'restaurant_location' => 'Standort des Restaurants',
+    'restaurant_owner_information' => 'Informationen zum Restaurantbesitzer',
+    'add_restaurant' => 'Restaurant hinzufügen',
+    'opens_at' => 'Öffnet um',
+    'closes_at' => 'Schließt um',
+    'import' => 'Importieren',
+    'logo' => 'Logo',
+    'background_image' => 'Hintergrundbild des Restaurants',
+    'sample' => 'Beispiel',
+    'image' => 'Bild des Restaurants',
+    'validation_log' => 'Validierungsprotokoll',
+    'in_row_number' => 'In Reihennummer',
+    'menu_items' => 'Menüpunkte',
+    'menu_item' => 'Menüpunkt',
+    'add_menu_item' => 'Menüpunkt hinzufügen',
+    'categories' => 'Kategorien',
+    'add_category' => 'Kategorie hinzufügen',
+    'category_image' => 'Kategoriebild',
+    'delete_category' => 'Ja, Kategorie löschen',
+    'product_variation' => 'Produktvariation',
+  );

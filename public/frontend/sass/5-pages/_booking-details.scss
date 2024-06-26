@@ -1,0 +1,58 @@
+.booking {
+    padding: 16px 0px 50px;
+
+    .container {
+        max-width: 800px;
+    }
+}
+
+.booking-paginate {
+    @include flex(inline-flex, center, start);
+    gap: 18px;
+    margin-bottom: 16px;
+    color: var(--heading);
+    @include transition-linear;
+
+    &:hover {
+        color: var(--primary);
+    }
+
+    i {
+        font-size: 18px;
+        color: var(--primary);
+    }
+
+    span {
+        font-size: 22px;
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+}
+
+.booking-group {
+    @include grid-column(24px, 2);
+
+    @include custom-breakpoint(0px, 650px) {
+        @include grid-column(24px, 1);
+    }
+}
+
+.booking-fieldset {
+    width: 100%;
+    padding: 16px;
+    border-radius: 12px;
+    background-color: var(--white);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+
+    @include custom-breakpoint(0px, 650px) {
+        order: 1;
+    }
+
+    legend {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        text-transform: capitalize;
+        color: var(--heading);
+    }
+}

@@ -1,0 +1,531 @@
+/**
+ *
+ * You can write your CSS code here, DO NOT touch the default JavaScript file
+ * because it will make it harder for you to update.
+ *
+ */
+
+/*# sourceMappingURL=custom.css.map */
+img {
+    max-width: 100% !important;
+}
+
+.height-textarea {
+    min-height: 150px !important;
+}
+
+.input-daterange .btn-outline-secondary {
+    border-color: #D9DBE9;
+    color: #495057;
+}
+
+button#date-search:hover,
+button#refresh:hover {
+    color: #000 !important;
+    background-color: #dbdfe3 !important;
+}
+
+.order.card {
+    border: 1px dashed #beb6b6;
+}
+
+.order.card .card-body {
+    padding-bottom: 0;
+}
+
+.order.card .card-footer {
+    padding: 0 25px 20px !important;
+}
+
+
+.small-textarea-height {
+    min-height: 100px !important;
+}
+
+.address-textarea-height {
+    min-height: 60px !important;
+}
+
+.bg-maroon-light {
+    background-color: #EE1D48 !important;
+    color: #fff !important;
+}
+
+.profile-dashboard {
+    background: #009688;
+    color: #fff;
+    text-align: center;
+    font-style: italic;
+    padding: 5px;
+    padding-top: 15px;
+    border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.profile-dashboard img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border: 3px solid #d2d6de;
+    padding: 3px;
+}
+
+.profile-dashboard h1 {
+    font-size: 16px;
+    font-weight: 300;
+    margin-top: 8px;
+    margin-bottom: 0px;
+}
+
+.profile-dashboard p {
+    font-size: 12px;
+    margin-bottom: 0px;
+}
+
+
+.card-profile {
+    text-align: center;
+    padding: 5px;
+    padding-top: 15px;
+    font-size: 16px;
+}
+
+.card-profile img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border: 3px solid #d2d6de;
+    padding: 3px;
+}
+
+.card-profile h3 {
+    font-size: 18px;
+    font-weight: 300;
+    margin-top: 15px;
+    margin-bottom: 0px;
+}
+
+.card-profile p {
+    font-size: 12px;
+    margin-bottom: 0px;
+}
+
+.single-profile {
+    width: 50%;
+    float: left;
+}
+
+.profile-picture {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
+    float: left;
+    width: 120px;
+    height: 120px;
+    margin: -35px -5px 0 30px;
+    position: relative;
+    z-index: 1;
+    border: 3px solid #d2d6de;
+    padding: 3px;
+    background: #fff;
+}
+
+.display-none {
+    display: none;
+}
+
+.display-block {
+    display: block;
+}
+
+.avatar-item {
+    width: 40px;
+    height: 40px;
+}
+
+.select2.form-control.red-border {
+    border: 1px solid red !important;
+    border-color: red !important;
+}
+
+.no-padding {
+    padding: 0px !important;
+    padding-top: 5px !important;
+
+}
+
+.profile-desc {
+    display: block;
+    overflow: hidden;
+}
+
+.single-full-profile {
+    margin-bottom: 1rem;
+    overflow: hidden;
+    float: left;
+    width: 100%;
+}
+
+.single-full-profile p {
+    margin-bottom: 0px;
+    line-height: 20px
+}
+
+.profile-list-group-item {
+    padding: 3px 5px;
+    font-size: 14px;
+}
+
+.profile-list-group-item-addresss {
+    line-height: 14px;
+    padding-top: 7px;
+}
+
+.card-profile p {
+    line-height: 16px;
+    margin-bottom: 5px;
+}
+
+.image-width {
+    width: 120px !important;
+}
+
+.paymentheader {
+    font-size: 16px;
+    color: #EE1D48
+}
+
+.report-print-button {
+    position: absolute;
+    right: 20px;
+}
+
+
+/*Menu design overide*/
+
+.main-sidebar .sidebar-menu li ul.dropdown-menu li a {
+    padding-left: 40px !important;
+}
+
+.main-sidebar .sidebar-menu li a i {
+    margin-right: 10px !important;
+}
+
+
+/*setting page css*/
+
+.setting-fieldset {
+    border: 1px solid #DBDEE0 !important;
+    padding: 15px !important;
+    margin: 0 0 25px 0 !important;
+    box-shadow: 0px 0px 0px 0px #000;
+}
+
+.setting-legend {
+    font-size: 1.1em !important;
+    font-weight: bold !important;
+    text-align: left !important;
+    width: auto;
+    color: #EE1D48;
+    padding: 5px 15px;
+    border: 1px solid #DBDEE0 !important;
+    margin: 0px;
+}
+
+.bg-red {
+    background-color: #dc3545;
+}
+
+.bg-black {
+    background-color: #000000;
+}
+
+.bg-gray-dark {
+    background-color: #6c757d;
+}
+
+.bg-blue {
+    background-color: #007bff;
+}
+
+.bg-indigo {
+    background-color: #6610f2;
+}
+
+.bg-purple {
+    background-color: #6f42c1;
+}
+
+.bg-pink {
+    background-color: #e83e8c;
+}
+
+.bg-orange {
+    background-color: #fd7e14;
+}
+
+.bg-yellow {
+    background-color: #ffc107;
+}
+
+.bg-green {
+    background-color: #28a745;
+}
+
+.bg-teal {
+    background-color: #20c997;
+}
+
+.bg-cyan {
+    background-color: #17a2b8;
+}
+
+
+.profile-widget.margin-hidden {
+    margin-top: 0px;
+}
+
+.profile-picture.center {
+    margin: 15px 0 0 120px;
+}
+
+#googleMap {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 10px;
+}
+
+.ini-input-group-text {
+    font-size: 14px;
+    padding: 0px 15px !important;
+    height: 31px !important;
+}
+
+.form-control-sm-custom {
+    font-size: 14px;
+    padding: 0px 15px !important;
+    height: 31px !important;
+}
+
+.profile-widget-item-header {
+    text-align: left !important;
+    padding-left: 20px !important;
+    font-size: 20px;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    color: #000 !important;
+}
+
+.carousel-control-next,
+.carousel-control-next {
+    color: #000 !important;
+}
+
+.carousel-indicators li {
+    color: #000 !important;
+}
+
+.h-232 {
+    height: 232px;
+}
+
+.restaurant-edit-button {
+    position: relative;
+}
+
+.restaurant-edit-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+
+#googleMapAddress {
+    width: 100%;
+    height: 170px;
+}
+
+.banner-thum {
+    width: 100px;
+    height: 50px;
+}
+
+.preview-img-w {
+    width: 120px;
+}
+
+.reset-email-hight {
+    min-height: 84vh
+}
+
+.reset-email-card {
+    max-width: 380px;
+    margin-top: 100px;
+}
+.admin-banner-img-hight {
+    width: 120px;
+}
+.default-img{
+    width: 20% !important;
+}
+.img-width{
+    width: 120px;
+}
+.section .section-header.p-23 {
+    padding: 23px !important;
+}
+
+.bootstrap-timepicker-widget table td input{
+    width: 33px !important;
+}
+.dashboard-w{
+    width: 60%;
+    height: 75%;
+    margin-left: -12px;
+}
+
+.restaurantName{
+    font-weight: bold;
+    font-size: 2rem;
+}
+/*Media Query*/
+@media only screen and (max-width: 800px) {
+    .restaurantName{
+        font-size: 1.2rem;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .restaurantName{
+display: none;    }
+}
+
+.card-custom{
+    width: 18rem;box-shadow: 0 4px 8px rgb(0 0 0 / 13%) !important;
+}
+.card-custom .card-image-height{
+    height: 12rem !important;
+}
+.coupon-logo{
+    width: 50px !important;
+    height: 50px !important;
+    border: none;
+}
+
+/* order-page */
+
+.live-order{
+    /* background-color: hsl(233, 81%, 67%) !important; */
+}
+
+.live-order div{
+padding: 0 5px;
+}
+
+.list{
+    padding-left:10px;
+}
+
+
+.list p{
+    margin-bottom: 0;
+}
+
+.list h5{
+    margin-bottom: 0;
+}
+
+.live-order .list{
+    box-shadow:0px 0px 25px 5px rgb(223, 220, 220);
+    padding: 15px;
+    background-color: white;
+}
+
+.live-order .list h3{
+    color: #34395e;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.3em !important;
+}
+
+.list hr{
+    height: .2px !important;
+}
+.order-status-btn{
+    min-width: 6.5rem !important;
+}
+.order-badge{
+    width: 80% !important;
+    text-align: center !important;
+}
+.order-status-div{
+
+    padding: 0 !important;
+    width: 20px !important;
+    min-width: 6.5rem !important;
+}
+.order-status-item{
+    width: 100% !important;
+}
+
+.basic-color{
+    color: #f91942 !important;
+}
+.gray-color{
+    background-color: #cdc8c9 !important;
+}
+
+.report-dropdown{
+    width: 148px !important;
+    padding: 0 !important;
+}
+.report-btn{
+width: 78% !important;
+}
+
+
+.report-table td{
+    /* padding: 5px; */
+    vertical-align: middle;
+}
+
+
+.section-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* Confirm Modal Css Start */
+.modal-dialog.custom-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.modal-dialog.custom-modal .modal-content {
+    max-width: 300px;
+}
+
+
+
+.modal-dialog.custom-modal .modal-title{
+    font-size: 16px;
+    font-weight: 700;
+    color: #1b1b28;
+}
+
+.modal-dialog.custom-modal .modal-header{
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    padding: 17px 20px 17px 20px
+}
+
+
+.modal-dialog.custom-modal .modal-header button:focus{
+    outline: none;
+}

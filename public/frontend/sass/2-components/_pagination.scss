@@ -1,0 +1,43 @@
+.pagination-nav {
+    @include flex(flex, center, center);
+    border: 1px solid var(--border-gray);
+    border-radius: 8px;
+    width: fit-content;
+    margin-inline: auto;
+    overflow: hidden;
+}
+
+.pagination-menu {
+    --paginate-size: 35px;
+    text-align: center;
+    width: var(--paginate-size);
+    height: var(--paginate-size);
+    line-height: var(--paginate-size);
+    border-right: 1px solid var(--border-gray);
+    color: var(--text);
+    @include font(12px, 600);
+    @include transition-linear;
+
+    @include mobile-breakpoint {
+        --paginate-size: 30px;
+    }
+
+    &:hover {
+        color: var(--primary);
+        background-color: rgba($primary, 10%);
+    }
+
+    &.active {
+        color: var(--primary);
+        background-color: rgba($primary, 10%);
+    }
+
+    &:last-child {
+        border-right: none;
+    }
+
+    &.fa-solid  {
+        font-size: 12px;
+        font-weight: 900;
+    }
+}

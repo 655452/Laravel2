@@ -1,0 +1,60 @@
+//========================================
+//          1 - HELPERS FOLDER
+//========================================
+@import '1-helpers/directions';
+@import '1-helpers/breakpoints';
+@import '1-helpers/variables';
+@import '1-helpers/mixins';
+@import '1-helpers/utils';
+@import '1-helpers/globals';
+@import '1-helpers/typography';
+
+
+//========================================
+//          2 - COMPONENTS FOLDER
+//========================================
+@import '2-components/form';
+@import '2-components/badge';
+@import '2-components/table';
+@import '2-components/button';
+@import '2-components/switch';
+@import '2-components/section';
+@import '2-components/counter';
+@import '2-components/thin-scroll';
+@import '2-components/pagination';
+
+
+//=======================================
+//          3 - ELEMENTS FOLDER
+//=======================================
+@import '3-elements/category-card';
+@import '3-elements/restaurant-card';
+@import '3-elements/product-card';
+@import '3-elements/booking-card';
+
+
+//=======================================
+//          4 - LAYOUTS FOLDER
+//=======================================
+@import '4-layouts/auth';
+@import '4-layouts/cart-sidebar';
+@import '4-layouts/product-modal';
+@import '4-layouts/booking-modal';
+@import '4-layouts/address-modal';
+@import '4-layouts/shop-modal';
+@import '4-layouts/header';
+@import '4-layouts/footer';
+
+
+//=======================================
+//          5 - PAGES FOLDER
+//=======================================
+@import '5-pages/index';
+@import '5-pages/restaurant-list';
+@import '5-pages/restaurant-details';
+@import '5-pages/booking-details';
+@import '5-pages/checkout';
+@import '5-pages/settings';
+@import '5-pages/profile';
+@import '5-pages/orders';
+@import '5-pages/terms';

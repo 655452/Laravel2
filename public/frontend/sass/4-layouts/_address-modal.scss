@@ -1,0 +1,166 @@
+.address-modal {
+    .modal-dialog {
+        width: 100%;
+        max-width: 515px;
+        margin: 30px auto;
+
+        @include mobile-breakpoint {
+            margin: 10px auto;
+            padding: 0px 10px;
+        }
+    }
+
+    .modal-content {
+        border: none;
+        display: block;
+        overflow: hidden;
+        padding: 16px;
+        border-radius: 12px;
+    }
+}
+
+.address-modal-header {
+    @include flex(flex, center, space-between);
+    margin-bottom: 18px;
+    gap: 15px;
+
+    h3 {
+        flex-shrink: 0;
+        @include font(18px, 600);
+        text-transform: capitalize;
+    }
+
+    button {
+        font-size: 20px;
+        color: var(--red);
+    }
+}
+
+.address-modal-search {
+    @include flex(flex, center, center);
+    gap: 16px;
+    height: 46px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    padding: 8px 8px 8px 16px;
+    background-color: var(--slate);
+    border: 1px solid var(--slate);
+    @include transition-linear;
+
+    &:focus-within {
+        background-color: var(--white);
+        border-color: rgba($primary, 30%);
+    }
+
+    i {
+        flex-shrink: 0;
+        font-size: 20px;
+    }
+    input {
+        width: 100%;
+        height: 100%;
+    }
+
+    button {
+        width: 30px;
+        height: 100%;
+        flex-shrink: 0;
+        font-size: 16px;
+        border-radius: 6px;
+        background-color: var(--primary);
+        color: var(--white);
+    }
+}
+
+.address-modal-frame {
+    width: 100%;
+    height: 300px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.address-modal-location {
+    @include flex(flex, center, start);
+    margin-bottom: 20px;
+    gap: 12px;
+
+    i {
+        font-size: 18px;
+        color: var(--primary);
+    }
+
+    span {
+        font-size: 14px;
+        font-weight: 500;
+    }
+}
+
+.address-modal-details {
+    margin-bottom: 20px;
+
+    label {
+        display: block;
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+
+    input {
+        width: 100%;
+        height: 45px;
+        padding: 0px 16px;
+        border-radius: 8px;
+        border: 1px solid var(--border-gray);
+        @include transition-linear;
+
+        &:focus-within {
+            border-color: rgba($primary, 30%);
+        }
+    }
+}
+
+.address-modal-label-group {
+    margin-bottom: 24px;
+}
+
+.address-modal-label-title {
+    @include font(14px, 600);
+    text-transform: capitalize;
+    margin-bottom: 10px;
+}
+
+.address-modal-label-navs {
+    @include flex(flex, center, start);
+    gap: 12px;
+
+    button {
+        @include flex(flex, center, center);
+        @include font(12px, 600);
+        text-transform: capitalize;
+        gap: 8px;
+        padding: 12px 16px;
+        border-radius: 8px;
+        background-color: var(--slate);
+        border: 1px solid var(--slate);
+        @include transition-linear;
+
+        &.active {
+            color: var(--primary);
+            border-color: var(--primary);
+            background-color: rgba($primary, 8%);
+        }
+    }
+}
+
+.address-modal-label-input {
+    width: 100%;
+    height: 45px;
+    margin-top: 16px;
+    padding: 0px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border-gray);
+    @include transition-linear;
+
+    &:focus-within {
+        border-color: rgba($primary, 30%);
+    }
+}

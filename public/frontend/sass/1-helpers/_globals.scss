@@ -1,0 +1,79 @@
+*,
+*::after,
+*::before {
+    margin: 0px;
+    padding: 0px;
+    outline: 0px;
+    box-sizing: border-box;
+}
+
+img {
+    vertical-align: middle;
+}
+
+a {
+    text-decoration: none;
+
+    &:hover { text-decoration: none; }
+}
+
+ul,
+ol {
+    padding: 0px;
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--secondary);
+    margin-bottom: 0px;
+}
+
+p,
+ol,
+ul,
+li,
+dl,
+dd,
+dt,
+span,
+figure,
+aside,
+label {
+    margin: 0px;
+    padding: 0px;
+}
+
+a,
+span {
+    display: inline-block;
+}
+
+html,
+body {
+    color: var(--secondary);
+    background: var(--white);
+    direction: $direction;
+    scroll-behavior: smooth;
+}
+
+input,
+select,
+button,
+textarea {
+    border: none;
+    outline: none;
+    background-color: transparent;
+
+    &:focus { outline: none; }
+}
+
+.h-0 { height: 0px }
+.isolate { isolation: isolate }
+.overflow-hidden { overflow: hidden }
+.overflow-y-hidden { overflow-y: hidden }
+.transition { @include transition-linear }

@@ -1,0 +1,33 @@
+.terms {
+    .container {
+        max-width: 750px;
+        padding: 45px 16px;
+
+        h3 {
+            @include font(22px, 600);
+            text-transform: capitalize;
+            margin-bottom: 32px;
+        }
+
+        small {
+            display: block;
+            font-size: 12px;
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+
+        p {
+            font-size: 12px;
+            margin-bottom: 32px;
+
+            span {
+                margin-top: 16px;
+            }
+        }
+
+        h4 {
+            @include font(18px, 600);
+            margin-bottom: 16px;
+        }
+    }
+}

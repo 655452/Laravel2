@@ -1,0 +1,119 @@
+.booking-card {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.booking-card-figure {
+    position: relative;
+    isolation: isolate;
+
+    img {
+        width: 100%;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+    }
+}
+
+.booking-card-figcaption {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    padding: 12px;
+    backdrop-filter: blur(4px);
+    background: linear-gradient(92.22deg, rgba($black, 0.7) 0%, rgba($black, 0.3) 100%);
+
+    dl {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+        gap: 24px;
+
+        dt {
+            font-size: 18px;
+            font-weight: 500;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            text-transform: capitalize;
+            cursor: pointer;
+            color: var(--white);
+        }
+
+        dd {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 2px;
+            padding: 2px 6px;
+            border-radius: 30px;
+            background-color: var(--primary);
+
+            i {
+                font-size: 11px;
+                color: var(--white);
+            }
+
+            span {
+                @include font(12px, 500);
+                color: var(--white);
+            }
+        }
+    }
+
+    p {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        svg {
+            flex-shrink: 0;
+        }
+
+        span {
+            font-size: 14px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            color: var(--white);
+        }
+    }
+}
+
+.booking-card-details {
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border: 1px solid var(--border-gray);
+    border-top: none;
+
+    dl {
+        display: flex;
+        align-items: center;
+        padding: 16px;
+        gap: 12px;
+        border-bottom: 1px solid var(--border-gray);
+
+        dd {
+            font-size: 16px;
+            text-transform: capitalize;
+            color: var(--blue);
+        }
+    }
+
+    ul {
+        @include grid-minmax(16px, 150px);
+        padding: 16px;
+
+        li {
+            font-size: 12px;
+            text-transform: capitalize;
+
+            span {
+                font-size: 14px;
+                font-weight: 500;
+                display: block;
+                text-transform: initial;
+            }
+        }
+    }
+}

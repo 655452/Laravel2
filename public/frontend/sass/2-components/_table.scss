@@ -1,0 +1,125 @@
+.table-responsive {
+    border-radius: 12px;
+    box-shadow: 0px 0px 10px rgba($black, 0.05);
+}
+
+.table {
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 0px;
+    background-color: var(--white);
+}
+
+.table>:not(caption)>*>* {
+    padding: 16px;
+    font-size: 12px;
+    vertical-align: middle;
+    white-space: nowrap;
+    color: var(--secondary);
+    border-color: var(--border-slate);
+}
+
+.table tbody tr {
+    > {
+        :first-child {
+            font-weight: 600;
+        }
+    }
+
+    &:last-child {
+        > * {
+            border: none;
+        }
+    }
+}
+
+.table-primary tr th {
+    border: none;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+    background-color: #FFE8ED;
+    color: var(--primary);
+
+    &:first-child {
+        border-top-left-radius: 12px;
+    }
+
+    &:last-child {
+        border-top-right-radius: 12px;
+    }
+}
+
+.table-action {
+    display: inline-flex;
+    gap: 12px;
+
+    button {
+        --action-size: 30px;
+
+        width: var(--action-size);
+        height: var(--action-size);
+        line-height: var(--action-size);
+        text-align: center;
+        color: var(--white);
+        border-radius: 8px;
+        font-size: 12px;
+
+        &.fa-eye {
+            background-color: var(--focus);
+            box-shadow: 0px 6px 10px rgba($focus, 0.24);
+        }
+
+        &.fa-circle-exclamation {
+            background-color: var(--alert);
+            box-shadow: 0px 6px 10px rgba($alert, 0.24);
+        }
+    }
+}
+
+// TABLE MOBILE RESPONSIVE
+table {
+    thead {
+        @include tablet-breakpoint {
+            display: none;
+        }
+    }
+
+    tbody {
+        tr {
+            @include tablet-breakpoint {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+
+            td {
+                @include tablet-breakpoint {
+                    grid-column: 1 / span 6;
+                    padding: 5px 16px !important;
+                    align-self: center;
+                    border: none;
+
+                    &::before {
+                        content: attr(data-title) ' : ';
+                        display: inline-block;
+                        min-width: 55px;
+                        font-size: 10px;
+                        font-weight: 700;
+                        letter-spacing: 0.3px;
+                        text-transform: uppercase;
+                    }
+
+                    &:first-child {
+                        padding-top: 20px !important;
+                    }
+
+                    &:last-child {
+                        padding-bottom: 20px !important;
+                        border-bottom: 1px solid var(--border-slate);
+                    }
+                }
+            }
+        }
+    }
+}

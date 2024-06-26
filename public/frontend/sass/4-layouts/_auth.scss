@@ -1,0 +1,163 @@
+.auth {
+    overflow: hidden;
+    padding: 32px 0px 50px;
+}
+
+.auth-content {
+    border-radius: 12px;
+    background-color: var(--white);
+    border: 1px solid var(--border-slate);
+}
+
+.auth-banner {
+    width: 100%;
+    max-width: 480px;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+
+    @include desktop-breakpoint {
+        max-width: 400px;
+    }
+
+    @include laptop-breakpoint {
+        max-width: 250px;
+    }
+
+    @include tablet-breakpoint {
+        display: none;
+    }
+}
+
+.auth-navs {
+    display: flex;
+    align-items: center;
+    column-gap: 36px;
+    padding: 0px 16px;
+    border-bottom: 1px solid var(--border-slate);
+
+    .nav-link {
+        padding: 16px 0px;
+        line-height: 20px;
+        @include font(14px, 500);
+        position: relative;
+        text-transform: capitalize;
+        border-bottom: 2px solid transparent;
+        color: var(--secondary);
+
+        &.active {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+    }
+}
+
+.auth-tabs {
+    padding: 16px;
+}
+
+.auth-header {
+    padding: 10px 0px 32px;
+    text-align: center;
+
+    h3 {
+        line-height: 34px;
+        margin-bottom: 8px;
+        @include font(22px, 600);
+        text-transform: capitalize;
+    }
+    
+    p {
+        line-height: 16px;
+        @include font(12px, 300);
+    }
+}
+
+.auth-divide {
+    margin: 25px 0px;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+
+    &::after {
+        position: absolute;
+        content: "";
+        z-index: -1;
+        top: 13px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: var(--border-slate);
+    }
+
+    span {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16px;
+        padding: 0px 12px;
+        text-transform: capitalize;
+        color: var(--text);
+        background-color: var(--white);
+    }
+}
+
+.auth-sync {
+    display: flex;
+    row-gap: 15px;
+    column-gap: 25px;
+
+    @include mobile-breakpoint {
+        flex-direction: column;
+    }
+
+    a {
+        width: 100%;
+        height: 48px;
+        border-radius: 30px;
+        background-color: var(--slate);
+        @include flex(flex, center, center);
+        gap: 12px;
+
+        img {
+            width: 24px;
+            flex-shrink: 0;
+        }
+
+        span {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+            text-transform: capitalize;
+            color: var(--secondary);
+        }
+    }
+}
+
+.auth-types {
+    @include flex(flex, center, start);
+    flex-wrap: wrap;
+    row-gap: 15px;
+    column-gap: 50px;
+    margin-bottom: 24px;
+
+    li {
+        @include flex(flex, unset, center);
+        gap: 8px;
+
+        input {
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+
+        label {
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 16px;
+            cursor: pointer;
+            text-transform: capitalize;
+            color: var(--secondary);
+        }
+    }
+}

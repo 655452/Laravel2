@@ -1,0 +1,42 @@
+.category-card {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+    display: block;
+
+    &:hover {
+        img {
+            transform: scale(1.05) rotate(3deg);
+        }
+    }
+
+    img {
+        width: 100%;
+        @include transition-linear;
+    }
+
+    h4 {
+        position: absolute;
+        text-transform: capitalize;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        padding: 12px;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 30px;
+        color: var(--white);
+        backdrop-filter: blur(2px);
+        background: linear-gradient(92.22deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%);
+
+        @include mobile-breakpoint {
+            font-size: 18px;
+            padding: 8px 12px;
+        }
+    }
+}

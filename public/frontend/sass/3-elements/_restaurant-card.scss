@@ -1,0 +1,99 @@
+.restaurant-card {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    @include transition-linear;
+
+    &:hover {
+        box-shadow: 0px 8px 16px rgba($black, 0.08);
+        
+        img {
+            transform: scale(1.1) rotate(3deg);
+        }
+    }
+
+    .figure {
+        display: block;
+        overflow: hidden;
+        border-radius: 12px 12px 0px 0px;
+    }
+
+    img {
+        width: 100%;
+        border-radius: 12px 12px 0px 0px;
+        @include transition-linear;
+    }
+
+    .content {
+        padding: 16px 12px 12px;
+        border-radius: 0px 0px 12px 12px;
+        border: 1px solid var(--border-gray);
+        border-top: none;
+    }
+
+    h4 {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 24px;
+        margin-bottom: 12px;
+        color: var(--dark);
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .ratings {
+        @include flex(flex, center, start);
+        margin-bottom: 12px;
+        gap: 6px;
+
+        svg {
+            fill: var(--gray);
+            stroke: var(--gray);
+        }
+
+        .active {
+            fill: var(--yellow);
+            stroke: var(--yellow);
+        }
+
+        span {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 20px;
+            margin-left: 3px;
+            color: var(--secondary);
+        }
+    }
+
+    .location {
+        @include flex(flex, center, start);
+        margin-bottom: 12px;
+        gap: 10px;
+
+        svg {
+            flex-shrink: 0;
+        }
+
+        span {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 20px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            color: var(--secondary);
+        }
+    }
+
+    p {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        text-transform: capitalize;
+
+        &.on { color: var(--green); }
+        &.off { color: var(--red); }
+    }
+}

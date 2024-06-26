@@ -1,0 +1,32 @@
+.fb-btn {
+    width: 90%;
+    margin: 0 auto 20px;
+    padding: 10px 0px;
+    border-radius: 24px;
+    letter-spacing: 0.4px;
+    @include font(14px, 600);
+    @include flex(flex, center, center);
+    text-transform: capitalize;
+    text-align: center;
+    cursor: pointer;
+    line-height: 22px;
+    column-gap: 8px;
+    color: var(--white);
+    background-color: var(--primary);
+    @include transition-linear;
+
+    span {
+        span {
+            font-family: sans-serif;
+        }
+    }
+
+    &:hover {
+        color: $white;
+        background-color: rgba($primary, 0.9);
+        box-shadow: 0px 8px 18px 0px rgba($black, 0.12);
+    }
+
+    &:focus { box-shadow: 0px 8px 18px 0px rgba($black, 0.12); }
+}
+

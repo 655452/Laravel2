@@ -1,0 +1,28 @@
+@include laptop-breakpoint {
+    .content-reverse { 
+        flex-direction: column-reverse; 
+    }
+}
+
+.activate {
+    @include transition-linear;
+}
+
+.actiavte.active {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.px-12 {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.mt-24 {
+    margin-top: 24px;
+}
+
+.text-inherit {
+    text-transform: inherit;
+}
+

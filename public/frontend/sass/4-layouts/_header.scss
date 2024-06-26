@@ -1,0 +1,296 @@
+.header {
+    width: 100%;
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border-slate);
+
+    &.index {
+        background-color: #FFF9FA;
+    }
+
+    &.active {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        z-index: 5;
+        background-color: var(--white);
+        box-shadow: 0px 12px 25px 0px rgba($black, 6%);
+    }
+}
+
+.header-content {
+    height: 70px;
+    @include flex(flex, center, space-between);
+
+    @include tablet-breakpoint {
+        height: 60px;
+    }
+}
+
+.header-logo {
+    img {
+        width: 120px;
+    }
+}
+
+.header-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    @include custom-breakpoint(0px, 350px) {
+        gap: 12px;
+    }
+}
+
+.header-cart {
+    cursor: pointer;
+    position: relative;
+    @include center(32px, 32px, 50%);
+    @include flex(flex, center, center);
+    background-color: var(--secondary);
+    box-shadow: 0px 8px 10px rgba($black, 25%);
+
+    sup {
+        position: absolute;
+        top: -4px;
+        #{$end-direction}: -4px;
+        @include font(8px, 500);
+        @include center(16px, 14px, 50%);
+        background-color: var(--primary);
+        border: 1px solid var(--white);
+        color: var(--white);
+    }
+}
+
+.header-auth {
+    position: relative;
+}
+
+.header-auth-btn {
+    display: none;
+
+    @include tablet-breakpoint {
+        @include flex(flex, center, center);
+        border-radius: 16px;
+        padding: 0px 7px;
+        height: 32px;
+        cursor: pointer;
+        border: 1px solid var(--border-gray);
+        box-shadow: 0px 0px 10px rgba($black, 5%);
+        @include transition-linear;
+
+        &:hover {
+            border-color: rgba($primary, 30%);
+        }
+    }
+}
+
+.header-auth-navs {
+    @include flex(flex, center, center);
+    border-radius: 16px;
+    border: 1px solid var(--border-gray);
+    box-shadow: 0px 0px 10px rgba($black, 5%);
+
+    @include tablet-breakpoint {
+        position: absolute;
+        top: 46px;
+        right: 0px;
+        z-index: 3;
+        padding: 6px;
+        border-radius: 8px;
+        transform-origin: top;
+        transform: scaleY(0);
+        flex-direction: column;
+        align-items: flex-start;
+        border-color: var(--border-slate);
+        background-color: var(--white);
+        box-shadow: 0px 12px 25px 0px rgba($black, 8%);
+        @include transition-linear;
+
+        &.active {
+            transform: scaleY(1);
+        }
+    }
+    
+    a {
+        @include flex(flex, center, center);
+        @include font(14px, 500);
+        line-height: 20px;
+        text-transform: capitalize;
+        white-space: nowrap;
+        gap: 6px;
+        height: 32px;
+        padding: 0px 12px;
+        color: var(--primary);
+        @include transition-linear;
+
+        @include tablet-breakpoint {
+            width: 100%;
+            justify-content: flex-start;
+            @include padding(3px, 32px, 3px, 8px);
+        }
+
+        &:hover {
+            background-color: rgba($primary, 5%);
+        }
+
+        &:first-child {
+            @include radius(16px, 0px, 0px, 16px);
+
+            @include tablet-breakpoint {
+                border-radius: 8px;
+            }
+        }
+
+        &:last-child {
+            @include radius(0px, 16px, 16px, 0px);
+            border-left: 1px solid var(--border-gray);
+
+            @include tablet-breakpoint {
+                border: none;
+                border-radius: 8px;
+            }
+        }
+    }
+}
+
+.header-account,
+.header-selection {
+    position: relative;
+}
+
+.header-account-btn,
+.header-selection-btn {
+    @include flex(flex, center, center);
+    border-radius: 16px;
+    padding: 0px 12px;
+    height: 32px;
+    gap: 6px;
+    cursor: pointer;
+    border: 1px solid var(--border-gray);
+    box-shadow: 0px 0px 10px rgba($black, 5%);
+    @include transition-linear;
+
+    @include tablet-breakpoint {
+        padding: 0px 7px;
+    }
+
+    &:hover {
+        border-color: rgba($primary, 30%);
+    }
+
+    img {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    span {
+        line-height: 20px;
+        @include font(14px, 500);
+        text-transform: capitalize;
+        color: var(--secondary);
+
+        @include tablet-breakpoint {
+            display: none;
+        }
+    }
+
+    i {
+        font-size: 10px;
+        margin-top: -2px;
+        @include transition-linear;
+
+        @include tablet-breakpoint {
+            display: none;
+        }
+    }
+
+    &.active {
+        i {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.header-account-navs,
+.header-selection-list {
+    position: absolute;
+    top: 50px;
+    right: 0px;
+    transform-origin: top;
+    transform: scaleY(0);
+    z-index: 3;
+    padding: 8px 6px;
+    border-radius: 8px;
+    background-color: var(--white);
+    border: 1px solid var(--border-slate);
+    box-shadow: 0px 12px 25px 0px rgba($black, 8%);
+    @include transition-linear;
+
+    @include tablet-breakpoint {
+        top: 46px;
+    }
+
+    &.active {
+        transform: scaleY(1);
+    }
+
+    a,
+    li {
+        @include flex(flex, center, start);
+        @include padding(4px, 32px, 4px, 8px);
+        cursor: pointer;
+        gap: 12px;
+        border-radius: 8px;
+        color: var(--secondary);
+        @include transition-linear;
+    
+        &:hover {
+            background-color: var(--slate);
+        }
+    
+        i {
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+    
+        img {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+    
+        span {
+            @include font(14px, 400);
+            white-space: nowrap;
+            text-transform: capitalize;
+            @include transition-linear;
+        }
+    }
+}
+
+.header-btn {
+    height: 32px;
+    padding: 6px 12px;
+    border-radius: 16px;
+    background-color: var(--primary);
+    @include flex(flex, center, center);
+    gap: 6px;
+
+    @include mobile-breakpoint {
+        display: none;
+    }
+
+    span {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        text-transform: capitalize;
+        color: var(--white);
+    }
+}

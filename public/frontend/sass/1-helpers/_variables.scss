@@ -1,0 +1,70 @@
+// NAME COLOR
+$red: #E93C3C;
+$blue: #00749B;
+$dark: #160040;
+$black: #000000;
+$white: #ffffff;
+$green: #1AB759;
+$gray: #D9DBE9;
+$slate: #F7F7FC;
+$purple: #b12fad;
+$orange: #e86121;
+$yellow: #FFB006;
+$indigo: #6610f2;
+
+// CUSTOM COLOR
+$text: #6E7191;
+$focus: #008BBA;
+$alert: #FB4E4E;
+$primary: #EE1D48;
+$secondary: #1F1F39;
+$placeholder: #A0A3BD;
+$border-gray: #D9DBE9;
+$border-slate: #EFF0F6;
+
+// SOCIAL COLOR
+$facebook: #3b5998;
+$linkedin: #0e76a8;
+$twitter: #00acee;
+$google: #E60023;
+$instagram: #F77737;
+$whatsapp: #25D366;
+$pinterest: #f0002a;
+$youtube: #FF0000;
+
+
+:root {
+    // NAME COLOR
+    --red: #{$red};
+    --blue: #{$blue};
+    --dark: #{$dark};
+    --black: #{$black};
+    --white: #{$white};
+    --green: #{$green};
+    --gray: #{$gray};
+    --slate: #{$slate};
+    --purple: #{$purple};
+    --orange: #{$orange};
+    --yellow: #{$yellow};
+    --indigo: #{$indigo};
+
+    // CUSTOM COLOR
+    --text: #{$text};
+    --focus: #{$focus};
+    --alert: #{$alert};
+    --primary: #{$primary};
+    --secondary: #{$secondary};
+    --placeholder: #{$placeholder};
+    --border-gray: #{$border-gray};
+    --border-slate: #{$border-slate};
+
+    // SOCIAL COLOR
+    --facebook: #{$facebook};
+    --linkedin: #{$linkedin};
+    --twitter: #{$twitter};
+    --google: #{$google};
+    --instagram: #{$instagram};
+    --whatsapp: #{$whatsapp};
+    --pinterest: #{$pinterest};
+    --youtube: #{$youtube};
+}

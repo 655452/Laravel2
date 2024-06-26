@@ -1,0 +1,215 @@
+.restaurant {
+    .row > * {
+        @include transition-linear;
+    }
+}
+
+.rest-content {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 78px;
+    @include transition-linear;
+
+    .pagination-nav {
+        margin-top: 50px;
+    }
+}
+
+.rest-profile {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 16px 0px;
+    border-bottom: 1px solid var(--border-gray);
+}
+
+.rest-media {
+    img {
+        width: 100%;
+        mask-image: url('../../images/mask.svg');
+        mask-size: cover;
+        mask-repeat: no-repeat;
+        mask-position: center;
+    }
+}
+
+.rest-name {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: capitalize;
+
+    @include mobile-breakpoint {
+        font-size: 26px;
+    }
+}
+
+.rest-title {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 16px;
+    color: var(--text);
+}
+
+.rest-review {
+    @include flex(flex, center, start);
+    margin-bottom: 18px;
+    gap: 5px;
+
+    i {
+        font-size: 14px;
+        color: var(--gray);
+
+        &.active { 
+            color: var(--yellow); 
+        }
+    }
+
+    span {
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 20px;
+    }
+}
+
+.rest-location {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    span {
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 20px;
+    }
+}
+
+.rest-btns {
+    display: flex;
+    gap: 16px;
+}
+
+.rest-book-btn {
+    height: 34px;
+    padding: 10px 14px;
+    border-radius: 20px;
+    @include flex(flex, center, center);
+    @include font(12px, 600);
+    text-transform: capitalize;
+    cursor: pointer;
+    gap: 10px;
+    color: var(--white);
+    background-color: var(--primary);
+}
+
+.rest-info-btn {
+    @include center(34px, 34px, 50%);
+    @include flex(flex, center, center);
+    background-color: #FFE8ED;
+    cursor: pointer;
+}
+
+// RESTAURANT VOUCHER
+.rest-voucher {
+    padding: 16px 0px;
+
+    button {
+        padding: 9px 18px;
+        border-radius: 30px;
+        margin-bottom: 12px;
+        @include font(12px, 600);
+        cursor: pointer;
+        color: var(--blue);
+        background-color: #E2F8FF;
+    }
+
+    p {
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 20px;
+    }
+}
+
+.rest-menu-wrapper {
+    position: relative;
+    background-color: var(--white);
+
+    &.active {
+        position: sticky;
+        top: 70px;
+        left: 0px;
+        width: 100%;
+
+        @include tablet-breakpoint {
+            top: 60px;
+        }
+    }
+}
+
+.rest-menu-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-top: 1px solid var(--border-gray);
+    border-bottom: 1px solid var(--border-gray);
+
+    .swiper-slide {
+        width: fit-content;
+        padding: 16px 0px;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 16px;
+        color: var(--text);
+        position: relative;
+        @include transition-linear;
+
+        &.active {
+            color: var(--heading);
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0px;
+                left: 0px;
+                width: 100%;
+                height: 4px;
+                border-top-left-radius: 2px;
+                border-top-right-radius: 2px;
+                background-color: var(--primary);
+            }
+        }
+    }
+
+    .rest-swiper-prev,
+    .rest-swiper-next {
+        flex-shrink: 0;
+        font-size: 12px;
+        cursor: pointer;
+        color: var(--text);
+        background-color: var(--slate);
+        @include center(28px, 28px, 50%);
+        @include transition-linear;
+
+        &:hover {
+            color: var(--white);
+            background-color: var(--primary);
+        }
+    }
+
+    .swiper-button-disabled {
+        cursor: not-allowed;
+
+        &:hover {
+            color: var(--text);
+            background-color: var(--slate);
+        }
+    }
+}
+
+.product-category-title {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 34px;
+    padding: 48px 0px 24px;
+}
