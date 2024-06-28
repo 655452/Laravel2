@@ -14,7 +14,7 @@
                         <div class="row gx-3 gy-3">
                             @if (!blank($categories_product))
                                 @foreach ($categories_product as $menu_item)
-                                    <div class="col-md-6 " wire:key="{{ $menu_item['id'] }}">
+                                    <div class="col-md-4 " wire:key="{{ $menu_item['id'] }}">
                                         <div class="product-card">
                                             <figure
                                                 class="product-card-media d-flex justify-content-center align-items-center">

@@ -16,7 +16,7 @@
     --text: #6E7191;
     --focus: #008BBA;
     --alert: #FB4E4E;
-    --primary: #EE1D48;
+    --primary: #e86121; /*theme changes #EE1D48;*/
     --secondary: #1F1F39;
     --placeholder: #A0A3BD;
     --border-gray: #D9DBE9;
@@ -911,7 +911,7 @@ input[type=number] {
 }
 
 .section-gap-90 {
-    margin-bottom: 90px;
+    margin-bottom: 3vh;
     margin-top:20px;
     margin-top: 7vh;
 }
@@ -927,7 +927,7 @@ input[type=number] {
         
       }
       .nav-header{
-        height: 18vh;
+        height: 12vh;
 
         }
     }
@@ -989,7 +989,6 @@ input[type=number] {
     
     @media (max-width: 867px) {
         .carousel{
-            margin-top:5vh;
         }
         .cara {
         
@@ -1024,7 +1023,7 @@ input[type=number] {
     
 
 .section-gap-66 {
-    margin-bottom: 66px;
+    margin-bottom: 40px;
 }
 
 @media (max-width: 767px) {
@@ -1064,7 +1063,7 @@ input[type=number] {
     font-weight: 700;
     line-height: 59px;
     text-align: center;
-    margin-bottom: 58px;
+    margin-bottom: 35px;
 }
 @media (max-width: 1399px) {
     .section-title {
@@ -3147,15 +3146,15 @@ input[type=number] {
 }
 
 .shop-modal-meta h4 {
-    font-size: 12px;
-    font-weight: 400;
+    font-size: 14px;
+    font-weight: 600;
     color: var(--text);
     margin-bottom: 8px;
 }
 
 .shop-modal-meta p {
-    font-size: 12px;
-    font-weight: 400;
+    font-size: 14px;
+    font-weight: 600;
     color: var(--text);
 }
 
@@ -3168,8 +3167,8 @@ input[type=number] {
     margin: 0px 16px;
     padding: 10px 0px;
     border-radius: 0px;
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 700;
     text-transform: capitalize;
     position: relative;
     isolation: isolate;
@@ -3809,12 +3808,12 @@ input[type=number] {
 }
 
 .footer-logo img {
-    width: 120px;
+    width: 150px;
 }
 
 .footer-about p {
-    font-size: 12px;
-    font-weight: 400;
+    font-size: 14px;
+    font-weight: 500;
     line-height: 16px;
     margin-bottom: 12px;
 }
@@ -3864,8 +3863,8 @@ input[type=number] {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
-    font-size: 12px;
-    font-weight: 400;
+    font-size: 16px;/* from 14 to  16*/
+    font-weight: 500;/* 400 to 500*/
     line-height: 16px;
     color: var(--secondary);
     transition: all linear 0.3s;
@@ -4209,7 +4208,7 @@ input[type=number] {
 }
 
 .feature-swiper {
-    padding-bottom: 90px;
+    padding-bottom: 65px;
 }
 
 .feature-swiper .swiper-slide {
@@ -4286,7 +4285,7 @@ input[type=number] {
 }
 
 .app-content h2 {
-    font-size: 60px;
+    font-size: 40px;
     font-weight: 700;
     line-height: 74px;
     margin-bottom: 24px;
@@ -4887,7 +4886,7 @@ input[type=number] {
 }
 
 .rest-book-btn {
-    height: 34px;
+    height: 45px;
     padding: 10px 14px;
     border-radius: 20px;
     display: -webkit-box;
@@ -4899,8 +4898,8 @@ input[type=number] {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 1000;
     text-transform: capitalize;
     cursor: pointer;
     gap: 10px;

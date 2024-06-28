@@ -17,7 +17,7 @@
     <section class="restaurant">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-lg-8 rest-col">
+                <div class="col-12 col-lg-12 rest-col">
                     <div class="rest-content">
                         <figure class="rest-media">
                             <a class="d-block" href="{{ route('restaurant.show', [$restaurant->slug]) }}">
@@ -69,6 +69,17 @@
                                     </svg>
                                     <span> {{ \Illuminate\Support\Str::limit($restaurant->address, 65) }} </span>
                                 </div>
+                                <!-- Handles -->
+                                
+                                <div style="display: flex; align-items: center; margin-top: 5px;">
+        <a href="https://www.instagram.com/yourhandle" target="_blank" style="margin-left: 10px; background-color: #E1306C;  border-radius: 5px; display: inline-block;">
+            <img width="25" height="25" src="https://img.icons8.com/ios/50/ffffff/instagram-new--v1.png" alt="Instagram" class="social-button"/>
+        </a>
+
+        <a href="https://www.facebook.com/yourhandle" target="_blank" style="margin-left: 10px; background-color: #3b5998;  border-radius: 50%; display: inline-block;">
+            <img width="25" height="25" src="https://img.icons8.com/ios/50/ffffff/facebook-new.png" alt="Facebook" class="social-button"/>
+        </a>
+    </div>
                             </div>
                             <div class="rest-btns">
                                 <!-- Table Order -->
@@ -104,13 +115,45 @@
                                         <span>{{ __('frontend.table') }} </span>
                                     </button>
                                 @endif -->
-
-                                <button type="button" class="rest-book-btn" data-bs-toggle="modal"
+<!-- view contacts button -->
+<button type="button" class="rest-book-btn" data-bs-toggle="modal"
                                         data-bs-target="#shop-modal">
-                                        <!-- Table Order -->
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 50 50">
+            <path d="M 13 4 C 8.038 4 4 8.037 4 13 L 4 37 C 4 41.963 8.038 46 13 46 L 37 46 C 37.338 46 37.671 45.978406 38 45.941406 L 38 4.0585938 C 37.671 4.0215938 37.338 4 37 4 L 13 4 z M 40 4.5253906 L 40 14 L 46 14 L 46 13 C 46 9.09 43.49 5.7643906 40 4.5253906 z M 22 12 C 29.168 12 35 17.832 35 25 C 35 32.168 29.168 38 22 38 C 14.832 38 9 32.168 9 25 C 9 17.832 14.832 12 22 12 z M 22 14 C 15.935 14 11 18.935 11 25 C 11 27.814 12.071406 30.377219 13.816406 32.324219 C 15.889406 30.225219 18.852 29 22 29 C 25.14 29 28.1135 30.222312 30.1875 32.320312 C 31.9295 30.373313 33 27.812 33 25 C 33 18.935 28.065 14 22 14 z M 40 16 L 40 24 L 46 24 L 46 16 L 40 16 z M 22 18.5 C 24.481 18.5 26.5 20.519 26.5 23 C 26.5 25.481 24.481 27.5 22 27.5 C 19.519 27.5 17.5 25.481 17.5 23 C 17.5 20.519 19.519 18.5 22 18.5 z M 40 26 L 40 34 L 46 34 L 46 26 L 40 26 z M 40 36 L 40 45.474609 C 43.49 44.235609 46 40.91 46 37 L 46 36 L 40 36 z"></path>
+            </svg>
+                                                    <!-- Table Order -->
                                          <span>View Contact</span>
                                         <!-- <span>{{ __('frontend.table') }} </span> -->
-                                    </button>
+</button>
+     <!-- whatsapp button                                -->
+<button type="button" class="rest-info-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 48 48">
+            <path fill="#fff" d="M4.9,43.3l2.7-9.8C5.9,30.6,5,27.3,5,24C5,13.5,13.5,5,24,5c5.1,0,9.8,2,13.4,5.6C41,14.2,43,18.9,43,24	c0,10.5-8.5,19-19,19c0,0,0,0,0,0h0c-3.2,0-6.3-0.8-9.1-2.3L4.9,43.3z"></path><path fill="#fff" d="M4.9,43.8c-0.1,0-0.3-0.1-0.4-0.1c-0.1-0.1-0.2-0.3-0.1-0.5L7,33.5c-1.6-2.9-2.5-6.2-2.5-9.6	C4.5,13.2,13.3,4.5,24,4.5c5.2,0,10.1,2,13.8,5.7c3.7,3.7,5.7,8.6,5.7,13.8c0,10.7-8.7,19.5-19.5,19.5c-3.2,0-6.3-0.8-9.1-2.3	L5,43.8C5,43.8,4.9,43.8,4.9,43.8z"></path><path fill="#cfd8dc" d="M24,5c5.1,0,9.8,2,13.4,5.6C41,14.2,43,18.9,43,24c0,10.5-8.5,19-19,19h0c-3.2,0-6.3-0.8-9.1-2.3L4.9,43.3	l2.7-9.8C5.9,30.6,5,27.3,5,24C5,13.5,13.5,5,24,5 M24,43L24,43L24,43 M24,43L24,43L24,43 M24,4L24,4C13,4,4,13,4,24	c0,3.4,0.8,6.7,2.5,9.6L3.9,43c-0.1,0.3,0,0.7,0.3,1c0.2,0.2,0.4,0.3,0.7,0.3c0.1,0,0.2,0,0.3,0l9.7-2.5c2.8,1.5,6,2.2,9.2,2.2	c11,0,20-9,20-20c0-5.3-2.1-10.4-5.8-14.1C34.4,6.1,29.4,4,24,4L24,4z"></path><path fill="#40c351" d="M35.2,12.8c-3-3-6.9-4.6-11.2-4.6C15.3,8.2,8.2,15.3,8.2,24c0,3,0.8,5.9,2.4,8.4L11,33l-1.6,5.8l6-1.6l0.6,0.3	c2.4,1.4,5.2,2.2,8,2.2h0c8.7,0,15.8-7.1,15.8-15.8C39.8,19.8,38.2,15.8,35.2,12.8z"></path><path fill="#fff" fill-rule="evenodd" d="M19.3,16c-0.4-0.8-0.7-0.8-1.1-0.8c-0.3,0-0.6,0-0.9,0s-0.8,0.1-1.3,0.6c-0.4,0.5-1.7,1.6-1.7,4	s1.7,4.6,1.9,4.9s3.3,5.3,8.1,7.2c4,1.6,4.8,1.3,5.7,1.2c0.9-0.1,2.8-1.1,3.2-2.3c0.4-1.1,0.4-2.1,0.3-2.3c-0.1-0.2-0.4-0.3-0.9-0.6	s-2.8-1.4-3.2-1.5c-0.4-0.2-0.8-0.2-1.1,0.2c-0.3,0.5-1.2,1.5-1.5,1.9c-0.3,0.3-0.6,0.4-1,0.1c-0.5-0.2-2-0.7-3.8-2.4	c-1.4-1.3-2.4-2.8-2.6-3.3c-0.3-0.5,0-0.7,0.2-1c0.2-0.2,0.5-0.6,0.7-0.8c0.2-0.3,0.3-0.5,0.5-0.8c0.2-0.3,0.1-0.6,0-0.8	C20.6,19.3,19.7,17,19.3,16z" clip-rule="evenodd"></path>
+            </svg>
+</button>
+<!-- heart icon -->
+<button type="button" class="rest-info-btn" id="likeButton" style="border: none; background: none; cursor: pointer;">
+        <img id="likeImage" width="20" height="20" src="https://img.icons8.com/ios/50/F25081/like--v1.png" alt="like--v1"/>
+</button>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const likeButton = document.getElementById('likeButton');
+            const likeImage = document.getElementById('likeImage');
+
+            likeButton.addEventListener('click', () => {
+                const isFilled = likeImage.classList.toggle('heart-filled');
+                if (isFilled) {
+                    likeImage.src = 'https://img.icons8.com/ios-filled/50/F25081/like--v1.png';
+                    likeButton.style.backgroundColor = 'pink';
+                } else {
+                    likeImage.src = 'https://img.icons8.com/ios/50/F25081/like--v1.png';
+                    likeButton.style.backgroundColor = 'none';
+                }
+            });
+        });
+    </script>
+
+      
                                     <!-- i icon commented -->
                                 <!-- <button type="button" class="rest-info-btn" data-bs-toggle="modal"
                                     data-bs-target="#shop-modal">
@@ -126,7 +169,12 @@
                                     </svg>
                                 </button> -->
                             </div>
+                            
                         </div>
+
+                        <!-- handels adding -->
+
+    
 
                         @if (array_key_exists($restaurant->id, $vouchers))
                             <div class="rest-voucher">
@@ -143,6 +191,49 @@
                             </div>
                         @endif
 
+
+<!-- catalog section -->
+<center style="margin:20px 0px;">
+                     <style>
+                        .catalog{
+                                width:90%; 
+                                height:50vh;
+                            }
+                         @media (max-width: 830px) 
+                         {
+                            .catalog{
+                                width:90%; 
+                                height:40vh;
+                            }
+                        }
+                     </style>
+                    
+                        <!-- catalog section ends here -->
+                         <button type="button" class="rest-book-btn" data-bs-toggle="modal"
+                         data-bs-target="#shop-modal2">Catalog</button>
+                        
+                         <div class="modal fade shop-modal" id="shop-modal2" data-bs-backdrop="static">
+        <div class="modal-dialog">
+        <div class="modal-content">
+
+        <div class="shop-modal-header">
+                    <button class="fa-regular fa-circle-xmark" type="button" data-bs-dismiss="modal"></button>
+                    <!-- <img src="{{ $restaurant->image }}" alt="restaurant"> -->
+                </div>
+        <!-- <iframe style="height: 90vh; width:90%;" src="http://127.0.0.1:8000/frontend/images/food_reciepes.pdf#toolbar=0" allow="fullscreen"><span>Catalog</span></iframe> -->
+            <object data="http://127.0.0.1:8000/frontend/images/food_reciepes.pdf#toolbar=0" type="application/pdf" style="width: 100%; height: calc(100vh - 50px);">
+                    <span>Catalog</span>
+                </object>
+        </div>
+        </div>
+    </div>
+                   
+</center>
+
+
+
+
+                <!-- catalog Part ends here -->
                         <div class="rest-menu-wrapper" id="scrollspy-menu">
                             <div class="rest-menu-group">
                                 <button type="button" class="rest-swiper-prev fa-solid fa-chevron-left"></button>
@@ -168,33 +259,13 @@
                         @livewire('show-page', ['restaurant' => $restaurant])
 
                     </div>
-                    <!-- catalog section -->
-                     <style>
-                        .catalog{
-                                width:90%; 
-                                height:50vh;
-                            }
-                         @media (max-width: 830px) {
-                            .catalog{
-                                width:90%; 
-                                height:40vh;
-                            }
-        }
-                     </style>
-                    <center><h3>Catalog</h3></center>
-                    <center style="margin:10vh 0px;"> 
-                        <button  type="button" class="rest-book-btn catalog" 
-                                        >
-                                        <!-- Table Order -->
-                                         
-                                         <iframe style="height: 100%; width:90%;" src="http://127.0.0.1:8000/frontend/images/Food_catalog.pdf#toolbar=0" allow="fullscreen"><span>Catalog</span></iframe>
-                                        <!-- <span>{{ __('frontend.table') }} </span> -->
-                                    </button></center>
+                    
+                                    
                     @include('frontend.partials._footer')
                 </div>
 
                 <!--=======  Side bar card ========-->
-                <aside class="cart-sidebar active">
+                <aside style="display: none;" class="cart-sidebar active">
                     <div class="cart-content">
                         <button class="cart-close fa-solid fa-xmark" type="button"></button>
                         @livewire('order-cart', ['restaurant' => $restaurant])
@@ -297,7 +368,7 @@
     <!--======= Resturent Infromation MODAL START =========-->
     <div class="modal fade shop-modal" id="shop-modal" data-bs-backdrop="static">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content" style="width:45vw;">
                 <div class="shop-modal-header">
                     <button class="fa-regular fa-circle-xmark" type="button" data-bs-dismiss="modal"></button>
                     <img src="{{ $restaurant->image }}" alt="restaurant">
@@ -336,24 +407,23 @@
                                     <p>{{ $restaurant->address }} </p>
                                 </li> -->
                                 <li>
-                                    <h3>1. </h3>
-                                    <p>	Woicher’s contact (8:00 am to 8:00 pm)
-                                        98XXXXX
-                                    </p>
+                                    <h3> Woicher’s contact (8:00 am to 8:00 pm) 9833891281</h3>
+                                    
                                 </li>
                                 <li>
-                                    <h3>2. </h3>
-                                    <p>	Usual Delivery time - 2-3 days 
-                                    </p>
+                                    <h3>Usual Delivery time - 2-3 days </h3>
+                                    
                                 </li>
                             </ul>
-                            <img src="data:image/png;base64,{!! $qrCode !!}" alt="qr">
+                            <!-- qr code image commenting -->
+                            <!-- <img src="data:image/png;base64,{!! $qrCode !!}" alt="qr"> -->
                         </div>
                     </div>
 
-                    <div class="tab-pane fade" id="reviews">
+                    <div class="tab-pane fade fade show active" id="reviews"
+                    role="tabpanel">
 
-                        @if (!blank($order_status))
+                        <!-- for dummy reviews @  if (!blank($order_status)) -->
                             <form action="{{ route('restaurant.ratings-update') }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
@@ -409,9 +479,9 @@
                                     </button>
                                 </div>
                             </form>
-                        @endif
+                        <!-- remove whitespace if stament will work @ endif -->
                         <br>
-                        @if (!blank($ratings))
+                        <!-- @if (!blank($ratings)) -->
                             <ul class="shop-modal-review">
                                 @foreach ($ratings as $rating)
                                     <li>
@@ -447,7 +517,7 @@
                                 @endforeach
                             </ul>
                             <br>
-                        @endif
+                        <!-- @endif -->
                     </div>
                 </div>
             </div>

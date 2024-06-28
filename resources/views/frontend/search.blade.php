@@ -12,7 +12,7 @@
 @section('main-content')
     <!--======= RESTAURANT PART START ========-->
     
-    <section class="restaurant section-gap-66" style="margin-top: 8vh;">
+    <section class="restaurant section-gap-66">
         <div class="container">
             <div class="filter-group" id="filter">
                 <div class="swiper filter-swiper">
@@ -80,7 +80,7 @@
                             <div class="dropdownParent">
                                 <!-- L2 Drop Down cusines change -->
                                 <span class="custonDropdown d-flex justify-content-center">
-                                L2 
+                                Category
                                 </span>
                                 <ul class="cDrop">
                                     <!-- <div class="row checkNew">

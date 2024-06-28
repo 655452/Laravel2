@@ -70,14 +70,16 @@
             </div>
         </div> -->
         
+        <center style="display: flex;justify-content:center;height:50vh; align-items:center;flex-direction:column;">
         <h3>
         Email - 
-<a href="#">
+<a href="#" style="color: gray;">
 mugdha.khandekar@gmail.com</a>
         </h3>
 <h3>
-Call us -<a href="#"> 9833891281</a></h3>
+Call us -<a style="color: gray;" href="#"> 9833891281</a></h3>
 
+        </center>
     </section>
 @endsection
 

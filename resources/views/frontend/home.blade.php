@@ -170,7 +170,7 @@
                         
   
                         <center>
-                        <img src="https://cdn-icons-png.flaticon.com/128/3176/3176387.png" alt="Image">
+                        <img src="https://cdn-icons-png.flaticon.com/128/11552/11552033.png" alt="Image">
                         </center>
                         <h3> {{ __('Browse unique products') }} </h3>
                         <!-- <p> {{ __('Fill out your address & search ') }} </p> -->
@@ -184,7 +184,7 @@
                         </svg> -->
                         <center>
                             
-                        <img src="https://cdn-icons-png.flaticon.com/128/720/720236.png" alt="Image2">
+                        <img src="https://cdn-icons-png.flaticon.com/128/2449/2449714.png" alt="Image2">
                         </center>
                         <h3> {{ __('View Contact') }} </h3>
                         <p> {{ __('To see Woicher’s contact or Message the Woicher') }}</p>
@@ -200,7 +200,7 @@
                                 fill="#EE1D48" />
                         </svg> -->
                         <center>
-                            <img src="https://cdn-icons-png.flaticon.com/128/9946/9946341.png" alt="Image3">
+                            <img src="https://cdn-icons-png.flaticon.com/128/3014/3014736.png" alt="Image3">
                         </center>
                         <h3> {{ __('Call the Woicher  ') }} </h3>
                         <p> {{ __('To place your order or wait a couple of hours for a call back') }}</p>
@@ -215,41 +215,7 @@
     <!--======== FEATURE PART END =======-->
 
 
-    <!--========  APP PART START ======-->
-    @if (setting('android_app_link') || setting('ios_app_link'))
-        <section class="app section-gap-90">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 col-sm-6">
-                        <div class="app-content">
-                            <h2>{{ __('Download the app') }} </h2>
-                            <p> {{ __('Click, sit back, and enjoy.') }}</p>
-
-                            <nav>
-                                @if (setting('android_app_link'))
-                                    <a href="{{ setting('android_app_link') }}" target="_blank">
-                                        <img src="{{ asset('frontend/images/play.png') }}" alt="play">
-                                    </a>
-                                @endif
-                                @if (setting('ios_app_link'))
-                                    <a href="{{ setting('ios_app_link') }}" target="_blank">
-                                        <img src="{{ asset('frontend/images/app.png') }}" alt="">
-                                    </a>
-                                @endif
-                            </nav>
-
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6">
-                        <div class="app-image">
-                            <img src="{{ asset('images/' . setting('app_mockup')) }}" alt="mockup">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    @endif
-    <!--========== APP PART END =======-->
+    
 
 
     <!--========= Cusines PART START ========-->
@@ -366,7 +332,45 @@
     @endif
     <!--=========  RESTAURANT PART End ========-->
 
+    <!--========  APP PART START ======-->
+    @if (setting('android_app_link') || setting('ios_app_link'))
+        <section class="app section-gap-90">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-sm-6">
+                        <div class="app-content">
+                            <h2>{{ __('Download the app') }} </h2>
+                            <p> {{ __('Click, sit back, and enjoy.') }}</p>
+
+                            <nav>
+                                @if (setting('android_app_link'))
+                                    <a href="{{ setting('android_app_link') }}" target="_blank">
+                                        <img src="{{ asset('frontend/images/play.png') }}" alt="play">
+                                    </a>
+                                @endif
+                                @if (setting('ios_app_link'))
+                                    <a href="{{ setting('ios_app_link') }}" target="_blank">
+                                        <img src="{{ asset('frontend/images/app.png') }}" alt="">
+                                    </a>
+                                @endif
+                            </nav>
+
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <div class="app-image">
+                            <img src="{{ asset('images/' . setting('app_mockup')) }}" alt="mockup">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
+    <!--========== APP PART END =======-->
+
 @endsection
+
+
 
 @push('js')
     <script type="text/javascript" src="{{ asset('frontend/js/map-current.js') }}"></script>
