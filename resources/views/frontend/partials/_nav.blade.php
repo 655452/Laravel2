@@ -61,10 +61,13 @@
 
                 <div class="header-group"> -->
                     <style>
-
+                        .desktop-screen{
+                          width: 40vw;
+                        }
                         @media (max-width: 767px) {
                             .desktop-screen{
                                 display: none;
+                                
 
                             }    
                         }

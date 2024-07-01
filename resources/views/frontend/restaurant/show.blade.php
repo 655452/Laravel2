@@ -207,6 +207,7 @@
                             }
                         }
                      </style>
+                      
                     
                         <!-- catalog section ends here -->
                          <button type="button" class="rest-book-btn" data-bs-toggle="modal"
@@ -368,7 +369,7 @@
     <!--======= Resturent Infromation MODAL START =========-->
     <div class="modal fade shop-modal" id="shop-modal" data-bs-backdrop="static">
         <div class="modal-dialog">
-            <div class="modal-content" style="width:45vw;">
+            <div class="modal-content" >
                 <div class="shop-modal-header">
                     <button class="fa-regular fa-circle-xmark" type="button" data-bs-dismiss="modal"></button>
                     <img src="{{ $restaurant->image }}" alt="restaurant">
@@ -396,6 +397,7 @@
                     <div class="tab-pane fade show active" id="about">
                         <div class="shop-modal-about">
                             <ul>
+                           
                                 <!-- dynamic restaurant   content -->
                                 <!-- <li>
                                     <h3>{{ __('frontend.delivery_hours') }} </h3>
@@ -420,7 +422,7 @@
                         </div>
                     </div>
 
-                    <div class="tab-pane fade fade show active" id="reviews"
+                    <div class="tab-pane fade " id="reviews"
                     role="tabpanel">
 
                         <!-- for dummy reviews @  if (!blank($order_status)) -->

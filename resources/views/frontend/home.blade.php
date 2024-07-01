@@ -69,58 +69,58 @@
             </div>
         </div>
     </section> -->
- 
+
 
 
 <!-- new banner section -->
 
 
- 
+
 
 <section class=" section-gap-90" style=" background-color: #f0f0f0;  margin:0px;padding:0px;">
 
 <section class="carousel">
 <div class="carousel-inner">
         <div class="cara">
-            <img src="https://woich.in/wp-content/uploads/2023/03/f6f1a6c4dd7996135699a2dccda29f99-cc_ft_768.webp" alt="Image 1">
+            <img src="https://media.istockphoto.com/id/506903162/photo/luxurious-villa-with-pool.jpg?s=612x612&w=0&k=20&c=Ek2P0DQ9nHQero4m9mdDyCVMVq3TLnXigxNPcZbgX2E=" alt="Image 1">
         </div>
         <div class="cara cara2">
-            <img src="https://woich.in/wp-content/uploads/2023/03/765867fcc15e5e0b4ecc9d3b5b87a4f5-cc_ft_768.webp" alt="Image 2 Upper">
-            <img src="https://woich.in/wp-content/uploads/2023/03/d99600091fbb3a7fe86687ce67cd433f-cc_ft_1536.webp" alt="Image 2 Lower">
+            <img src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 2 Upper">
+            <img src="https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 2 Lower">
         </div>
         <div class="cara">
-            <img src="https://woich.in/wp-content/uploads/2023/03/b09c467b72816bd9ee7cca1a7cb46e86-cc_ft_768.webp" alt="Image 1">
+            <img src="https://images.pexels.com/photos/297984/pexels-photo-297984.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 1">
         </div>
         <div class="cara cara2">
-            <img src="https://woich.in/wp-content/uploads/2023/03/red-mini-coupe-parked-port.webp" alt="Image 2 Upper">
-            <img src="https://woich.in/wp-content/uploads/2023/03/red-luxury-sedan-road.webp" alt="Image 2 Lower">
+            <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?fm=jpg&w=3000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZmVycmFyaSUyMGNhcnxlbnwwfHwwfHx8MA%3D%3D" alt="Image 2 Upper">
+            <img src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?cs=srgb&dl=pexels-mikebirdy-170811.jpg&fm=jpg" alt="Image 2 Lower">
         </div>
         <div class="cara">
-            <img src="https://woich.in/wp-content/uploads/2023/03/0_3.webp" alt="Image 1">
+            <img src="https://images.pexels.com/photos/1320686/pexels-photo-1320686.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 1">
         </div>
         <div class="cara cara2">
-            <img src="https://woich.in/wp-content/uploads/2023/03/applewatch.webp" alt="Image 2 Upper">
-            <img src="https://woich.in/wp-content/uploads/2023/03/765867fcc15e5e0b4ecc9d3b5b87a4f5-cc_ft_768.webp" alt="Image 2 Lower">
+            <img src="https://images.pexels.com/photos/1134175/pexels-photo-1134175.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 2 Upper">
+            <img src="https://images.pexels.com/photos/32870/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600" alt="Image 2 Lower">
         </div>
         <div class="cara">
-            <img src="https://woich.in/wp-content/uploads/2023/03/e0dff0381a83e61e2871c6021a99964f-uncropped_scaled_within_1536_1152.webp" alt="Image 1">
+            <img src="https://images.pexels.com/photos/5997993/pexels-photo-5997993.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 1">
         </div>
         <div class="cara cara2">
-            <img src="https://woich.in/wp-content/uploads/2023/03/3e8dbe85e23ee39404500153851dc4ca-uncropped_scaled_within_1536_1152.webp">
-            <img src="https://woich.in/wp-content/uploads/2023/03/e492c2b475a54137bc07d1eaa578364d.webp" alt="Image 2 Lower">
+            <img src="https://images.pexels.com/photos/5997994/pexels-photo-5997994.jpeg?auto=compress&cs=tinysrgb&w=600">
+            <img src="https://images.pexels.com/photos/259580/pexels-photo-259580.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 2 Lower">
         </div>
         <div class="cara">
-            <img src="https://woich.in/wp-content/uploads/2023/03/765867fcc15e5e0b4ecc9d3b5b87a4f5-cc_ft_768.webp" alt="Image 1">
+            <img src="https://images.pexels.com/photos/14464638/pexels-photo-14464638.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 1">
         </div>
 
         <div class="cara cara2">
-            <img src="https://woich.in/wp-content/uploads/2023/03/1d417f39d23e2299ea7ce28933ece78b-uncropped_scaled_within_1536_1152.webp">
-            <img src="https://woich.in/wp-content/uploads/2023/03/edf3577329a5c1594f062008011f3e49-cc_ft_1536.webp" alt="Image 2 Lower">
+            <img src="https://images.pexels.com/photos/12835315/pexels-photo-12835315.jpeg?auto=compress&cs=tinysrgb&w=600">
+            <img src="https://images.pexels.com/photos/17630869/pexels-photo-17630869/free-photo-of-timex-expedition-on-hand-of-groom.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 2 Lower">
         </div>
         <div class="cara">
-            <img src="https://woich.in/wp-content/uploads/2023/03/3e3a522fa2b720122ed66034552b6712-cc_ft_1536.webp" alt="Image 1">
+            <img src="https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 1">
         </div>
-       
+
     </div>
 </section>
 
@@ -167,8 +167,8 @@
                                 fill="#EE1D48" />
                         </svg> -->
 
-                        
-  
+
+
                         <center>
                         <img src="https://cdn-icons-png.flaticon.com/128/11552/11552033.png" alt="Image">
                         </center>
@@ -183,7 +183,7 @@
                                 fill="#EE1D48" />
                         </svg> -->
                         <center>
-                            
+
                         <img src="https://cdn-icons-png.flaticon.com/128/2449/2449714.png" alt="Image2">
                         </center>
                         <h3> {{ __('View Contact') }} </h3>
@@ -215,7 +215,7 @@
     <!--======== FEATURE PART END =======-->
 
 
-    
+
 
 
     <!--========= Cusines PART START ========-->
@@ -246,7 +246,7 @@
 
 
     <!--=========  RESTAURANT PART START ========-->
-  
+
     @if (!blank($bestSellingRestaurants))
     <style>
      @media (max-width: 767px) {

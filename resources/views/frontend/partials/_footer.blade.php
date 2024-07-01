@@ -1,8 +1,8 @@
 <!--======== FOOTER PART START ========-->
 <footer class="footer">
     <div class="container">
-        <div class="row">
-            <div class="col-12 col-sm-4 col-lg-6">
+        <div class="row" style="align-items: center;">
+            <div class="col-12 col-sm-4 col-lg-4">
                 <div class="footer-about">
                     <a href="{{ url('/') }}" class="footer-logo"><img
                             src="{{ asset('images/' . setting('site_logo')) }}" alt="logo"></a>
@@ -23,11 +23,11 @@
                     </nav>
                 </div>
             </div>
-            <div class="col-12 col-sm-4 col-lg-6">
+            <div class="col-12 col-sm-4 col-lg-4">
                 <div class="footer-widget">
                     <!-- <h5 class="footer-title">{{ __('footer.about') }}</h5> -->
                     <nav>
-                    <a href="#"> Who are we </a>
+                    
                         @if (!blank($footermenus))
                             @foreach ($footermenus as $footer_menu)
                                 @if ($footer_menu->footer_menu_section_id == \App\Enums\FooterMenuSection::ABOUT)
@@ -36,9 +36,22 @@
                             @endforeach
                         @endif
                         
-                    <a href="#"> Blog </a>
                     </nav>
                 </div>
+                
+            </div>
+            <div class="col-12 col-sm-4 col-lg-4">
+                <div class="footer-widget">
+                    <!-- <h5 class="footer-title">{{ __('footer.about') }}</h5> -->
+                    <nav>
+                    <a href="#"> Who are we </a>
+                    
+                    <a href="#"> Blog </a>
+                        
+                        
+                    </nav>
+                </div>
+                
             </div>
             <!-- commenting services -->
             <!-- <div class="col-12 col-sm-4 col-lg-3">
