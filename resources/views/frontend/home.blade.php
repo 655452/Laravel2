@@ -150,7 +150,7 @@
     <!--========  FEATURE PART START ========-->
     <section class="feature">
         <div class="container">
-            <span class="section-subtitle" style="margin-top: 5vh;"> {{ __('How to Order') }} </span>
+            <span class="section-subtitle" style="margin-top: 2vh;"> {{ __('How to Order') }} </span>
             <h2 class="section-title"> {{ __('It’s as easy as this ') }} </h2>
 
             <div class="swiper feature-swiper">
@@ -170,9 +170,11 @@
 
 
                         <center>
-                        <img src="https://cdn-icons-png.flaticon.com/128/11552/11552033.png" alt="Image">
+                        <img style="width: 20%;" src="https://cdn-icons-png.flaticon.com/128/11552/11552033.png" alt="Image">
                         </center>
-                        <h3> {{ __('Browse unique products') }} </h3>
+                        <!-- <h3> {{ __('Browse unique products') }} </h3> -->
+                         <h3>Discover products</h3>
+                         <p> They are pure, unique & handcrafted </p>
                         <!-- <p> {{ __('Fill out your address & search ') }} </p> -->
                     </div>
                     <div class="swiper-slide">
@@ -184,10 +186,13 @@
                         </svg> -->
                         <center>
 
-                        <img src="https://cdn-icons-png.flaticon.com/128/2449/2449714.png" alt="Image2">
+                        <img style="width: 20%;" src="https://cdn-icons-png.flaticon.com/128/2449/2449714.png" alt="Image2">
                         </center>
+                        
                         <h3> {{ __('View Contact') }} </h3>
-                        <p> {{ __('To see Woicher’s contact or Message the Woicher') }}</p>
+                        <p>Click view contact to see Woicher’s contact or click whatsapp icon to send a message to the woicher
+                        </p>
+                        <!-- <p> {{ __('To see Woicher’s contact or Message the Woicher') }}</p> -->
                     </div>
                     <div class="swiper-slide">
                         <!-- <svg width="70" height="70" viewBox="0 0 70 70" fill="none"
@@ -200,10 +205,11 @@
                                 fill="#EE1D48" />
                         </svg> -->
                         <center>
-                            <img src="https://cdn-icons-png.flaticon.com/128/3014/3014736.png" alt="Image3">
+                            <img style="width: 20%;" src="https://cdn-icons-png.flaticon.com/128/3014/3014736.png" alt="Image3">
                         </center>
                         <h3> {{ __('Call the Woicher  ') }} </h3>
-                        <p> {{ __('To place your order or wait a couple of hours for a call back') }}</p>
+                        <p>Call the woicher to place an order or wait for couple of working hours to get a call back</p>
+                        <!-- <p> {{ __('To place your order or wait a couple of hours for a call back') }}</p> -->
                     </div>
 
                 </div>

@@ -8,7 +8,7 @@
     @stack('meta')
 
     <!-- WEBPAGE TITLE -->
-    <title>
+    <!-- <title>
         @if (isset($site_title) && setting('site_name'))
             {{ setting('site_name') . ' : ' . $site_title }}
         @elseif(setting('site_name'))
@@ -18,7 +18,9 @@
         @else
             {{ '' }}
         @endif
-    </title>
+    </title> -->
+    <!-- changes to woich -->
+    <title>Woich</title>
 
     <!-- FAVICON -->
     <link href="{{ asset('images/' . setting('fav_icon')) }}" rel="shortcut icon" type="image/x-icon">

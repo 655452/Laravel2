@@ -116,15 +116,57 @@
                                     </button>
                                 @endif -->
 <!-- view contacts button -->
+
 <button type="button" class="rest-book-btn" data-bs-toggle="modal"
                                         data-bs-target="#shop-modal">
-            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 50 50">
-            <path d="M 13 4 C 8.038 4 4 8.037 4 13 L 4 37 C 4 41.963 8.038 46 13 46 L 37 46 C 37.338 46 37.671 45.978406 38 45.941406 L 38 4.0585938 C 37.671 4.0215938 37.338 4 37 4 L 13 4 z M 40 4.5253906 L 40 14 L 46 14 L 46 13 C 46 9.09 43.49 5.7643906 40 4.5253906 z M 22 12 C 29.168 12 35 17.832 35 25 C 35 32.168 29.168 38 22 38 C 14.832 38 9 32.168 9 25 C 9 17.832 14.832 12 22 12 z M 22 14 C 15.935 14 11 18.935 11 25 C 11 27.814 12.071406 30.377219 13.816406 32.324219 C 15.889406 30.225219 18.852 29 22 29 C 25.14 29 28.1135 30.222312 30.1875 32.320312 C 31.9295 30.373313 33 27.812 33 25 C 33 18.935 28.065 14 22 14 z M 40 16 L 40 24 L 46 24 L 46 16 L 40 16 z M 22 18.5 C 24.481 18.5 26.5 20.519 26.5 23 C 26.5 25.481 24.481 27.5 22 27.5 C 19.519 27.5 17.5 25.481 17.5 23 C 17.5 20.519 19.519 18.5 22 18.5 z M 40 26 L 40 34 L 46 34 L 46 26 L 40 26 z M 40 36 L 40 45.474609 C 43.49 44.235609 46 40.91 46 37 L 46 36 L 40 36 z"></path>
-            </svg>
+            
+            
+            <img src="https://img.icons8.com/?size=64&id=BBf95mK0q8NH&format=png" style="width: 20px;height:20px;" alt="">
+            
+
                                                     <!-- Table Order -->
                                          <span>View Contact</span>
                                         <!-- <span>{{ __('frontend.table') }} </span> -->
 </button>
+
+ <!-- catalog section -->
+ <style>
+                        .catalog{
+                                width:90%; 
+                                height:50vh;
+                            }
+                         @media (max-width: 830px) 
+                         {
+                            .catalog{
+                                width:90%; 
+                                height:40vh;
+                            }
+                        }
+                     </style>
+                      
+                    
+                        <!-- catalog section ends here -->
+                         <button type="button" class="rest-book-btn" data-bs-toggle="modal"
+                         data-bs-target="#shop-modal2">
+                         
+            <img src="https://img.icons8.com/?size=50&id=986&format=png" style="width: 20px;height:20px;" alt=""> Catalog</button>
+                        
+<div class="modal fade shop-modal" id="shop-modal2" data-bs-backdrop="static">
+        <div class="modal-dialog">
+        <div class="modal-content">
+
+        <div class="shop-modal-header">
+                    <button class="fa-regular fa-circle-xmark" type="button" data-bs-dismiss="modal"></button>
+                    <!-- <img src="{{ $restaurant->image }}" alt="restaurant"> -->
+                </div>
+        <!-- <iframe style="height: 90vh; width:90%;" src="http://127.0.0.1:8000/frontend/images/food_reciepes.pdf#toolbar=0" allow="fullscreen"><span>Catalog</span></iframe> -->
+            <object data="http://127.0.0.1:8000/frontend/images/food_reciepes.pdf#toolbar=0" type="application/pdf" style="width: 100%; height: calc(100vh - 50px);">
+                    <span>Catalog</span>
+                </object>
+        </div>
+        </div>
+</div>
+   <!-- catalog Part ends here -->
      <!-- whatsapp button                                -->
 <button type="button" class="rest-info-btn">
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 48 48">
@@ -192,49 +234,7 @@
                         @endif
 
 
-<!-- catalog section -->
-<center style="margin:20px 0px;">
-                     <style>
-                        .catalog{
-                                width:90%; 
-                                height:50vh;
-                            }
-                         @media (max-width: 830px) 
-                         {
-                            .catalog{
-                                width:90%; 
-                                height:40vh;
-                            }
-                        }
-                     </style>
-                      
-                    
-                        <!-- catalog section ends here -->
-                         <button type="button" class="rest-book-btn" data-bs-toggle="modal"
-                         data-bs-target="#shop-modal2">Catalog</button>
-                        
-                         <div class="modal fade shop-modal" id="shop-modal2" data-bs-backdrop="static">
-        <div class="modal-dialog">
-        <div class="modal-content">
 
-        <div class="shop-modal-header">
-                    <button class="fa-regular fa-circle-xmark" type="button" data-bs-dismiss="modal"></button>
-                    <!-- <img src="{{ $restaurant->image }}" alt="restaurant"> -->
-                </div>
-        <!-- <iframe style="height: 90vh; width:90%;" src="http://127.0.0.1:8000/frontend/images/food_reciepes.pdf#toolbar=0" allow="fullscreen"><span>Catalog</span></iframe> -->
-            <object data="http://127.0.0.1:8000/frontend/images/food_reciepes.pdf#toolbar=0" type="application/pdf" style="width: 100%; height: calc(100vh - 50px);">
-                    <span>Catalog</span>
-                </object>
-        </div>
-        </div>
-    </div>
-                   
-</center>
-
-
-
-
-                <!-- catalog Part ends here -->
                         <div class="rest-menu-wrapper" id="scrollspy-menu">
                             <div class="rest-menu-group">
                                 <button type="button" class="rest-swiper-prev fa-solid fa-chevron-left"></button>
@@ -409,11 +409,14 @@
                                     <p>{{ $restaurant->address }} </p>
                                 </li> -->
                                 <li>
-                                    <h3> Woicher’s contact (8:00 am to 8:00 pm) 9833891281</h3>
+                                    <h3 style="display: flex;">
+                                    <img src="https://img.icons8.com/?size=64&id=BBf95mK0q8NH&format=png" style="width: 20px;height:20px;" alt="">
+            &nbsp; Woicher’s contact - 9833891281</h3>
                                     
                                 </li>
                                 <li>
-                                    <h3>Usual Delivery time - 2-3 days </h3>
+                               
+                                    <h3 style="display: flex;">  <img src="https://img.icons8.com/?size=30&id=14oX0z9ydOeX&format=png" style="width: 20px;height:20px;" alt=""> &nbsp; Usual Delivery time - 2-3 days </h3>
                                     
                                 </li>
                             </ul>
