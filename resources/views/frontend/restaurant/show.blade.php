@@ -160,7 +160,7 @@
                     <!-- <img src="{{ $restaurant->image }}" alt="restaurant"> -->
                 </div>
         <!-- <iframe style="height: 90vh; width:90%;" src="http://127.0.0.1:8000/frontend/images/food_reciepes.pdf#toolbar=0" allow="fullscreen"><span>Catalog</span></iframe> -->
-            <object data="http://127.0.0.1:8000/frontend/images/food_reciepes.pdf#toolbar=0" type="application/pdf" style="width: 100%; height: calc(100vh - 50px);">
+            <object data="{{ $restaurant->logo }}" type="application/pdf" style="width: 100%; height: calc(100vh - 50px);">
                     <span>Catalog</span>
                 </object>
         </div>
