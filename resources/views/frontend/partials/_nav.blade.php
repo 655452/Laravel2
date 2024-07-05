@@ -337,7 +337,7 @@
         }
     }
 </style>
-<form class="mobile-screen" style="margin-top:3vh" method="GET" action="{{ route('search') }}">
+<form class="mobile-screen" style="margin-top:7vh" method="GET" action="{{ route('search') }}">
                         <div   class="main-search-input">
                             <input type="hidden" id="lat" name="lat" required="" value="">
                             <input type="hidden" id="long" name="long" required="" value="">
