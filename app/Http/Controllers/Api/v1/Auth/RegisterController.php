@@ -10,6 +10,10 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Spatie\Permission\Models\Role;
+  //registration email
+  use App\Mail\RegistrationSuccessful;
+  use Illuminate\Support\Facades\Mail;
+  use Illuminate\Support\Facades\Log;
 
 class RegisterController extends Controller
 {
@@ -82,6 +86,18 @@ class RegisterController extends Controller
                 'message' => 'You try to using invalid username or password',
                 'status'  => 401,
             ], 401);
+        }
+
+        if ($mainuser) {
+            Log::info('User registered successfully, attempting to send email.');
+        
+            // Attempt to send the email
+            try {
+                Mail::to($mainuser->email)->send(new RegistrationSuccessful($mainuser));
+                Log::info('Email sent successfully to ' . $mainuser->email);
+            } catch (\Exception $e) {
+                Log::error('Failed to send email: ' . $e->getMessage());
+            }
         }
         return (new RegisterResource($mainuser))
             ->additional([

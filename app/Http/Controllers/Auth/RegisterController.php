@@ -59,7 +59,7 @@ class RegisterController extends Controller
 				'roles'           => ['required', 'numeric'],
 				'first_name'      => ['required', 'string', 'max:255'],
 				'last_name'       => ['required', 'string', 'max:255'],
-				'phone'           => ['required', 'numeric'],
+				'phone'           => ['required', 'numeric','digits:10'],
 				'address'         => ['nullable', 'string', 'max:255'],
 				'register_email'  => ['required', 'string', 'email', Rule::unique("users", "email"), 'email', 'max:100'],
 				'username'        => request('username') ? ['required', 'string', Rule::unique("users", "username"), 'max:60'] : ['nullable'],
@@ -94,6 +94,7 @@ class RegisterController extends Controller
 		]);
 
 		$role = Role::find($data['roles']);
+		// dd($role);
 		if (!blank($user) && !blank($role)) {
 			$user->assignRole($role->name);
 		}

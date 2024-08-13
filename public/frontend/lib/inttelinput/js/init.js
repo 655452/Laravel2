@@ -5,7 +5,7 @@ $(function () {
         autoPlaceholder: "ON",
         dropdownContainer: document.body,
         formatOnDisplay: true,
-        initialCountry: country_code_name ? country_code_name : 'us',
+        initialCountry: country_code_name ? country_code_name : 'gb',
         placeholderNumberType: "MOBILE",
         preferredCountries: ['us','gb','in'],
         separateDialCode: true

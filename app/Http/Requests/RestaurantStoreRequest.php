@@ -37,7 +37,8 @@ class RestaurantStoreRequest extends FormRequest
             'delivery_status' => ['required', 'numeric'],
             'pickup_status'   => ['required', 'numeric'],
             'table_status'    => ['required', 'numeric'],
-            'image'           => 'image|mimes:jpeg,png,jpg|max:5098',
+            'image'           => 'image|mimes:jpeg,png,pdf,jpg|max:5098',
+            
         ];
     }
 
@@ -52,7 +53,8 @@ class RestaurantStoreRequest extends FormRequest
             'closing_time'    => trans('validation.attributes.closing_time'),
             'address'         => trans('validation.attributes.address'),
             'current_status'  => trans('validation.attributes.current_status'),
-            'image'           => trans('validation.attributes.image'),
+            // 'image'           => trans('validation.attributes.image'),
+            
         ];
     }
 }

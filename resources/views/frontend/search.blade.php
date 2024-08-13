@@ -1,7 +1,7 @@
 @extends('frontend.layouts.app')
 @push('meta')
     <meta property="og:url" content="{{ route('home') }}">
-    <meta property="og:type" content="Foodbank">
+    <meta property="og:type" content="Woich">
     <meta property="og:title" content="{{ setting('banner_title') }}">
     <meta property="og:description" content="Explore top-rated attractions, activities and more">
     <meta property="og:image" content="{{ asset('images/' . setting('site_logo')) }}">
@@ -83,7 +83,7 @@
                                 Category
                                 </span>
                                 <ul class="cDrop">
-                                    <!-- <div class="row checkNew">
+                                    <div class="row checkNew">
                                         @foreach ($cuisines as $cuisine)
                                             <div class="col-xl-6">
                                                 <div class="form-group">
@@ -98,17 +98,17 @@
                                                 </div>
                                             </div>
                                         @endforeach
-                                    </div> -->
+                                    </div>
 
                                                         <!-- Buttons -->
-                                                        <!-- <div class="panel-buttons">
+                                                        <div class="panel-buttons">
                                                             <button class="panel-cancel">{{ __('frontend.cancel') }}</button>
                                                             <button class="panel-apply">{{ __('frontend.apply') }}</button>
-                                                        </div> -->
+                                                        </div>
 
 
 
-                    <div class="row checkNew">
+                    <!-- <div class="row checkNew">
                         <div class="col-xl-6">
                             <div class="form-group">                
                                 <input type="checkbox" multiple>
@@ -307,13 +307,13 @@
                                 <label>Healing</label>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                                     <!-- L2 drop down ends  Here -->
                                 </ul>
                             </div>
                         </div>
-                        <div class="filter-select">
+                        <!-- <div class="filter-select">
                             <span class="custonDropdown d-flex justify-content-center">
                                 {{ __('frontend.distance_radius') }}
                             </span>
@@ -329,13 +329,13 @@
                                         class="relationship-status-slider" min="1" max="100" step="1" name="distance" value="100">
                                 </div>
 
-                                <!-- Buttons -->
+                                
                                 <div class="panel-buttons">
                                     <button class="panel-cancel">{{ __('frontend.cancel') }} </button>
                                     <button class="panel-apply">{{ __('frontend.apply') }}</button>
                                 </div>
                             </ul>
-                        </div>
+                        </div> -->
 
                         <div class="filter-button">
                             <button type="button">

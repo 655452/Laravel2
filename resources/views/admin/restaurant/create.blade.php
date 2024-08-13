@@ -108,7 +108,7 @@
                                     @enderror
                                 </div>
 
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label for="restaurant_logo">{{ __('restaurant.logo') }}</label>
                                     <div class="custom-file">
                                         <input name="restaurant_logo" type="file"
@@ -124,7 +124,19 @@
                                     @endif
                                     <img class="img-thumbnail mt-4 mb-3 admin-banner-img-hight" id="previewImage"
                                          src="{{ asset('assets/img/default/restaurant.png') }}" alt="your image" />
+                                </div> -->
+                                <div class="form-group">
+                                    <label for="restaurant_pdf">Catalog pdf</label>
+                                    <div class="custom-file">
+                                        <input name="restaurant_pdf" type="file"
+                                               class="custom-file-input"
+                                               id="restaurant_logo">
+                                        <label class="custom-file-label"
+                                               for="restaurant_logo"> {{ __('Choose file') }}</label>
+                                    </div>
                                 </div>
+                                
+           
                                 <div class="form-group">
                                     <label for="customFile">{{ __('restaurant.background_image') }}</label>
                                     <div class="custom-file">

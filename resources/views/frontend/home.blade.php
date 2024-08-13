@@ -1,7 +1,7 @@
 @extends('frontend.layouts.app')
 @push('meta')
     <meta property="og:url" content="{{ route('home') }}" />
-    <meta property="og:type" content="FoodBank" />
+    <meta property="og:type" content="Woich" />
     <meta property="og:title" content="{{ setting('banner_title') }}">
     <meta property="og:description" content="Explore top-rated attractions, activities and more">
     <meta property="og:image" content="{{ asset('images/' . setting('site_logo')) }}">

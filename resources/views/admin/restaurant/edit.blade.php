@@ -96,7 +96,7 @@
                                     </div>
                                     @enderror
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label for="restaurant_logo">{{ __('restaurant.logo') }}</label>
                                     <div class="custom-file">
                                         <input name="restaurant_logo" type="file"
@@ -112,7 +112,31 @@
                                     @endif
                                     <img class="img-thumbnail image-width mt-4 mb-3" id="previewImage"
                                          src="{{ $restaurant->logo }}" alt="{{ $restaurant->name }}" />
-                                </div>
+                                </div> -->
+                    <div class="form-group">
+                        <label for="restaurant_pdf">Catalog</label>
+                        <div class="custom-file">
+                            <input name="restaurant_pdf[]" type="file"
+                            multiple="" 
+                                   class="custom-file-input"
+                                   id="restaurant_logo">
+                            <label class="custom-file-label"
+                                   for="restaurant_logo"> Catalog PDFS</label>
+                        </div>
+                        <!-- @if ($errors->has('restaurant_logo'))
+                            <div class="help-block text-danger">
+                                {{ $errors->first('restaurant_logo') }}
+                            </div>
+                        @endif
+                        @if ($restaurant->logo)
+                            @if (str_contains($restaurant->logo, '.pdf'))
+                                <a href="{{ $restaurant->logo }}" target="_blank">{{ __('Download PDF') }}</a>
+                            @else
+                                <img class="img-thumbnail image-width mt-4 mb-3" src="{{ $restaurant->logo }}" alt="{{ $restaurant->name }}" />
+                            @endif
+                        @endif -->
+                    </div>
+
                                 <div class="form-group">
                                     <label for="customFile">{{ __('restaurant.background_image') }}</label>
                                     <div class="custom-file">

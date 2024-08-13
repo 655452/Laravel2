@@ -9,6 +9,8 @@
                         <nav class="auth-navs">
                             <a class="nav-link active" href="{{ route('login') }}"> {{ __('login') }} </a>
                             <a class="nav-link" href="{{ route('register') }}"> {{ __('register') }}</a>
+                            
+                            <!-- <a class="nav-link " href="{{ route('register') }}?role=restaurant_owner"> {{ __('seller') }}</a> -->
                         </nav>
                         <div class="auth-tabs">
                             <div class="auth-header">

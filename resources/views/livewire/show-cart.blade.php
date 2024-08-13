@@ -83,7 +83,7 @@
                                 placeholder="Ex: Special Instructions">
                         </div>
 
-                        <div class="product-modal-footer">
+                        <!-- <div class="product-modal-footer">
                             <div class="cart-counter">
                                 <button type="button" wire:click.prevent="removeItemQty()"
                                     class="fa-solid fa-minus cart-counter-minus" id="qut-button-minus"></button>
@@ -103,7 +103,7 @@
                                 </svg>
                                 <span>{{ __('frontend.add_to_cart') }} </span>
                             </button>
-                        </div>
+                        </div> -->
                     </form>
                 @endif
             </div>

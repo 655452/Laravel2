@@ -128,6 +128,24 @@
                                         @endif
                                         <img class="img-thumbnail mt-4 mb-3 default-img img-width" id="previewImage" src="{{ asset('frontend/images/default/menuitem.png') }}" alt="your image"/>
                                     </div>
+
+                                    <!-- <div class="form-group col">
+                                        <label for="customFileVideo">{{ __('levels.image') }}</label>
+                                        <div class="custom-file">
+                                            <input name="video" type="file" class="custom-file-input @error('video') is-invalid @enderror" id="customFileVideo" onchange="readVideoURL(this);">
+                                            <label class="custom-file-label" for="customFileVideo">{{ __('levels.choose_file') }}</label>
+                                        </div>
+                                        @if ($errors->has('image'))
+                                            <div class="help-block text-danger">
+                                                {{ $errors->first('image') }}
+                                            </div>
+                                        @endif
+                                        <video class="img-thumbnail mt-4 mb-3 default-img img-width" id="previewVideo" controls>
+                                            <source src="" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </div> -->
+
                                 </div>
                             </div>
 
@@ -152,4 +170,17 @@
     <script src="{{ asset('assets/modules/select2/dist/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('assets/modules/summernote/summernote-bs4.js') }}"></script>
     <script src="{{ asset('js/menu-item/create.js') }}"></script>
+    <script>
+        function readVideoURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    document.getElementById('previewVideo').setAttribute('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]); // convert to base64 string
+            }
+        }
+    </script>
 @endsection

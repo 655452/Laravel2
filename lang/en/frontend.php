@@ -146,7 +146,7 @@ return array (
   'print' => 'Print',
   'status' => 'Status',
   'profile' => 'Profile',
-  'edit_profile' => 'Edit Yout Profile',
+  'edit_profile' => 'Edit Your Profile',
   'email' => 'Email',
   'username' => 'Username',
   'image' => 'Image',

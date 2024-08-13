@@ -117,12 +117,13 @@
                                             </div>
                                         @enderror
                                     </div>
+                                    <!-- set for collecting multiple images -->
                                     <div class="form-group col">
                                         <label for="customFile">{{ __('levels.image') }}</label>
                                         <div class="custom-file">
-                                            <input name="image" type="file"
+                                            <input name="image[]" type="file" multiple="" 
                                                    class="custom-file-input @error('image') is-invalid @enderror"
-                                                   id="customFile" onchange="readURL(this);">
+                                                   id="customFile"onchange="readImageURLs(this);">
                                             <label class="custom-file-label"
                                                    for="customFile">{{ __('levels.choose_file') }}</label>
                                         </div>
@@ -132,8 +133,53 @@
                                             </div>
                                         @endif
                                         <img class="img-thumbnail image-width mt-4 mb-3 default-img" id="previewImage"
-                                             src="{{ $menuItem->image }}" alt="{{ $menuItem->description }}" />
+                                             src="{{ $menuItem->image }}" alt="image" />
+                                             <div id="image-previews" class="d-flex flex-wrap"></div>
+                                             
                                     </div>
+                                    <script>
+                                        function readImageURLs(input) {
+                                                var previewContainer = document.getElementById('image-previews');
+                                                previewContainer.innerHTML = ''; // Clear any existing previews
+
+                                                if (input.files) {
+                                                    Array.from(input.files).forEach(file => {
+                                                        var reader = new FileReader();
+                                                    
+                                                        reader.onload = function(e) {
+                                                            var img = document.createElement('img');
+                                                            img.setAttribute('class', 'img-thumbnail mt-4 mb-3 default-img img-width');
+                                                            img.setAttribute('src', e.target.result);
+                                                            img.style.maxWidth = '200px'; // Set max width for the preview images
+                                                            img.style.marginRight = '10px';
+                                                        
+                                                            previewContainer.appendChild(img);
+                                                        };
+                                                    
+                                                        reader.readAsDataURL(file);
+                                                    });
+                                                }
+                                            }
+
+                                    </script>
+                                    
+
+                                    <div class="form-group col">
+                                        <label for="customFileVideo">{{ __('videos') }}</label>
+                                        <div class="custom-file">
+                                            <input name="video" type="file" class="custom-file-input @error('video') is-invalid @enderror" id="customFileVideo" onchange="readVideoURL(this);">
+                                            <label class="custom-file-label" for="customFileVideo">{{ __('levels.choose_file') }}</label>
+                                        </div>
+                                        @if ($errors->has('image'))
+                                            <div class="help-block text-danger">
+                                                {{ $errors->first('image') }}
+                                            </div>
+                                        @endif
+                                        <video class="img-thumbnail mt-4 mb-3 default-img img-width" id="previewVideo" controls>
+                                            <source src="{{ $menuItem->image }}" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </div> 
                                 </div>
                             </div>
 
@@ -158,6 +204,20 @@
     <script src="{{ asset('assets/modules/select2/dist/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('assets/modules/summernote/summernote-bs4.js') }}"></script>
     <script src="{{ asset('js/menu-item/edit.js') }}"></script>
+    <!-- for video uploading -->
+    <script>
+        function readVideoURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    document.getElementById('previewVideo').setAttribute('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]); // convert to base64 string
+            }
+        }
+    </script>
 
 
 @endsection

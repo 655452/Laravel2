@@ -31,6 +31,7 @@
         "maatwebsite/excel": "^3.1",
         "macellan/laravel-zip": "^1.0",
         "omnipay/stripe": "^3.2",
+        "pbmedia/laravel-ffmpeg": "^8.5",
         "pragmarx/countries-laravel": "*",
         "psr/simple-cache": "^1.0",
         "rachidlaasri/laravel-installer": "^4.1",

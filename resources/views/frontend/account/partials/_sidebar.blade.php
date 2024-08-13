@@ -33,7 +33,7 @@
                 </svg>
                 <span>{{ __('frontend.change_password') }} </span>
             </a>
-            <a href="{{ route('account.order') }}" class="{{ $route == 'account.order' || ($route == 'account.report' && $order->id)  || ($route == 'account.order.show' && $order->id) ? 'active' : '' }}">
+            <!-- <a href="{{ route('account.order') }}" class="{{ $route == 'account.order' || ($route == 'account.report' && $order->id)  || ($route == 'account.order.show' && $order->id) ? 'active' : '' }}">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -94,7 +94,7 @@
                         stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
                 <span> {{ __('frontend.transaction') }}</span>
-            </a>
+            </a> -->
             <a href="{{ route('logout') }}"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                 class="{{ $route == 'logout' ? 'active' : '' }}">

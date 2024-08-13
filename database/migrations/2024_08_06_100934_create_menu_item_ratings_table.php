@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -6,17 +7,12 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        Schema::create('restaurant_ratings', function (Blueprint $table) {
+        Schema::create('menu_item_ratings', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id');
-            $table->bigInteger('restaurant_id');
+            $table->foreignId('menu_item_id')->constrained('menu_items')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->unsignedTinyInteger('rating')->default(0);
             $table->text('review')->nullable();
             $table->unsignedTinyInteger('status');
@@ -25,14 +21,9 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        Schema::dropIfExists('restaurant_ratings');
+        Schema::dropIfExists('menu_item_ratings');
     }
 };
 

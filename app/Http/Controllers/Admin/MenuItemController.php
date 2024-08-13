@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Yajra\Datatables\Datatables;
 
+use Illuminate\Support\Facades\Log;
+
 class MenuItemController extends BackendController
 {
 
@@ -83,6 +85,8 @@ class MenuItemController extends BackendController
         $menuItem->save();
 
         $menuItem->categories()->sync($request->get('categories'));
+         Log::info('Media item found in controller', ['media_item' => $menuItem]);
+        //  echo($request->hasFile('image'));
 
         //Store Image
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
@@ -111,6 +115,9 @@ class MenuItemController extends BackendController
      */
     public function edit(MenuItem $menuItem)
     {
+        
+        Log::info('Updating menu item under controller in edit', ['request' => $menuItem]);
+
         $this->data['menuItem']            = $menuItem;
         $this->data['categories']          = Category::where(['status' => CategoryStatus::ACTIVE])->get();
         $this->data['menuItem_categories'] = $menuItem->categories()->pluck('id')->toArray();
@@ -138,10 +145,36 @@ class MenuItemController extends BackendController
 
         $menuItem->categories()->sync($request->get('categories'));
 
+        //  dump('Registering media conversions', $menuItem); // Debugging with dump
+        Log::info('Updating menu item under controller update', ['request' => $request->all()]);
+        // Log::info('Media item found has file image valid', ['media_item' => $request->hasFile('image')], $request->file('image')->isValid());
+        
         //Update Image
-        if ($request->hasFile('image') && $request->file('image')->isValid()) { 
+        // dd($request);
+        // these is  fo the multiple images
+        if ($request->hasFile('image') ) { 
+            // $menuItem->deleteMedia('menu-items', $menuItem->id);
+            // $menuItem->addMediaFromRequest('image')->toMediaCollection('menu-items');
+
+            $menuItem->clearMediaCollection('menu-items');
+
+        // dd($request->file('image')) ;
+        foreach ($request->file('image') as $file) {
+            $image = \Intervention\Image\Facades\Image::make($file)
+                        ->resize(800, null, function ($constraint) {
+                            $constraint->aspectRatio();
+                        })
+                        ->encode('jpg', 75); // Resize and compress image
+
+            $menuItem->addMediaFromString($image->__toString())
+                     ->usingFileName($file->getClientOriginalName())
+                     ->toMediaCollection('menu-items');
+        }
+        }
+        // dd($request->file('video'));
+        if ($request->hasFile('video') && $request->file('video')->isValid()) { 
             $menuItem->deleteMedia('menu-items', $menuItem->id);
-            $menuItem->addMediaFromRequest('image')->toMediaCollection('menu-items');
+            $menuItem->addMediaFromRequest('video')->toMediaCollection('menu-items');
         }
 
         return redirect()->route('admin.menu-items.index')->withSuccess('The data updated successfully!');
@@ -161,6 +194,8 @@ class MenuItemController extends BackendController
 
     private function getMenuItem($request)
     {
+        
+        Log::info('Updating menu item under get menu item', ['request' => $request->all()]);
         if (request()->ajax()) {
             $queryArray = [];
             if (!empty($request->status) && (int) $request->status) {
@@ -227,6 +262,8 @@ class MenuItemController extends BackendController
     public function getMedia(Request $request)
     {
 
+        Log::info('Updating menu item under getmedia', ['request' => $request->all()]);
+
         $menuItem       = MenuItem::owner()->where('status', MenuItemStatus::ACTIVE)->find($request->id);
         $menuItemImages = $menuItem->iamges;
 
@@ -246,7 +283,9 @@ class MenuItemController extends BackendController
     public function storeMedia(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'file' => 'nullable|image|mimes:jpeg,jpg,png|max:3096',
+            // 'file' => 'nullable|image|mimes:jpeg,jpg,png|max:4096',
+            'file' => 'nullable|image.*|mimes:jpeg,jpg,png,mp4,mov,avi|max:10485760',
+            // 'nullable|mimes:jpeg,jpg,png,mp4,mov,avi|max:10240'
         ]);
 
         if ($validator->fails()) {
@@ -276,10 +315,12 @@ class MenuItemController extends BackendController
     public function updateMedia(Request $request, $id)
     {
 
+        Log::info('Updating menu item under updateMedia', ['request' => $request->all()]);
         $menuItem = MenuItem::owner()->find($id);
         if (!blank($menuItem)) {
             $validator = Validator::make($request->all(), [
-                'file' => 'nullable|image|mimes:jpeg,jpg,png|max:3096',
+                // 'file' => 'nullable|image|mimes:jpeg,jpg,png|max:4096',                
+            'file' => 'nullable|image.*|mimes:jpeg,jpg,png,mp4,mov,avi|max:10485760',
             ]);
 
             if ($validator->fails()) {

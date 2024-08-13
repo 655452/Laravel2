@@ -26,6 +26,8 @@ use App\Http\Requests\RestaurantStoreRequest;
 use Maatwebsite\Excel\Validators\ValidationException;
 use Illuminate\Support\Facades\Http;
 
+use Illuminate\Support\Facades\Log;
+
 class RestaurantController extends BackendController
 {
     public function __construct()
@@ -78,6 +80,7 @@ class RestaurantController extends BackendController
      */
     public function store(RestaurantRequest $request)
     {
+        Log::info('Media item found in update controller', ['media_item' => $request]);
         $user             = new User;
         $user->first_name = $request->get('first_name');
         $user->last_name  = $request->get('last_name');
@@ -115,12 +118,18 @@ class RestaurantController extends BackendController
         $restaurant->cuisines()->sync($request->get('cuisines'));
 
         
+        Log::info('Media item found in update controller restaurant', ['restaurant' => $restaurant]);
         //Store Image
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $restaurant->addMediaFromRequest('image')->toMediaCollection('restaurant');
         }
-        if ($request->hasFile('restaurant_logo') && $request->file('restaurant_logo')->isValid()) {
-            $restaurant->addMediaFromRequest('restaurant_logo')->toMediaCollection('restaurant_logo');
+        // if ($request->hasFile('restaurant_logo') && $request->file('restaurant_logo')) {
+        //     $restaurant->addMediaFromRequest('restaurant_logo')->toMediaCollection('restaurant_logo');
+        // }
+
+        if ($request->hasFile('restaurant_pdf') && $request->file('restaurant_pdf')) {
+            $this->deleteMedia('restaurant_logo', $restaurant->id);
+            $restaurant->addMediaFromRequest('restaurant_pdf')->toMediaCollection('restaurant_logo');
         }
         $depositAmount = $request->deposit_amount;
         if (blank($depositAmount)) {
@@ -161,8 +170,13 @@ class RestaurantController extends BackendController
      */
     public function update(RestaurantRequest $request, Restaurant $restaurant)
     {
+        
+        
         if (!blank($restaurant->user)) {
             $user = $restaurant->user;
+            
+            Log::info('Media item found in update controller', ['media_item' => $request->file('restaurant_logo')]);
+            Log::info('Media item found in update controller restaurant', ['media_item' => $restaurant]);
 
             $depositAmount  = blank($request->deposit_amount) ? 0 : $request->deposit_amount;
             $limitAmount    = blank($request->limit_amount) ? 0 : $request->limit_amount;
@@ -206,18 +220,39 @@ class RestaurantController extends BackendController
                 }
                 $restaurant->save();
                 $restaurant->cuisines()->sync($request->get('cuisines'));
-
-
+                
+                
+                
                 if ($request->hasFile('image') && $request->file('image')->isValid()) {
                     $this->deleteMedia('restaurant', $restaurant->id);
                     $restaurant->addMediaFromRequest('image')->toMediaCollection('restaurant');
                 }
-
-                if ($request->hasFile('restaurant_logo') && $request->file('restaurant_logo')->isValid()) {
-                    $this->deleteMedia('restaurant_logo', $restaurant->id);
-                    $restaurant->addMediaFromRequest('restaurant_logo')->toMediaCollection('restaurant_logo');
+                
+                
+                // if ($request->hasFile('restaurant_logo') && $request->file('restaurant_logo')) {
+                //     $this->deleteMedia('restaurant_logo', $restaurant->id);
+                //     $restaurant->addMediaFromRequest('restaurant_logo')->toMediaCollection('restaurant_logo');
+                // }
+                // dd($request->file('restaurant_pdf'));
+                // for handling single pdf
+                // if ($request->hasFile('restaurant_pdf') && $request->file('restaurant_pdf')) {
+                //     $this->deleteMedia('restaurant_logo', $restaurant->id);
+                //     $restaurant->addMediaFromRequest('restaurant_pdf')->toMediaCollection('restaurant_logo');
+                // }
+                
+                if ($request->hasFile('restaurant_pdf')) {
+                    // Clear the existing media collection
+                    $restaurant->clearMediaCollection('restaurant_logo');
+                    // Loop through each uploaded PDF file
+                    foreach ($request->file('restaurant_pdf') as $file) {
+                        // Add each PDF to the media collection
+                        $restaurant->addMedia($file)
+                                   ->usingFileName($file->getClientOriginalName())
+                                   ->toMediaCollection('restaurant_logo');
+                    }
                 }
 
+                
                 return redirect(route('admin.restaurants.index'))->withSuccess('The data updated successfully.');
             }
             return redirect(route('admin.restaurants.index'))->withError($depositService->message);
@@ -418,6 +453,9 @@ class RestaurantController extends BackendController
 
     public function restaurantUpdate(RestaurantStoreRequest $request, $id)
     {
+
+        
+        Log::info('Media item found in update RestaurantStoreRequest controller', ['media_item' => $request->file('restaurant_logo')]);
         $restaurant = Restaurant::restaurantowner()->findOrFail($id);
 
         $restaurant->user_id         = auth()->id();
@@ -471,9 +509,12 @@ class RestaurantController extends BackendController
 
     public function fileImport(Request $request)
     {
+        
         $request->validate([
             'file' => 'required',
         ]);
+
+        Log::info('Media item found in update fileImport controller', ['media_item' => $request]);
         try {
             $import = new RestaurantImport();
             $import->import($request->file('file'));

@@ -96,10 +96,11 @@ class PageController extends BackendController
         $page                         = Page::findOrFail($id);
         $page->title                  = $request->title;
         $page->description            = $request->description;
-        $page->footer_menu_section_id = $request->footer_menu_section_id;
+        // $page->footer_menu_section_id = $request->footer_menu_section_id;
         $page->template_id            = $request->template_id;
         $page->status                 = $request->status;
         $page->save();
+        dd($request);
 
         return redirect(route('admin.page.index'))->withSuccess('The Data Inserted Successfully');
     }
@@ -122,6 +123,7 @@ class PageController extends BackendController
     public function getPage(Request $request)
     {
         if (request()->ajax()) {
+            dd($request);
             $pages = Page::with('footer_menu_section', 'template')->descending()->select();
 
             $i = 0;

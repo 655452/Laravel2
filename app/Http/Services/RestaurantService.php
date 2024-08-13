@@ -20,6 +20,8 @@ use Illuminate\Http\Request;
 use App\Enums\RestaurantStatus;
 use Spatie\Permission\Models\Role;
 
+use Illuminate\Support\Facades\Log;
+
 class RestaurantService
 {
     public function getallrestaurant($id,$status,$applied)
@@ -259,6 +261,8 @@ class RestaurantService
     public function updateMedia( $request,$restaurant)
     {
         $path = storage_path('tmp/uploads');
+        
+        Log::info('Media item found in update updateMedia controller', ['media_item' => $request]);
 
         if (!file_exists($path)) {
             mkdir($path, 0777, true);

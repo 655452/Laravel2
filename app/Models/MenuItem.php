@@ -11,6 +11,11 @@ use Spatie\Sluggable\SlugOptions;
 use Shipu\Watchable\Traits\WatchableTrait;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Illuminate\Support\Facades\Log;
+// for videos
+use Pbmedia\LaravelFFMpeg\FFMpeg;
+
+use FFMpeg\Format\Video\X264;
 
 class MenuItem extends BaseModel implements HasMedia
 {
@@ -34,6 +39,41 @@ class MenuItem extends BaseModel implements HasMedia
         return request()->segment(1) === 'admin' ? 'id' : 'slug';
     }
 
+// for ratings in menu items
+ // Define the relationship to MenuItemRating
+    public function ratings()
+    {
+        return $this->hasMany(MenuItemRating::class);
+    }
+   
+
+    // Calculate average rating and total reviews
+    public function getAverageRatingAttribute()
+    {
+        return $this->ratings()->avg('rating');
+    }
+
+    public function getTotalReviewsAttribute()
+    {
+        return $this->ratings()->count();
+    }   
+
+    
+// Get the reviews as a collection or a specific review as needed
+public function getReviewAttribute()
+{
+    // If you want the first review's text, you can return it like this
+    return $this->ratings->map(function ($rating) {
+        return [
+            'review' => $rating->review,
+            'rating' => $rating->rating
+        ];
+    });
+
+    // Or, if you want to return a collection of all review texts:
+    // return $this->ratings->pluck('review');
+}
+   
 
     public function creator()
     {
@@ -86,16 +126,36 @@ class MenuItem extends BaseModel implements HasMedia
 
     public function getImageAttribute()
     {
+        
         if (!empty($this->getFirstMediaUrl('menu-items'))) {
             $image = $this->getMedia('menu-items')->last();
-            return $image->getUrl('image');
+            // loging
+            
+            Log::info('Media item found under models get Image Attribute', ['media_item' => $image]);
+            if ($image->mime_type === 'video/mp4') {
+                return $image->getUrl(); // Return the URL of the video file
+            } else {
+                return $image->getUrl('image'); // Return the URL of the image conversion
+            }
+            // return $image->getUrl('image');
         }
         return asset('frontend/images/default/menuitem.png');
     }
-
+    
     public function registerMediaConversions(Media $media = null): void
     {
+        
+        Log::info('Media item found registerer media', ['media_item' => $media->mime_type]);
+        
+        // Video conversion
+   
+       if ($media && $media->mime_type === 'video/mp4') {
+        $this->addMediaConversion('image');
+        
+       }
+    else{
         $this->addMediaConversion('image')->performOnCollections('menu-items')->keepOriginalImageFormat();
+    }
     }
 
     public function getImagesAttribute()
@@ -185,3 +245,5 @@ class MenuItem extends BaseModel implements HasMedia
 
 
 }
+
+

@@ -4,7 +4,7 @@
     <meta property="og:type" content="{{ setting('site_name') }}">
     <meta property="og:title" content="{{ $restaurant->name }}">
     <meta property="og:description" content="{{ $restaurant->description }}">
-    <meta property="og:image" content="{{ $restaurant->image }}">
+<!-- 4    <meta property="og:image" content="{{ $restaurant->image }}"> -->
 @endpush
 
 @push('body-data')
@@ -45,6 +45,8 @@
                                         @endforeach
                                     @endif
                                 </p>
+
+                                <button id="review-button" type="button" data-bs-toggle="modal" data-bs-target="#shop-modal">
                                 @if (!$average_rating == 0)
                                     <div class="rest-review">
                                         @for ($i = 0; $i < 5; $i++)
@@ -57,8 +59,22 @@
                                         <span>({{ $rating_user_count }} {{ __('frontend.reviews') }})</span>
                                     </div>
                                 @endif
-                                <div class="rest-location">
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                </button>
+
+
+                                        <div class="rest-location">
+<style>
+.description-res{
+width:40vw;
+}
+@media (max-width: 768px) {
+.description-res{
+width:80vw;
+}
+}
+</style>
+    <span class="description-res">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M7.99992 8.95346C9.14867 8.95346 10.0799 8.02221 10.0799 6.87346C10.0799 5.7247 9.14867 4.79346 7.99992 4.79346C6.85117 4.79346 5.91992 5.7247 5.91992 6.87346C5.91992 8.02221 6.85117 8.95346 7.99992 8.95346Z"
@@ -67,19 +83,131 @@
                                             d="M2.4133 5.66016C3.72664 -0.113169 12.28 -0.106502 13.5866 5.66683C14.3533 9.0535 12.2466 11.9202 10.4 13.6935C9.05997 14.9868 6.93997 14.9868 5.5933 13.6935C3.7533 11.9202 1.64664 9.04683 2.4133 5.66016Z"
                                             stroke="#1F1F39" stroke-width="1.5" />
                                     </svg>
-                                    <span> {{ \Illuminate\Support\Str::limit($restaurant->address, 65) }} </span>
-                                </div>
+                         {{ \Illuminate\Support\Str::limit($restaurant->address, 65) }} 
+<br>  
+                <!-- Description Section -->
+
+<div>
+    <span id="description"></span>
+    <button id="more-btn" style="display: none; background: none; color:black; border: none; cursor: pointer;">...more</button>
+</div>
+</div>
+
+
+<!-- Popup for full description -->
+<div id="popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); border-radius: 5px; width: 80vw; z-index: 1000;">
+    <span id="full-description"></span>
+    <button id="close-popup" style="display: block; margin-top: 10px; background: none; border: none; color: blue; cursor: pointer;">Close</button>
+</div>
+
+<!-- Overlay for popup -->
+<div id="overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999;"></div>
+<!-- Handles -->
+<div style="display: flex; align-items: center; margin-top: 5px;">
+    <a id="instagram-link" href="#" target="_blank" style="margin-left: 10px; background-color: #E1306C; border-radius: 5px; display: inline-block;">
+        <img width="25" height="25" src="https://img.icons8.com/ios/50/ffffff/instagram-new--v1.png" alt="Instagram" class="social-button" />
+    </a>
+    <a id="facebook-link" href="#" target="_blank" style="margin-left: 10px; background-color: #3b5998; border-radius: 50%; display: inline-block;">
+        <img width="25" height="25" src="https://img.icons8.com/ios/50/ffffff/facebook-new.png" alt="Facebook" class="social-button" />
+    </a>
+</div>
+
+<script>
+    // Sample description string from the backend
+    const descriptionString = "{{ $restaurant->description }}";
+
+    // Function to extract Instagram, Facebook, and Description
+    function extractInfo(str) {
+        const instagramMatch = str.match(/instagram=([\w\.]+)/);
+        const facebookMatch = str.match(/facebook=([\w\s]+) description/);
+        const descriptionMatch = str.match(/description=([^]+)/);
+
+        const instagram = instagramMatch ? instagramMatch[1] : '';
+        const facebook = facebookMatch ? facebookMatch[1] : '';
+        const description = descriptionMatch ? descriptionMatch[1].trim() : '';
+
+        return { instagram, facebook, description };
+    }
+
+    // Extracted information
+    const info = extractInfo(descriptionString);
+    console.log(info);
+
+    // Display the extracted information on the frontend
+    const descriptionElement = document.getElementById('description');
+    const moreBtn = document.getElementById('more-btn');
+    const fullDescriptionElement = document.getElementById('full-description');
+    const popup = document.getElementById('popup');
+    const overlay = document.getElementById('overlay');
+    const closePopupBtn = document.getElementById('close-popup');
+
+    // Set the full description in the popup
+    fullDescriptionElement.textContent = info.description;
+
+    // Display the first 10 words of the description
+    const words = info.description.split(' ');
+    const first10Words = words.slice(0, 25).join(' ');
+    descriptionElement.innerHTML = first10Words;
+
+    // Show the "More" button if the description has more than 10 words
+    if (words.length > 10) {
+        moreBtn.style.display = 'inline';
+    }
+
+    // "More" button click event
+    moreBtn.addEventListener('click', function() {
+        popup.style.display = 'block';
+        overlay.style.display = 'block';
+    });
+
+    // Close popup button click event
+    closePopupBtn.addEventListener('click', function() {
+        popup.style.display = 'none';
+        overlay.style.display = 'none';
+    });
+
+    // Close popup when clicking outside of it
+    overlay.addEventListener('click', function() {
+        popup.style.display = 'none';
+        overlay.style.display = 'none';
+    });
+
+    // Set social media links
+    document.getElementById('instagram-link').href = `https://www.instagram.com/${info.instagram}`;
+    document.getElementById('facebook-link').href = `https://www.facebook.com/${info.facebook}`;
+</script>
+
+
+<!-- 
+<script>
+    // Sample description string from the backend
+    const descriptionString = "{{ $restaurant->description }}";
+
+    // Function to extract Instagram, Facebook, and Description
+    function extractInfo(str) {
+        const instagramMatch = str.match(/instagram=([\w\.]+)/);
+          const facebookMatch = str.match(/facebook=([\w\s]+) description/);
+        const descriptionMatch = str.match(/description=([^]+)/);
+
+        const instagram = instagramMatch ? instagramMatch[1] : '';
+        const facebook = facebookMatch ? facebookMatch[1] : '';
+        const description = descriptionMatch ? descriptionMatch[1].trim() : '';
+
+        return { instagram, facebook, description };
+    }
+
+    // Extracted information
+    const info = extractInfo(descriptionString);
+        console.log(info);
+    // Display the extracted information on the frontend
+    document.getElementById('description').innerHtml = info.description+` <button id="close-popup" style="display: block; margin-top: 10px; background: none; border: none; color: blue; cursor: pointer;">Close</button>`;
+    document.getElementById('instagram-link').href = `https://www.instagram.com/${info.instagram}`;
+    document.getElementById('facebook-link').href = `https://www.facebook.com/${info.facebook}`;
+</script>
+-->
+
                                 <!-- Handles -->
                                 
-                                <div style="display: flex; align-items: center; margin-top: 5px;">
-        <a href="https://www.instagram.com/yourhandle" target="_blank" style="margin-left: 10px; background-color: #E1306C;  border-radius: 5px; display: inline-block;">
-            <img width="25" height="25" src="https://img.icons8.com/ios/50/ffffff/instagram-new--v1.png" alt="Instagram" class="social-button"/>
-        </a>
-
-        <a href="https://www.facebook.com/yourhandle" target="_blank" style="margin-left: 10px; background-color: #3b5998;  border-radius: 50%; display: inline-block;">
-            <img width="25" height="25" src="https://img.icons8.com/ios/50/ffffff/facebook-new.png" alt="Facebook" class="social-button"/>
-        </a>
-    </div>
                             </div>
                             <div class="rest-btns">
                                 <!-- Table Order -->
@@ -155,14 +283,119 @@
         <div class="modal-dialog">
         <div class="modal-content">
 
-        <div class="shop-modal-header">
+        <div class="shop-modal-header" style="z-index: 1000;">
                     <button class="fa-regular fa-circle-xmark" type="button" data-bs-dismiss="modal"></button>
                     <!-- <img src="{{ $restaurant->image }}" alt="restaurant"> -->
                 </div>
         <!-- <iframe style="height: 90vh; width:90%;" src="http://127.0.0.1:8000/frontend/images/food_reciepes.pdf#toolbar=0" allow="fullscreen"><span>Catalog</span></iframe> -->
-            <object data="{{ $restaurant->logo }}" type="application/pdf" style="width: 100%; height: calc(100vh - 50px);">
+            <script>
+                console.log("restaurant logo /pdf {{ $restaurant}}")
+            </script>
+            <!-- <object data="{{ $restaurant->logo }}" style="width: 100%; height: calc(100vh - 50px);">
                     <span>Catalog</span>
-                </object>
+                </object> -->
+                
+                <div class="pdf-slider-container">
+                    <button class="prev" onclick="moveSlider(-1)">&#10094;</button>
+                    <div class="pdf-slider">
+                        <div class="pdf-items">
+                        @if($restaurant->logo)
+                                <object class="pdf-item" data="{{ $restaurant->logo }}" style="width: 100%; height: calc(100vh - 50px);">
+                                    <span>Catalog</span>
+                                </object>
+                                @endif
+                            @foreach($restaurant->media as $media)
+                                @if($media['mime_type'] == 'application/pdf')
+                                <div class="pdf-item" style="width: 100%; height: calc(100vh - 50px);">
+                        <object data="{{ $media['original_url'] }}" type="application/pdf" style="width: 100%; height: 100%;">
+                            <iframe src="{{ $media['original_url'] }}" style="width: 100%; height: 100%;" frameborder="0">
+                                <p>Your browser does not support PDFs. <a href="{{ $media['original_url'] }}">Download the PDF</a>.</p>
+                            </iframe>
+                        </object>
+                    </div>
+                                @endif
+                                
+                            @endforeach
+                        </div>
+                    </div>
+                    <button class="next" onclick="moveSlider(1)">&#10095;</button>
+                </div>
+
+<style>
+    .pdf-slider-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+    }
+
+    .pdf-slider {
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .pdf-items {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .pdf-item {
+        min-width: 100%;
+        margin-right: 10px;
+        flex-shrink: 0;
+    }
+
+    .prev, .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 1000;
+    }
+
+    .prev {
+        left: 0;
+    }
+
+    .next {
+        right: 0;
+    }
+    cr-icon{
+        display: none;
+    }
+    
+</style>
+<script>
+    let currentIndex = 0;
+
+        function moveSlider(direction) {
+            const items = document.querySelector('.pdf-items');
+            const totalItems = document.querySelectorAll('.pdf-item').length;
+        
+            // Calculate the new index
+            currentIndex += direction;
+        
+            // Make sure the index is within bounds
+            if (currentIndex < 0) {
+                currentIndex = totalItems - 1;
+            } else if (currentIndex >= totalItems) {
+                currentIndex = 0;
+            }
+        
+            // Calculate the new translateX value
+            const translateXValue = -currentIndex * 100;
+        
+            // Apply the transformation
+            items.style.transform = `translateX(${translateXValue}%)`;
+        }
+
+</script>
+               
         </div>
         </div>
 </div>
@@ -170,7 +403,7 @@
      <!-- whatsapp button                                -->
 <button type="button" class="rest-info-btn">
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 48 48">
-            <path fill="#fff" d="M4.9,43.3l2.7-9.8C5.9,30.6,5,27.3,5,24C5,13.5,13.5,5,24,5c5.1,0,9.8,2,13.4,5.6C41,14.2,43,18.9,43,24	c0,10.5-8.5,19-19,19c0,0,0,0,0,0h0c-3.2,0-6.3-0.8-9.1-2.3L4.9,43.3z"></path><path fill="#fff" d="M4.9,43.8c-0.1,0-0.3-0.1-0.4-0.1c-0.1-0.1-0.2-0.3-0.1-0.5L7,33.5c-1.6-2.9-2.5-6.2-2.5-9.6	C4.5,13.2,13.3,4.5,24,4.5c5.2,0,10.1,2,13.8,5.7c3.7,3.7,5.7,8.6,5.7,13.8c0,10.7-8.7,19.5-19.5,19.5c-3.2,0-6.3-0.8-9.1-2.3	L5,43.8C5,43.8,4.9,43.8,4.9,43.8z"></path><path fill="#cfd8dc" d="M24,5c5.1,0,9.8,2,13.4,5.6C41,14.2,43,18.9,43,24c0,10.5-8.5,19-19,19h0c-3.2,0-6.3-0.8-9.1-2.3L4.9,43.3	l2.7-9.8C5.9,30.6,5,27.3,5,24C5,13.5,13.5,5,24,5 M24,43L24,43L24,43 M24,43L24,43L24,43 M24,4L24,4C13,4,4,13,4,24	c0,3.4,0.8,6.7,2.5,9.6L3.9,43c-0.1,0.3,0,0.7,0.3,1c0.2,0.2,0.4,0.3,0.7,0.3c0.1,0,0.2,0,0.3,0l9.7-2.5c2.8,1.5,6,2.2,9.2,2.2	c11,0,20-9,20-20c0-5.3-2.1-10.4-5.8-14.1C34.4,6.1,29.4,4,24,4L24,4z"></path><path fill="#40c351" d="M35.2,12.8c-3-3-6.9-4.6-11.2-4.6C15.3,8.2,8.2,15.3,8.2,24c0,3,0.8,5.9,2.4,8.4L11,33l-1.6,5.8l6-1.6l0.6,0.3	c2.4,1.4,5.2,2.2,8,2.2h0c8.7,0,15.8-7.1,15.8-15.8C39.8,19.8,38.2,15.8,35.2,12.8z"></path><path fill="#fff" fill-rule="evenodd" d="M19.3,16c-0.4-0.8-0.7-0.8-1.1-0.8c-0.3,0-0.6,0-0.9,0s-0.8,0.1-1.3,0.6c-0.4,0.5-1.7,1.6-1.7,4	s1.7,4.6,1.9,4.9s3.3,5.3,8.1,7.2c4,1.6,4.8,1.3,5.7,1.2c0.9-0.1,2.8-1.1,3.2-2.3c0.4-1.1,0.4-2.1,0.3-2.3c-0.1-0.2-0.4-0.3-0.9-0.6	s-2.8-1.4-3.2-1.5c-0.4-0.2-0.8-0.2-1.1,0.2c-0.3,0.5-1.2,1.5-1.5,1.9c-0.3,0.3-0.6,0.4-1,0.1c-0.5-0.2-2-0.7-3.8-2.4	c-1.4-1.3-2.4-2.8-2.6-3.3c-0.3-0.5,0-0.7,0.2-1c0.2-0.2,0.5-0.6,0.7-0.8c0.2-0.3,0.3-0.5,0.5-0.8c0.2-0.3,0.1-0.6,0-0.8	C20.6,19.3,19.7,17,19.3,16z" clip-rule="evenodd"></path>
+            <path fill="#fff" d="M4.9,43.3l2.7-9.8C5.9,30.6,5,27.3,5,24C5,13.5,13.5,5,24,5c5.1,0,9.8,2,13.4,5.6C41,14.2,43,18.9,43,24   c0,10.5-8.5,19-19,19c0,0,0,0,0,0h0c-3.2,0-6.3-0.8-9.1-2.3L4.9,43.3z"></path><path fill="#fff" d="M4.9,43.8c-0.1,0-0.3-0.1-0.4-0.1c-0.1-0.1-0.2-0.3-0.1-0.5L7,33.5c-1.6-2.9-2.5-6.2-2.5-9.6   C4.5,13.2,13.3,4.5,24,4.5c5.2,0,10.1,2,13.8,5.7c3.7,3.7,5.7,8.6,5.7,13.8c0,10.7-8.7,19.5-19.5,19.5c-3.2,0-6.3-0.8-9.1-2.3       L5,43.8C5,43.8,4.9,43.8,4.9,43.8z"></path><path fill="#cfd8dc" d="M24,5c5.1,0,9.8,2,13.4,5.6C41,14.2,43,18.9,43,24c0,10.5-8.5,19-19,19h0c-3.2,0-6.3-0.8-9.1-2.3L4.9,43.3     l2.7-9.8C5.9,30.6,5,27.3,5,24C5,13.5,13.5,5,24,5 M24,43L24,43L24,43 M24,43L24,43L24,43 M24,4L24,4C13,4,4,13,4,24     c0,3.4,0.8,6.7,2.5,9.6L3.9,43c-0.1,0.3,0,0.7,0.3,1c0.2,0.2,0.4,0.3,0.7,0.3c0.1,0,0.2,0,0.3,0l9.7-2.5c2.8,1.5,6,2.2,9.2,2.2      c11,0,20-9,20-20c0-5.3-2.1-10.4-5.8-14.1C34.4,6.1,29.4,4,24,4L24,4z"></path><path fill="#40c351" d="M35.2,12.8c-3-3-6.9-4.6-11.2-4.6C15.3,8.2,8.2,15.3,8.2,24c0,3,0.8,5.9,2.4,8.4L11,33l-1.6,5.8l6-1.6l0.6,0.3       c2.4,1.4,5.2,2.2,8,2.2h0c8.7,0,15.8-7.1,15.8-15.8C39.8,19.8,38.2,15.8,35.2,12.8z"></path><path fill="#fff" fill-rule="evenodd" d="M19.3,16c-0.4-0.8-0.7-0.8-1.1-0.8c-0.3,0-0.6,0-0.9,0s-0.8,0.1-1.3,0.6c-0.4,0.5-1.7,1.6-1.7,4       s1.7,4.6,1.9,4.9s3.3,5.3,8.1,7.2c4,1.6,4.8,1.3,5.7,1.2c0.9-0.1,2.8-1.1,3.2-2.3c0.4-1.1,0.4-2.1,0.3-2.3c-0.1-0.2-0.4-0.3-0.9-0.6      s-2.8-1.4-3.2-1.5c-0.4-0.2-0.8-0.2-1.1,0.2c-0.3,0.5-1.2,1.5-1.5,1.9c-0.3,0.3-0.6,0.4-1,0.1c-0.5-0.2-2-0.7-3.8-2.4       c-1.4-1.3-2.4-2.8-2.6-3.3c-0.3-0.5,0-0.7,0.2-1c0.2-0.2,0.5-0.6,0.7-0.8c0.2-0.3,0.3-0.5,0.5-0.8c0.2-0.3,0.1-0.6,0-0.8 C20.6,19.3,19.7,17,19.3,16z" clip-rule="evenodd"></path>
             </svg>
 </button>
 <!-- heart icon -->
@@ -372,7 +605,8 @@
             <div class="modal-content" >
                 <div class="shop-modal-header">
                     <button class="fa-regular fa-circle-xmark" type="button" data-bs-dismiss="modal"></button>
-                    <img src="{{ $restaurant->image }}" alt="restaurant">
+                    <img style="height: 35vh;
+    object-fit: cover;" src="{{ $restaurant->image }}" alt="restaurant">
                 </div>
                 <div class="shop-modal-meta">
                     <h3>{{ $restaurant->name }} </h3>
@@ -411,7 +645,7 @@
                                 <li>
                                     <h3 style="display: flex;">
                                     <img src="https://img.icons8.com/?size=64&id=BBf95mK0q8NH&format=png" style="width: 20px;height:20px;" alt="">
-            &nbsp; Woicher’s contact - 9833891281</h3>
+                               &nbsp; Woicher’s contact - 9833891281</h3>
                                     
                                 </li>
                                 <li>
@@ -429,7 +663,7 @@
                     role="tabpanel">
 
                         <!-- for dummy reviews @  if (!blank($order_status)) -->
-                            <form action="{{ route('restaurant.ratings-update') }}" method="POST"
+                        <form action="{{ route('restaurant.ratings-update') }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div id="add-review" class="add-review-box custom-width">
@@ -483,7 +717,7 @@
                                         {{ __('frontend.submit_review') }}
                                     </button>
                                 </div>
-                            </form>
+                        </form>
                         <!-- remove whitespace if stament will work @ endif -->
                         <br>
                         <!-- @if (!blank($ratings)) -->
@@ -528,6 +762,9 @@
             </div>
         </div>
     </div>
+
+    <!-- menu ratings -->
+     
     <!--======= Resturent Infromation MODAL END ==========-->
 @endsection
 

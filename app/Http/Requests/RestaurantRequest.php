@@ -55,8 +55,8 @@ class RestaurantRequest extends FormRequest
             'last_name'         => ['required', 'string'],
             'email'             => $email,
             'password'          => $password,
-            'image'             => 'image|mimes:jpeg,png,jpg|max:5098',
-            'restaurant_logo'   => 'image|mimes:jpeg,png,jpg|max:5098',
+            'image'             => 'image|mimes:jpeg,pdf,png,jpg|max:5098',
+            'restaurant_logo'   => 'image|mimes:jpeg,png,jpg,pdf|max:20480', // changing for  logo for pdf
             'username'          => request('username') ? $username : ['nullable'],
             'phone'             => ['required', 'numeric'],
             'address'           => ['required', 'max:200'],
@@ -84,7 +84,7 @@ class RestaurantRequest extends FormRequest
             'address'           => trans('validation.attributes.address'),
             'cuisines'          => trans('validation.attributes.cuisines'),
             'image'             => trans('validation.attributes.image'),
-            'restaurant_logo'   => trans('validation.attributes.restaurant_logo'),
+            // 'restaurant_logo'   => trans('validation.attributes.restaurant_logo'),
         ];
     }
 }

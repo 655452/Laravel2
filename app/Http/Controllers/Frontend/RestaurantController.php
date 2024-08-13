@@ -6,6 +6,10 @@ use App\Models\Order;
 use App\Models\Coupon;
 use App\Models\Discount;
 use App\Models\MenuItem;
+// for menu items  rating  specially
+use App\Models\MenuItemRating;
+use App\Http\Requests\MenuItemRatingRequest;
+use App\Http\Services\MenuItemRatingsService;
 use App\Enums\OrderStatus;
 use App\Models\Restaurant;
 use App\Enums\RatingStatus;
@@ -13,12 +17,18 @@ use App\Enums\DiscountStatus;
 use App\Enums\MenuItemStatus;
 use Illuminate\Support\Carbon;
 use App\Models\RestaurantRating;
+
 use Sopamo\LaravelFilepond\Filepond;
 use App\Http\Requests\RatingsRequest;
 use App\Http\Services\RatingsService;
 use Illuminate\Support\Facades\Redirect;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use App\Http\Controllers\FrontendController;
+use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\Admin\UserController;
+use DB;
+
+
  
 class RestaurantController extends FrontendController
 {
@@ -39,6 +49,10 @@ class RestaurantController extends FrontendController
         if (session('session_cart_restaurant_id') !=  $this->restaurant->id) {
             session()->forget('cart');
         }
+        Log::info('Restaurant Owner Username: '.$restaurant->user_id);
+        
+       // log::info(UserController::show($restaurant->user_id));
+        
 
         $this->loadCategoriesAndProducts();
         $this->loadRatings();
@@ -53,19 +67,43 @@ class RestaurantController extends FrontendController
         $categories          = [];
         $other_products      = [];
         $categories_products = [];
+        
+        
 
         $products            = MenuItem::with('categories')->with('media')->with('variations')->with('options')->where(['restaurant_id' => $this->restaurant->id])->where('status', MenuItemStatus::ACTIVE)->get();
-        foreach ($products as $product) {
+
+    
+    // $ratings = MenuItemRating::select('menu_item_id', \DB::raw('AVG(rating) as average_rating'), \DB::raw('GROUP_CONCAT(review SEPARATOR ", ") as total_reviews'))
+    //     ->groupBy('menu_item_id')
+    //     ->get()
+    //     ->keyBy('menu_item_id'); // Key by menu_item_id for easy lookup
+
+    // dd($ratings);
+    foreach ($products as $product) {
+      
+            
+   
             $product_categories = $product->categories;
             if (!blank($product_categories)) {
                 foreach ($product_categories as $product_category) {
                     $categories[$product_category->id]            = $product_category;
-                    $categories_products[$product_category->id][] = $product;
+
+                     // Add the product to the categories_products array
+                $categories_products[$product_category->id][] = $product->toArray(); // Convert product to array first
+
+              
                 }
             } else {
                 $other_products[] = $product;
             }
+            
+            Log::info('Updating under for loop', ['request' => $categories_products]);
+
         }
+        // dd( $categories_products);
+        Log::info('Updating menu item under updateMedia restaurant categories_product', ['request' => $categories_products]);
+        Log::info('Updating menu item under updateMedia restaurant categories ', ['request' => $categories]);
+        Log::info('Updating menu item under updateMedia restaurant  other products', ['request' => $other_products]);
         $this->data['categories']          = $categories;
         $this->data['other_products']      = $other_products;
         $this->data['categories_products'] = $categories_products;
@@ -143,6 +181,7 @@ class RestaurantController extends FrontendController
 
     public function Ratings(RatingsRequest $request)
     {
+        // dd($request);
         $restaurantRating = RestaurantRating::with('user')->where([
             'user_id' => auth()->id(),
             'restaurant_id' => $request->restaurant_id
@@ -161,6 +200,31 @@ class RestaurantController extends FrontendController
             $restaurantRating->review = $request->review;
             $restaurantRating->status = $request->status;
             $restaurantRating->save();
+            return Redirect::back()->withSuccess('The Data Inserted Successfully');
+        }
+    }
+    // for menu item  ratings
+    public function ItemRatings(MenuItemRatingRequest $request)
+    {
+        // dd($request);
+        $menuItemRating = MenuItemRating::with('user')->where([
+            'user_id' => auth()->id(),
+            'menu_item_id' => $request->menu_item_id
+        ])->first();
+
+        if ($menuItemRating) {
+            $menuItemRating->rating = $request->rating;
+            $menuItemRating->review = $request->review;
+            $menuItemRating->save();
+            return Redirect::back()->withSuccess('The Data Updated Successfully');
+        } else {
+            $menuItemRating = new MenuItemRating;
+            $menuItemRating->user_id = auth()->id();
+            $menuItemRating->menu_item_id = $request->menu_item_id;
+            $menuItemRating->rating = $request->rating;
+            $menuItemRating->review = $request->review;
+            $menuItemRating->status = $request->status;
+            $menuItemRating->save();
             return Redirect::back()->withSuccess('The Data Inserted Successfully');
         }
     }

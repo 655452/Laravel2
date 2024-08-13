@@ -85,6 +85,7 @@ Route::group(['middleware' => ['installed', 'license-activate']], function () {
     Route::get('/',                                         [HomeController::class, 'index'])->name('home');
     Route::get('restaurant/{restaurant}',                   [RestaurantController::class, 'show'])->name('restaurant.show');
     Route::post('restaurant/ratings',                       [RestaurantController::class, 'Ratings'])->name('restaurant.ratings-update')->middleware('auth');
+    Route::post('restaurant/Itemratings',                       [RestaurantController::class, 'ItemRatings'])->name('restaurant.Itemratings-update')->middleware('auth');
 
     Route::get('reservation/booking',                       [ReservationController::class, 'booking'])->name('restaurant.reservation')->middleware('auth');
     Route::get('restaurant/reservation/booking',            [ReservationController::class, 'store'])->name('restaurant.reservation.store')->middleware('auth');

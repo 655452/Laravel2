@@ -35,7 +35,9 @@ class MenuItemRequest extends FormRequest
             'discount_price' => ['nullable', 'numeric', new IniAmount()],
             'status'         => 'required|numeric',
             'description'    => 'nullable|string|max:1000',
-            'image'          => 'image|mimes:jpeg,png,jpg|max:4096',
+            // 'image'          => 'image|mimes:jpeg,png,jpg|max:4096',
+            // 'image'         => 'image|mimes:jpeg,jpg,png,mp4,mov,avi|max:10240'
+            'image.*' => 'image|mimes:jpeg,jpg,png,mp4,mp3,mov,avi|max:10485760',
         ];
     }
 
