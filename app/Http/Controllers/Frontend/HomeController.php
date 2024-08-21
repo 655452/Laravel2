@@ -60,7 +60,7 @@ class HomeController extends FrontendController
             ->selectRaw('COUNT(orders.id) as orders_count')
             ->selectRaw('COUNT(restaurant_ratings.id) as rating_count')
             ->groupBy('restaurants.id')
-            ->orderByDesc('orders_count')
+            ->orderByDesc('rating_count')
             ->take(8)
             ->get();
     }

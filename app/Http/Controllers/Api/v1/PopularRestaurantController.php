@@ -29,16 +29,18 @@ class PopularRestaurantController extends BackendController
     {
         $current_time = now()->format('H:i');
 
+
         $bestSellingRestaurants  = Restaurant::leftJoin('orders', 'restaurant_id', '=', 'restaurants.id')
             ->select('restaurants.id', 'restaurants.name', 'restaurants.slug','restaurants.description','restaurants.address','restaurants.address')
-            ->selectRaw('count("orders.id") as orders_count')
+                ->selectRaw('count("orders.id") as orders_count')
             ->groupBy('restaurants.id')
-            ->orderBy('orders_count', 'desc')
+                ->orderBy('orders_count', 'desc')
             ->where('restaurants.status', RestaurantStatus::ACTIVE)
             ->where('restaurants.current_status', CurrentStatus::YES)
-            ->where([['opening_time', '>', 'closing_time'],['opening_time', '<', $current_time]])
+                ->where([['opening_time', '>', 'closing_time'],['opening_time', '<', $current_time]])
             ->Orwhere([['opening_time', '<', 'closing_time'],['opening_time', '<', $current_time],['closing_time', '>', $current_time]])
-            ->get();
+        ->limit(2)
+        ->get();
         try{
 
             return $this->successResponse(['status'=> 200, 'data' =>  PopularRestaurantResource::collection(($bestSellingRestaurants))]);
@@ -52,5 +54,30 @@ class PopularRestaurantController extends BackendController
 
     }
 
+        // New method for paginated results
+    public function paginateRestaurants(Request $request)
+    {
+        $limit = $request->query('limit', 2); // Default limit is 10 if not provided
+        $bestSellingRestaurants = Restaurant::with('media')
+                ->leftJoin('restaurant_ratings', 'restaurant_ratings.restaurant_id', '=', 'restaurants.id')
+            ->leftJoin('orders', 'orders.restaurant_id', '=', 'restaurants.id')
+            ->select('restaurants.*')
+            ->selectRaw('COUNT(orders.id) as orders_count')
+            ->groupBy('restaurants.id')
+            ->orderBy('orders_count', 'desc')
+            ->where('restaurants.status', RestaurantStatus::ACTIVE)
+            ->where('restaurants.current_status', CurrentStatus::YES)
+            ->paginate($limit);
+
+        return $this->successResponse([
+            'status' => 200,
+            'data' => PopularRestaurantResource::collection($bestSellingRestaurants),
+            'pagination' => [
+                'current_page' => $bestSellingRestaurants->currentPage(),
+                'total_pages' => $bestSellingRestaurants->lastPage(),
+                'total_items' => $bestSellingRestaurants->total(),
+            ]
+        ]);
+    }
 
 }

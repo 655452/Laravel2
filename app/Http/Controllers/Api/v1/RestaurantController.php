@@ -20,7 +20,8 @@ use App\Http\Resources\v1\RatingResource;
 use App\Http\Controllers\BackendController;
 use App\Http\Resources\v1\MenuItemResource;
 use App\Http\Resources\v1\RestaurantResource;
-
+use Illuminate\Support\Facades\Log;
+use App\Models\MenuItem;
 
 class RestaurantController extends BackendController
 {
@@ -56,14 +57,20 @@ class RestaurantController extends BackendController
 
     public function show($id)
     {
-        $this->data['restaurant'] = Restaurant::findOrFail($id);
+        $this->data['restaurant'] = Restaurant::with('media')->findOrFail($id);
+        $this->data['restaurantX'] = Restaurant::with('media')->findOrFail($id);
+         Log::info('show under for restaurant  menu items', ['request' => $this->data['restaurant']]);
         $rating      = new RatingsService();
         $ratingArray = $rating->avgRating($this->data['restaurant']->id);
         $RestaurantRatings = RestaurantRating::where(['restaurant_id' => $this->data['restaurant']->id, 'status' => RatingStatus::ACTIVE])->get();
         $this->data['timeSlots'] = TimeSlot::where(['restaurant_id' => $this->data['restaurant']->id])->get();
 
         $this->data['restaurant'] = new RestaurantResource($this->data['restaurant']);
+//      Log::info('show only  menu items', ['request' => $this->data['restaurant']->menuItems]);
         $this->data['menuItems'] = MenuItemResource::collection($this->data['restaurant']->menuItems);
+        $this->data['menuItemsX'] =MenuItem::with('media')->with('categories')->where(['restaurant_id' => $id])->get();
+
+        Log::info('show only  menu items', ['request' => $this->data['menuItemsX']]);
         $this->data['reviews']    = RatingResource::collection($RestaurantRatings);
         $this->data['countUser']   = $ratingArray['countUser'];
         $this->data['avgRating']   = $ratingArray['avgRating'];
@@ -101,6 +108,7 @@ class RestaurantController extends BackendController
         $this->data['order_status']        = !blank($order);
 
         try {
+                Log::info('show under for menu items', ['request' => $this->data]);
             return $this->successResponse(['status' => 200, 'data' => $this->data]);
         } catch (\Exception $e) {
             return response()->json([

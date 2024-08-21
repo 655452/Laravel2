@@ -191,10 +191,10 @@
 
                                         </script>
   
-                                <!-- <video  class="img-thumbnail mt-4 mb-3 default-img img-width" id="previewVideo" controls>
+                                <video  class="img-thumbnail mt-4 mb-3 default-img img-width" id="previewVideo" controls>
                                             <source src="{{ $menu_item['image']}}" type="video/mp4">
                                             Your browser does not support the video tag.
-                                        </video> -->
+                                        </video>
                                  <!-- for video uploading -->
                                 <script>
                                     function readVideoURL(input) {
@@ -209,9 +209,9 @@
                                         }
                                     }
                                 </script>
-                                <!-- <div class="loader-container">
+                                <div class="loader-container">
                                     <img src="{{ asset('frontend/images/default/loader.gif') }}" class="loader" alt="loading">
-                                </div> -->
+                                </div>
                             </figure>
 
                             <!-- Add review for menu items -->
@@ -289,6 +289,7 @@
                                                 </style>
 
                                                 <h3>{{ $menu_item['name'] }}</h3>
+                                                
 
                                 <div class="menu-item-details">
                                     <!-- Display Average Rating and Total Reviews -->
@@ -420,7 +421,7 @@
                                     <p class="product-card-text">
                                         {!! \Illuminate\Support\Str::limit(strip_tags($menu_item['description']), 70) !!}
                                    
-                                    
+                                        <!-- <h3>{{ $menu_item['tags'] }}</h3> -->
                                       
 <!-- rating part -->
                             <!-- Adding ratings demo start -->

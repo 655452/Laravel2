@@ -89,6 +89,9 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('cuisine/{id}/show',                             [CuisineController::class, 'show']); //done
 
     Route::get('popular-restaurant',                            [PopularRestaurantController::class, 'index']); //done
+    // paginated
+    Route::get('/popular-restaurant/paginated', [PopularRestaurantController::class, 'paginateRestaurants']);
+
     Route::get('/restaurant/index/{id?}/{status?}/{applied?}',  [RestaurantController::class, 'index']); //done
     Route::get('restaurant/{id}',                               [RestaurantController::class, 'show']); //done
     Route::get('/search',                                       [SearchController::class, 'index']); //done

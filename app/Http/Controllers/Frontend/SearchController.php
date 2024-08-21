@@ -61,6 +61,8 @@ class SearchController extends FrontendController
                 ->orderBy('distance');
         }
 
+        
+
         $mapRestaurants = [];
 
         $mapRestaurants = $restaurants->with('media')->get()->map(function ($restaurant) {
@@ -76,10 +78,26 @@ class SearchController extends FrontendController
             ];
         })->all();
 
+        // for pagination
+        $restaurants = $restaurants->paginate(8);
+
+        
         $this->data['cuisines'] = Cuisine::select('id', 'name', 'slug')->orderBy('name', 'desc')->get();
-        $this->data['restaurants'] = $restaurants->paginate(8)->appends(request()->query());
+        // $this->data['restaurants'] = $restaurants->paginate(8)->appends(request()->query());
+        $this->data['restaurants'] = $restaurants;
         $this->data['mapRestaurants'] = $mapRestaurants;
         $this->data['current_data'] = Carbon::now()->format('H:i:s');
+
+        // Define the current time data
+        $current_data = Carbon::now()->format('H:i:s');
+        // If the request is AJAX, return JSON response for load more functionality
+        if ($request->ajax()) {
+            // dd($request);
+            return response()->json([
+                'restaurants' => view('frontend.restaurant.search-restaurant', compact('restaurants','current_data'))->render(),
+                'next_page_url' => $restaurants->nextPageUrl()
+            ]);
+        }
         return view('frontend.search', $this->data);
     }
 }

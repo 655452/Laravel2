@@ -349,13 +349,29 @@
 
             </div>
 
+            
+
             <div class="filter-header d-flex align-items-center justify-content-start">
                 <h3> {{ $restaurants->total() }} {{ __('frontend.results_found') }}</h3>
             </div>
+    
 
-            <div class="row">
-                @include('frontend.restaurant.search-restaurant')
+            <div class="row" id="restaurant-list">
+                @include('frontend.restaurant.search-restaurant')  <!-- Initial restaurant list -->
             </div>
+
+            @if ($restaurants->hasMorePages())  <!-- Only show Load More if there are more pages -->
+                <div class="text-center mt-4">
+                    <button id="load-more" class="btn btn-primary" data-url="{{ $restaurants->nextPageUrl() }}">
+                        Load More
+                    </button>
+                </div>
+            @endif
+
+
+
+
+            
         </div>
     </section>
     <!--====== RESTAURANT PART END =============-->
@@ -363,6 +379,35 @@
 
 @push('js')
     <!-- Push Js = -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const loadMoreButton = document.getElementById('load-more');
+        
+        loadMoreButton?.addEventListener('click', function () {
+            const url = this.getAttribute('data-url');
+            if (url) {
+                fetch(url, {
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'  // This tells Laravel it's an AJAX request
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Append new restaurants to the list
+                    document.getElementById('restaurant-list').insertAdjacentHTML('beforeend', data.restaurants);
+
+                    // Check if there's a next page; if not, remove the Load More button
+                    if (!data.next_page_url) {
+                        loadMoreButton.remove();
+                    } else {
+                        loadMoreButton.setAttribute('data-url', data.next_page_url);
+                    }
+                })
+                .catch(error => console.error('Error loading more restaurants:', error));
+            }
+        });
+    });
+</script>
     <script>
         var restaurants = @json($mapRestaurants);
         var mapLat = '{{ Request::get('lat ') }}';
