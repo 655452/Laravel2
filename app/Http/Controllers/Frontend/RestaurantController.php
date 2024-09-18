@@ -49,8 +49,13 @@ class RestaurantController extends FrontendController
         if (session('session_cart_restaurant_id') !=  $this->restaurant->id) {
             session()->forget('cart');
         }
-        Log::info('Restaurant Owner Username: '.$restaurant->user_id);
         
+        
+    // Load the user (owner) relationship eagerly
+    $restaurantWithOwner = $restaurant->load('user');  // Eager load the user
+
+         // Log the restaurant owner information
+    Log::info('Restaurant Owner Username: ' . json_encode($restaurantWithOwner->user));
        // log::info(UserController::show($restaurant->user_id));
         
 

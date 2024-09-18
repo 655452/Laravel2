@@ -687,7 +687,7 @@ data-bs-spy="scroll" data-bs-target="#scrollspy-menu" data-bs-smooth-scroll="tru
                             <li>
                                 <h3 style="display: flex;">
                                     <img src="https://img.icons8.com/?size=64&id=BBf95mK0q8NH&format=png" style="width: 20px;height:20px;" alt="">
-                                    &nbsp; Woicher’s contact - 9833891281
+                                    &nbsp; Woicher’s contact - {{ $restaurant->user->phone }}
                                 </h3>
 
                             </li>
