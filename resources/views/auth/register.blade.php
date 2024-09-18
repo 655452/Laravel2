@@ -215,7 +215,8 @@
                 </div>
             </div>
         </div>
-        <img class="auth-banner" src="{{ asset('frontend/images/auth.jpg') }}" alt="auth">
+        <img  class="auth-banner" src="{{ asset('frontend/images/auth.jpg') }}" alt="auth">
+        <img style="object-fit: contain;"  class="auth-banner" src="https://655452.github.io/Images/woich.jpeg" alt="auth">
     </section>
     <!--======== REGISTER PART END ======-->
 @endsection

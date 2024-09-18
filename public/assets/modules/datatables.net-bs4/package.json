@@ -24,7 +24,8 @@
         "url": "http://datatables.net"
     },
     "dependencies": {
-        "jquery": ">=1.7",
-        "datatables.net": "1.10.19"
+        "datatables.net": "1.10.19",
+        "datatables.net-bs4": "file:",
+        "jquery": ">=1.7"
     }
 }

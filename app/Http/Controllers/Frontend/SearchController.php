@@ -13,11 +13,12 @@ use App\Enums\DeliveryStatus;
 use Illuminate\Support\Facades\DB;
 use App\Http\Services\RatingsService;
 use App\Http\Controllers\FrontendController;
+use Illuminate\Support\Facades\Log; // for logging
 
 class SearchController extends FrontendController
 {
-
     protected $expeditionMap;
+
     public function __construct(protected RatingsService $ratingService)
     {
         parent::__construct();
@@ -29,13 +30,25 @@ class SearchController extends FrontendController
         ];
     }
 
-    public function filter(Request $request){ 
+    public function filter(Request $request)
+    { 
         $expedition = $request->get('expedition');
+        
+        // Log request parameters
+        Log::info('Restaurant search initiated.', [
+            'username' => $request->get('username'),
+            'lat' => $request->get('lat'),
+            'long' => $request->get('long'),
+            'distance' => $request->get('distance'),
+            'query' => $request->get('query'),
+            'cuisines' => $request->get('cuisines'),
+        ]);
 
         $restaurants = Restaurant::query()
-            ->with('media')
+            ->with('media', 'ratings') // Load media and ratings relationships
             ->where(['status' => Status::ACTIVE, 'current_status' => Status::ACTIVE]);
 
+        // Filter by cuisinesas
         if (!blank($request->get('cuisines'))) {
             $cuisineSlugs = $request->get('cuisines');
             $restaurants->whereHas('cuisines', function ($query) use ($cuisineSlugs) {
@@ -43,29 +56,38 @@ class SearchController extends FrontendController
             });
         }
 
+        // Filter by search query
         if (!blank($request->get('query'))) {
             $query = $request->get('query');
             $restaurants->where('name', 'like', '%' . $query . '%');
         }
 
+        // Filter by expedition type (delivery, pickup, table)
         if (array_key_exists($expedition, $this->expeditionMap)) {
             $statusColumn = $expedition . '_status';
             $status = $this->expeditionMap[$expedition];
             $restaurants->where($statusColumn, $status);
         }
 
-        if(!blank($request->get('lat')) && !blank($request->get('long'))) {
-            $restaurants->where(['status' => 5])
-            ->select(DB::raw('*, ( 6367 * acos( cos( radians('.$request->get('lat').') ) * cos( radians( `lat` ) ) * cos( radians( `long` ) - radians('.$request->get('long').') ) + sin( radians('.$request->get('lat').') ) * sin( radians( `lat` ) ) ) ) AS distance'))
-                ->having('distance', '<', $request->get('distance') ?? setting('geolocation_distance_radius'))
+        // Filter by location (latitude and longitude) and distance
+        if (!blank($request->get('lat')) && !blank($request->get('long'))) {
+            $lat = $request->get('lat');
+            $long = $request->get('long');
+            $distance = $request->get('distance') ?? setting('geolocation_distance_radius');
+
+            $restaurants->select(DB::raw('*, ( 6367 * acos( cos( radians(' . $lat . ') ) * cos( radians( `lat` ) ) * cos( radians( `long` ) - radians(' . $long . ') ) + sin( radians(' . $lat . ') ) * sin( radians( `lat` ) ) ) ) AS distance'))
+                ->having('distance', '<', $distance)
                 ->orderBy('distance');
         }
 
-        
+        // Sort by ratings
+        // $restaurants = $restaurants->leftJoin('ratings', 'restaurants.id', '=', 'ratings.restaurant_id')
+        //     ->select('restaurants.*', DB::raw('AVG(ratings.rating) as avg_rating'))
+        //     ->groupBy('restaurants.id')
+        //     ->orderBy('avg_rating', 'desc'); // Sort by average rating
 
-        $mapRestaurants = [];
-
-        $mapRestaurants = $restaurants->with('media')->get()->map(function ($restaurant) {
+        // Get restaurants for the map
+        $mapRestaurants = $restaurants->get()->map(function ($restaurant) {
             return [
                 'name' => $restaurant->name,
                 'slug' => $restaurant->slug,
@@ -75,29 +97,27 @@ class SearchController extends FrontendController
                 'long' => $restaurant->long,
                 'address' => $restaurant->address,
                 'url' => route('restaurant.show', [$restaurant]),
+                // 'avg_rating' => $restaurant->avg_rating, // Include rating
             ];
         })->all();
 
-        // for pagination
+        // Paginate the results
         $restaurants = $restaurants->paginate(8);
 
-        
+        // Pass data to the view
         $this->data['cuisines'] = Cuisine::select('id', 'name', 'slug')->orderBy('name', 'desc')->get();
-        // $this->data['restaurants'] = $restaurants->paginate(8)->appends(request()->query());
         $this->data['restaurants'] = $restaurants;
         $this->data['mapRestaurants'] = $mapRestaurants;
         $this->data['current_data'] = Carbon::now()->format('H:i:s');
 
-        // Define the current time data
-        $current_data = Carbon::now()->format('H:i:s');
         // If the request is AJAX, return JSON response for load more functionality
         if ($request->ajax()) {
-            // dd($request);
             return response()->json([
-                'restaurants' => view('frontend.restaurant.search-restaurant', compact('restaurants','current_data'))->render(),
+                'restaurants' => view('frontend.restaurant.search-restaurant', compact('restaurants', 'current_data'))->render(),
                 'next_page_url' => $restaurants->nextPageUrl()
             ]);
         }
+
         return view('frontend.search', $this->data);
     }
 }

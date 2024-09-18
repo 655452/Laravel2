@@ -17,7 +17,7 @@
             <div class="filter-group" id="filter">
                 <div class="swiper filter-swiper">
                     <nav class="swiper-wrapper d-flex flex-wrap">
-                        <a onclick="expedition('all')" class="expedition me-md-3 me-sm-2 me-0" data-filter=".delivery-filter">
+                       <!--  <a onclick="expedition('all')" class="expedition me-md-3 me-sm-2 me-0" data-filter=".delivery-filter">
                             <button type="button" class="swiper-slide @if (Request::get('expedition') == 'all' || Request::get('expedition') == '') active @endif">
                                 <i class="fa-solid fa-check-double"></i>
                                 <span>{{ __('frontend.all') }} </span>
@@ -25,26 +25,26 @@
                         </a>
                         <a onclick="expedition('delivery')" class="expedition me-md-3 me-sm-2 me-0" data-filter=".delivery-filter">
                             <button type="button" class="swiper-slide  @if (Request::get('expedition') == 'delivery') active @endif">
-                                <!-- <i class="fa-solid fa-person-biking"></i> -->
-                                <!-- changes -->
+                                <i class="fa-solid fa-person-biking"></i>
+                               
                                 <span>Organic</span>
-                                <!-- <span>{{ __('frontend.delivery') }}</span> -->
+                                <span>{{ __('frontend.delivery') }}</span>
                             </button>
                         </a>
                         <a onclick="expedition('pickup')" class="expedition me-md-3 me-sm-2 me-0" data-filter=".delivery-filter">
                             <button type="button" class="swiper-slide  @if (Request::get('expedition') == 'pickup') active @endif">
-                                <!-- <i class="fa-solid fa-burger"></i> -->
+                                <i class="fa-solid fa-burger"></i>
                                 <span>Healthy</span>
-                                <!-- <span>{{ __('frontend.takeaway') }} </span> -->
+                                <span>{{ __('frontend.takeaway') }} </span>
                             </button>
                         </a>
                         <a onclick="expedition('table')" class="expedition me-md-3 me-sm-2 me-0" data-filter=".delivery-filter">
                             <button type="button" class="swiper-slide @if (Request::get('expedition') == 'table') active @endif">
-                                <!-- <i class="fa-solid fa-border-all"></i> -->
-                                <!-- <span> {{ __('frontend.table') }} </span> -->
+                                <i class="fa-solid fa-border-all"></i>
+                                <span> {{ __('frontend.table') }} </span>
                                  <span>Kids Friendly</span>
                             </button>
-                        </a>
+                        </a> -->
                     </nav>
                 </div>
 
@@ -103,217 +103,19 @@
                                                         <!-- Buttons -->
                                                         <div class="panel-buttons">
                                                             <button class="panel-cancel">{{ __('frontend.cancel') }}</button>
-                                                            <button class="panel-apply">{{ __('frontend.apply') }}</button>
+                                                            <button id="catApply" class="panel-apply">{{ __('frontend.apply') }}</button>
+                                                         
                                                         </div>
+                             
 
 
-
-                    <!-- <div class="row checkNew">
-                        <div class="col-xl-6">
-                            <div class="form-group">                
-                                <input type="checkbox" multiple>
-                                <label>Nutri & Organics Food</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Snacks (Munchies)</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Sweet Tooth</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Artisanal Foods</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Wholesome Meal</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Party Food</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Pickles Tickle</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Yogis</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Zumba & Aerobics</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Dance</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Stronger Kids</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Artsy & Craftsy</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Musical Minds</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Floristry & Greens</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Pen Craft</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Kids Workshops</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Adults Workshops</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Personalized Gifting</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Kids Gifting</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Corporate & Seasonal Gifting</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Theme Parties</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Decor</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Food</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Gifts</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Offline Classes</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Online Classes</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Decor & Utilities</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Divine Decor</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Seasonal Decor</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Organics</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Palmistry</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Tarot</label>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="form-group">
-                                <input type="checkbox" multiple>
-                                <label>Healing</label>
-                            </div>
-                        </div>
-                    </div> -->
 
                                     <!-- L2 drop down ends  Here -->
                                 </ul>
                             </div>
                         </div>
-                        <!-- <div class="filter-select">
+                        <!-- radius filter section starts -->
+                        <div class="filter-select">
                             <span class="custonDropdown d-flex justify-content-center">
                                 {{ __('frontend.distance_radius') }}
                             </span>
@@ -335,7 +137,7 @@
                                     <button class="panel-apply">{{ __('frontend.apply') }}</button>
                                 </div>
                             </ul>
-                        </div> -->
+                        </div>
 
                         <div class="filter-button">
                             <button type="button">
@@ -379,6 +181,18 @@
 
 @push('js')
     <!-- Push Js = -->
+    <!-- <script>
+    document.getElementById("catApply").addEventListener("click", (event) => {
+        // Prevent form from submitting immediately
+        event.preventDefault();
+
+        // Clear the search bar text
+        document.getElementById("search").value = "";
+
+        // Optionally, submit the form after clearing the search bar
+        document.getElementById("myForm").submit();
+    });
+</script> -->
     <script>
     document.addEventListener('DOMContentLoaded', function () {
         const loadMoreButton = document.getElementById('load-more');
@@ -407,6 +221,7 @@
             }
         });
     });
+    
 </script>
     <script>
         var restaurants = @json($mapRestaurants);

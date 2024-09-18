@@ -35,7 +35,15 @@
                                 @endif
                             @endforeach
                         @endif
-                        
+                        <!--   only for  privacy  policy -->
+                        <a href="http://127.0.0.1:8000/page/privacy">privacy</a>
+                        <!-- @if (!blank($footermenus))
+                            @foreach ($footermenus as $footer_menu)
+                                @if ($footer_menu->footer_menu_section_id == \App\Enums\FooterMenuSection::SERVICES)
+                                    <a href="{{ route('page', $footer_menu) }}">{{ $footer_menu->title }}</a>
+                                @endif
+                            @endforeach
+                        @endif -->
                     </nav>
                 </div>
                 

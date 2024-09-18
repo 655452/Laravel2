@@ -222,6 +222,135 @@
 
 
 
+<!-- handpicked for you section -->
+
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .handpicked-section {
+            text-align: center;
+            padding: 20px;
+            width: 80%;
+        }
+        .handpicked-section h2 {
+            margin-bottom: 20px;
+            font-size: 48px;
+            font-weight: 700;
+            color: #333;
+        }
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(20vw, 1fr));
+            gap: 20px;
+            justify-content: center;
+            padding: 0 20px;
+        }
+        .category-item {
+            background-color: white;
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .category-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+        .category-item img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .category-item p {
+            font-size: 16px;
+            font-weight: bold;
+            color: #555;
+            margin: 0;
+        }
+
+        /* Mobile responsiveness */
+        @media only screen and (max-width: 768px) {
+            .handpicked-section {
+                width: 100%;
+            }
+            .categories {
+                grid-template-columns: repeat(auto-fill, minmax(30vw, 1fr));
+        gap: 10px;
+            }
+            .category-item img {
+                width: 100px;
+                height: 100px;
+            }
+            .category-item p {
+                font-size: 14px;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .handpicked-section h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
+
+<center>
+<div class="handpicked-section">
+    <h2>Handpicked for you</h2>
+    <div class="categories">
+        <div class="category-item">
+        <a href="{{ route('collection')}}">
+            <img src="https://media.istockphoto.com/id/585298026/photo/raksha-bandhan-rakhi.jpg?s=612x612&w=0&k=20&c=EdPkTThnKmYTUF9uNBogPJRqbZ1kahbbzFFeKt-ApTI=" alt="Rakhi">
+            <p>Rakhi</p>
+            </a>
+        </div>
+        <div class="category-item">
+            
+        <a href="{{ route('collection')}}">
+            <img src="https://c4.wallpaperflare.com/wallpaper/949/140/837/religious-diwali-candle-hd-wallpaper-preview.jpg" alt="Diwali">
+            <p>Diwali</p>
+        </a>
+        </div>
+        <div class="category-item">
+            
+        <a href="{{ route('collection')}}">
+            <img src="https://ayuskamarishikesh.com/wp-content/uploads/2020/10/ed009c8cc67247ab8ca7c237b564f6c0.jpg" alt="Dussehra">
+            <p>Dussehra</p>
+        </a>
+        </div>
+        <div class="category-item">
+            
+        <a href="{{ route('collection')}}">
+            <img src="https://t3.ftcdn.net/jpg/06/32/65/78/360_F_632657852_a2AlJTD4454QxUHICo2P0Z8UHQiO1LBC.jpg" alt="Ganpati">
+            <p>Ganpati</p>
+        </a>
+        </div>
+        <div class="category-item">
+            
+        <a href="{{ route('collection')}}">
+            <img src="https://i1.wp.com/sociallover.net/wp-content/uploads/2019/09/Happy-Navratri-wishes.png?fit=1080%2C1080" alt="Navratri">
+            <p>Navratri</p>
+        </a>
+        </div>
+        <div class="category-item">
+            
+        <a href="{{ route('collection')}}">
+            <img src="https://t3.ftcdn.net/jpg/03/14/12/14/360_F_314121468_fATtBT8FHeYs9iLAegmI5FTrDpU6cRB8.jpg" alt="Makar Sankranti">
+            <p>Makar Sankranti</p>
+        </a>        
+    </div>
+    </div>
+</div>
+</center>
+
+
+<!-- end of  handpicked for you section -->
 
 
     <!--========= Cusines PART START ========-->

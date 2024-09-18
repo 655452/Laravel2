@@ -32,6 +32,9 @@ use App\Http\Controllers\Admin\ComplaintController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UpdateAppController;
 use App\Http\Controllers\Frontend\SearchController;
+// collection
+use App\Http\Controllers\Frontend\CollectionPageController;
+
 use App\Http\Controllers\Frontend\SocialController;
 use App\Http\Controllers\WebNotificationController;
 use App\Http\Controllers\Admin\Auth\LoginController;
@@ -83,6 +86,9 @@ Route::group(['prefix' => 'install', 'as' => 'LaravelInstaller::', 'middleware' 
 Route::group(['middleware' => ['installed', 'license-activate']], function () {
     Route::get('/home',                                     [HomeController::class, 'index'])->name('home');
     Route::get('/',                                         [HomeController::class, 'index'])->name('home');
+    // for  collection page
+    Route::get('collection',                   [CollectionPageController::class, 'show'])->name('collection');
+    
     Route::get('restaurant/{restaurant}',                   [RestaurantController::class, 'show'])->name('restaurant.show');
     Route::post('restaurant/ratings',                       [RestaurantController::class, 'Ratings'])->name('restaurant.ratings-update')->middleware('auth');
     Route::post('restaurant/Itemratings',                       [RestaurantController::class, 'ItemRatings'])->name('restaurant.Itemratings-update')->middleware('auth');

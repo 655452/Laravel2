@@ -23,9 +23,10 @@
         "url": "http://datatables.net"
     },
     "dependencies": {
-        "jquery": ">=1.7",
         "datatables.net-bs4": "^1.10.15",
-        "datatables.net-select": "1.3.0"
+        "datatables.net-select": "1.3.0",
+        "datatables.net-select-bs4": "file:",
+        "jquery": ">=1.7"
     },
     "style": "css/select.bootstrap4.css"
 }

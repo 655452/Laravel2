@@ -1,9 +1,12 @@
 $(document).ready(function () {
     $(".custonDropdown").click(function () {
+        
         $(this).siblings().toggleClass('active');
     });
 
     $(".panel-apply").click(function () {
+        
+        console.log( document.getElementById("search").value)
         $(this).closest(".cDrop").removeClass("active");
     });
 });

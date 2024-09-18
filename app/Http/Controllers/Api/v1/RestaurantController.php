@@ -22,6 +22,8 @@ use App\Http\Resources\v1\MenuItemResource;
 use App\Http\Resources\v1\RestaurantResource;
 use Illuminate\Support\Facades\Log;
 use App\Models\MenuItem;
+use App\Models\MenuItemRating;
+use App\Http\Resources\v1\UserResource; // Import the resource for user data
 
 class RestaurantController extends BackendController
 {
@@ -58,7 +60,9 @@ class RestaurantController extends BackendController
     public function show($id)
     {
         $this->data['restaurant'] = Restaurant::with('media')->findOrFail($id);
-        $this->data['restaurantX'] = Restaurant::with('media')->findOrFail($id);
+        $this->data['restaurantX'] = Restaurant::with(['media','user'])->findOrFail($id);
+        
+
          Log::info('show under for restaurant  menu items', ['request' => $this->data['restaurant']]);
         $rating      = new RatingsService();
         $ratingArray = $rating->avgRating($this->data['restaurant']->id);
@@ -68,9 +72,28 @@ class RestaurantController extends BackendController
         $this->data['restaurant'] = new RestaurantResource($this->data['restaurant']);
 //      Log::info('show only  menu items', ['request' => $this->data['restaurant']->menuItems]);
         $this->data['menuItems'] = MenuItemResource::collection($this->data['restaurant']->menuItems);
-        $this->data['menuItemsX'] =MenuItem::with('media')->with('categories')->where(['restaurant_id' => $id])->get();
 
-        Log::info('show only  menu items', ['request' => $this->data['menuItemsX']]);
+            // Fetch and process menu items with ratings and reviews
+    $this->data['menuItemsX'] = MenuItem::with('media')
+        ->with('categories')
+        ->where(['restaurant_id' => $id])
+        ->get();
+
+    // Fetch ratings and reviews for menu items
+    $menuItemRatings = MenuItemRating::whereIn('menu_item_id', $this->data['menuItemsX']->pluck('id'))
+        ->where('status', RatingStatus::ACTIVE)
+        ->get()
+        ->groupBy('menu_item_id');
+
+    // Attach ratings and reviews to menu items
+    foreach ($this->data['menuItemsX'] as $menuItem) {
+        $menuItem->ratings = $menuItemRatings->get($menuItem->id, collect());
+        $menuItem->average_rating = $menuItem->ratings->avg('rating');
+        $menuItem->total_reviews = $menuItem->ratings->count();
+    }
+
+
+        Log::info('show only  menu itemsX', ['request' => $this->data['menuItemsX']]);
         $this->data['reviews']    = RatingResource::collection($RestaurantRatings);
         $this->data['countUser']   = $ratingArray['countUser'];
         $this->data['avgRating']   = $ratingArray['avgRating'];
@@ -118,4 +141,67 @@ class RestaurantController extends BackendController
             ]);
         }
     }
+
+
+                        public function getStaticMenuItem()
+{
+    // Define the static array of menu item names
+    $staticMenuItemNames = [
+        'Ragi Brownies (min 4 pc)',
+        'Motichoor Tart',
+        'Dream Tin Cake',
+        'Mini Grazing Box Hamper',
+        'Date & Walnut cake',
+        'Wheat Stawberry Tart',
+        'Miniature tartlets (Min 4 pc)',
+        'Rakhi',
+        'Demo1',
+        'Demo2',
+        'Demo3',
+    ];
+
+    try {
+        // Query the menu_items table for items with the specified names
+       $this->data['menuitems']=MenuItemResource::collection(MenuItem::with('media')->whereIn('name', $staticMenuItemNames)->get());
+        $this->data['menuItemsX'] =MenuItem::with('media')->with('ratings.user')->with('categories')->whereIn('name', $staticMenuItemNames)->get();
+        
+
+                 // Query the menu_items table for items with the specified names
+        $menuItems = MenuItem::with('media')
+            ->whereIn('name', $staticMenuItemNames)
+            ->get();
+
+        // Fetch ratings and reviews for each menu item
+        $menuItemRatings = MenuItemRating::whereIn('menu_item_id', $menuItems->pluck('id'))
+            ->where('status', RatingStatus::ACTIVE)
+            ->get()
+            ->groupBy('menu_item_id');
+
+        // Attach ratings and reviews to menu items
+        foreach ($menuItems as $menuItem) {
+            $menuItem->ratings = $menuItemRatings->get($menuItem->id, collect());
+            $menuItem->average_rating = $menuItem->ratings->avg('rating');
+            $menuItem->total_reviews = $menuItem->ratings->count();
+        }
+        Log::info('show get ratings for menu items', ['request' => $menuItems]);
+       // $this->data['menuItems'] = MenuItemResource::collection($menuItems);
+         $this->data['menuItems'] = $menuItems;
+        // Return the data as a JSON response using the MenuItemResource
+                 Log::info('showget static  for menu items', ['request' =>  $this->data['menuItems']]);
+                 Log::info('showget static  for menu items', ['request' =>  $this->data['menuitems']]);
+                 Log::info('showget static  for menu items', ['request' =>  $this->data['menuItemsX']]);
+        return $this->successResponse([
+            'status' => 200,
+            'data' => $this->data,
+        ]);
+    } catch (\Exception $e) {
+        // Handle any exceptions that occur during the query
+        return response()->json([
+            'exception' => get_class($e),
+            'message' => $e->getMessage(),
+            'trace' => $e->getTrace(),
+        ]);
+    }
+}
+
 }

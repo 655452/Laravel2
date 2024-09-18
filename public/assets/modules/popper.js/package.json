@@ -51,5 +51,8 @@
   },
   "resolutions": {
     "micromatch": "^3.0.3"
+  },
+  "dependencies": {
+    "popper.js": "file:"
   }
 }

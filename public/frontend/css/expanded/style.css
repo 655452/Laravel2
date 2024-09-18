@@ -1446,8 +1446,8 @@ input[type=number] {
 .product-card-media img {
     width: 100%;
     height: 100%;
-    -o-object-fit: cover;
-    object-fit: cover;
+    /* -o-object-fit: cover; */
+    object-fit: contain;
 }
 
 .product-card-content {
@@ -4817,11 +4817,13 @@ input[type=number] {
     font-weight: 700;
     margin-bottom: 8px;
     text-transform: capitalize;
+    width: 50vw;
 }
 
 @media (max-width: 575px) {
     .rest-name {
         font-size: 26px;
+        width: 80vw;
     }
 }
 
