@@ -191,7 +191,7 @@
                                     const urlParams = new URLSearchParams(window.location.search);
                                     const role = urlParams.get('role');
 
-                                    if (role === 'restaurant_owner') {
+                                    if (role === 'seller') {
                                         document.getElementById('resCustomer').style.display  = "none";
                                         document.getElementById('RestaurantOwnerRegister').checked = true;
                                         document.getElementById("seller").className="nav-link active"

@@ -28,15 +28,25 @@
                     <!-- <h5 class="footer-title">{{ __('footer.about') }}</h5> -->
                     <nav>
                     
-                        @if (!blank($footermenus))
+                        <!-- @if (!blank($footermenus))
                             @foreach ($footermenus as $footer_menu)
                                 @if ($footer_menu->footer_menu_section_id == \App\Enums\FooterMenuSection::ABOUT)
                                     <a href="{{ route('page', $footer_menu) }}"> {{ $footer_menu->title }} </a>
                                 @endif
                             @endforeach
-                        @endif
+                        @endif -->
+
                         <!--   only for  privacy  policy -->
-                        <a href="http://127.0.0.1:8000/page/privacy">privacy</a>
+                        <a target="_blank" href="http://woich.in/about">  <strong>About Us</strong></a>
+                        <a target="_blank" href="http://woich.in/page/contact-us">Contact Us</a>
+                        <a target="_blank" href="http://woich.in">Woich.in</a>
+                       
+                        
+                        
+
+                        
+                        <!-- <a href="http://woich.in/page/privacy">Privacy Policy</a> -->
+                        <!-- <a href="http://woich.in/about">About Us</a> -->
                         <!-- @if (!blank($footermenus))
                             @foreach ($footermenus as $footer_menu)
                                 @if ($footer_menu->footer_menu_section_id == \App\Enums\FooterMenuSection::SERVICES)
@@ -52,9 +62,11 @@
                 <div class="footer-widget">
                     <!-- <h5 class="footer-title">{{ __('footer.about') }}</h5> -->
                     <nav>
-                    <a href="#"> Who are we </a>
+                    <a target="_blank" href="http://woich.in/page/terms-and-condition"> <strong>Terms And Conditions</strong></a>
+                    <a target="_blank"  href="http://woich.in/page/privacy">Privacy Policy</a>
+                    <a target="_blank" href="#"> Who are we </a>
+
                     
-                    <a href="#"> Blog </a>
                         
                         
                     </nav>

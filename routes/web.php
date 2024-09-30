@@ -42,6 +42,8 @@ use App\Http\Controllers\Admin\CollectionController;
 use App\Http\Controllers\Frontend\AccountController;
 use App\Http\Controllers\Frontend\AddressController;
 use App\Http\Controllers\Frontend\ContactController;
+// About  Controller
+use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\PrivacyController;
 use App\Http\Controllers\Admin\DeliveryBoyController;
 use App\Http\Controllers\Admin\TransactionController;
@@ -88,6 +90,7 @@ Route::group(['middleware' => ['installed', 'license-activate']], function () {
     Route::get('/',                                         [HomeController::class, 'index'])->name('home');
     // for  collection page
     Route::get('collection',                   [CollectionPageController::class, 'show'])->name('collection');
+    Route::get('about',                   [AboutController::class, 'aboutUs'])->name('about');
     
     Route::get('restaurant/{restaurant}',                   [RestaurantController::class, 'show'])->name('restaurant.show');
     Route::post('restaurant/ratings',                       [RestaurantController::class, 'Ratings'])->name('restaurant.ratings-update')->middleware('auth');
@@ -140,6 +143,7 @@ Route::group(['middleware' => ['installed', 'license-activate']], function () {
     Route::get('/{shop}/products/search',                   [SearchController::class, 'filterProduct'])->name('search-product');
     Route::get('/privacy',                                  [PrivacyController::class])->name('privacy');
     Route::get('/terms',                                    [TermController::class])->name('terms');
+    
     Route::get('/contact',                                  [ContactController::class])->name('contact');
     Route::get('lang/{locale}',                             [LocalizationController::class, 'index'])->name('lang.index');
     Route::post('/contact',                                  [ContactController::class, 'store'])->name('contact.store');

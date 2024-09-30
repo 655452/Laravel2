@@ -326,7 +326,7 @@ data-bs-spy="scroll" data-bs-target="#scrollspy-menu" data-bs-smooth-scroll="tru
                                         </div>
                                         <!-- <iframe style="height: 90vh; width:90%;" src="http://127.0.0.1:8000/frontend/images/food_reciepes.pdf#toolbar=0" allow="fullscreen"><span>Catalog</span></iframe> -->
                                         <script>
-                                            console.log("restaurant logo /pdf {{ $restaurant}}")
+                                            console.log("restaurant logo /pdf {{  $restaurant->image}}")
                                         </script>
                                         <!-- <object data="{{ $restaurant->logo }}" style="width: 100%; height: calc(100vh - 50px);">
                     <span>Catalog</span>
@@ -341,18 +341,59 @@ data-bs-spy="scroll" data-bs-target="#scrollspy-menu" data-bs-smooth-scroll="tru
                                                         <span>Catalog</span>
                                                     </object>
                                                     @endif -->
-                                                    @foreach($restaurant->media as $media)
-                                                    @if($media['mime_type'] == 'application/pdf')
-                                                    <div class="pdf-item" style="width: 100%; height: calc(100vh - 50px);">
-                                                        <object data="{{ $media['original_url'] }}" type="application/pdf" style="width: 100%; height: 100%;">
-                                                            <iframe src="{{ $media['original_url'] }}" style="width: 100%; height: 100%;" frameborder="0">
-                                                                <p>Your browser does not support PDFs. <a href="{{ $media['original_url'] }}">Download the PDF</a>.</p>
-                                                            </iframe>
-                                                        </object>
-                                                    </div>
-                                                    @endif
+                                                    
+                            @php
+                            // Full URL from the restaurant image
+                            $fullUrl = $restaurant->image;
 
-                                                    @endforeach
+                            // Use parse_url to break the URL into components
+                            $path = parse_url($fullUrl, PHP_URL_PATH); 
+
+                            // Find the position of "storage/"
+                            $storagePosition = strpos($path, 'storage/');
+
+                            if ($storagePosition !== false) {
+                                // Extract the part of the path after "storage/"
+                                $afterStorage = substr($path, $storagePosition + strlen('storage/')); // Get everything after "storage/"
+                            
+                                // Split by '/' and get the first part
+                                $dynamicPart = explode('/', $afterStorage)[0]; // This will give you '124'
+                            } else {
+                                $dynamicPart = null; // Handle case where storage is not found
+                            }
+                            @endphp
+
+                            @foreach($restaurant->media as $media)
+                                @php
+                                // Extract the path from the media original URL
+                                $mediaPath = parse_url($media['original_url'], PHP_URL_PATH);
+                                $mediaStoragePosition = strpos($mediaPath, 'storage/');
+
+                                // Check if media URL matches the "storage/dynamicPart"
+                                if ($mediaStoragePosition !== false) {
+                                    $mediaAfterStorage = substr($mediaPath, $mediaStoragePosition + strlen('storage/'));
+                                    $mediaDynamicPart = explode('/', $mediaAfterStorage)[0]; // Get the first part after storage
+                                
+                                    // Skip if both parts match
+                                    if ($mediaDynamicPart == $dynamicPart) {
+                                        continue; // Skip this media item
+                                    }
+                                }
+                                @endphp
+                            
+                                <script>
+                                    console.log("Dynamic Part: {{$dynamicPart}}");
+                                </script>
+
+                                @if($media['mime_type'] == 'application/pdf')
+                        <object class="pdf-item" data="{{ $media['original_url'] }}"  style="width: 100%; height:  calc(100vh - 50px);">
+                                <p>Your browser does not support PDFs. <a href="{{ $media['original_url'] }}">Download the PDF</a>.</p>
+                        </object>
+                                @else
+                                    <img src="{{ $media['original_url'] }}" alt="Media Image" style="width: 100%; height: auto;">
+                                @endif
+                            @endforeach
+
                                                 </div>
                                             </div>
                                             <button class="next" onclick="moveSlider(1)">&#10095;</button>

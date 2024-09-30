@@ -20,7 +20,6 @@ class CollectionPageController extends Controller
         $selectedCategory = $request->input('category_id');
 
         // Define the specific menu items to display
-        // Define the specific menu items to display
             $specificMenuItems = [
                 'Mini Grazing Box Hamper',
                 'Date & Walnut cake',
@@ -42,7 +41,7 @@ class CollectionPageController extends Controller
                 'Math Foundation Class',
                 'Dysgraphia'
             ];
-            
+
 
 
         try {

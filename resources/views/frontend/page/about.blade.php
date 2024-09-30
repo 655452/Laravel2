@@ -3,11 +3,11 @@
 @section('main-content')
     <section class="terms">
         <div class="container">
-            <h3> {{ $page->title }} </h3>
+            <h3> PRIVACY POLICY </h3>
 
             <article>
-                <!-- {!! $page->description !!} -->
-                <strong>PRIVACY POLICY</strong>
+
+                      <!-- {!! $page->description !!} -->
 
 
 Our Privacy Policy was last updated on 12th August ‘24
@@ -64,75 +64,75 @@ Cookies: We use cookies, small text files that uniquely identify your browser an
 <br>
 <strong>USAGE OF DATA COLLECTED </strong>
 <br>
-3.1	We may collect, use or process your information including Personal Information and Sensitive Personal Data or Information for the following purposes: 
+3.1     We may collect, use or process your information including Personal Information and Sensitive Personal Data or Information for the following purposes: 
 <br>
-3.1.1	For creating and giving you access to your account on the Platform.
+3.1.1   For creating and giving you access to your account on the Platform.
 <br>
-3.1.2	To develop, deliver, process and improve our Platform, products, services, content in order to personalize and improve your experience.
+3.1.2   To develop, deliver, process and improve our Platform, products, services, content in order to personalize and improve your experience.
 <br>
-3.1.3	To inform you about our products, services, offers, updates, upcoming events, including providing you information in relation to order confirmations, invoices, technical notices, security alerts. 
+3.1.3   To inform you about our products, services, offers, updates, upcoming events, including providing you information in relation to order confirmations, invoices, technical notices, security alerts. 
 <br>
-3.1.4	For internal analytical and research purposes such as auditing, data analysis and research to improve our products, services and customer communications.
+3.1.4   For internal analytical and research purposes such as auditing, data analysis and research to improve our products, services and customer communications.
 <br>
-3.1.5	To meet any legal or regulatory requirement or comply with a request from any governmental or judicial authority. 
+3.1.5   To meet any legal or regulatory requirement or comply with a request from any governmental or judicial authority. 
 <br>
-3.1.6	To resolve any request, dispute, grievance or complaint raised by you in relation to your use of the Platform. 
+3.1.6   To resolve any request, dispute, grievance or complaint raised by you in relation to your use of the Platform. 
 <br>
-3.1.7	To detect or monitor any fraudulent or illegal activity on the Platform.
+3.1.7   To detect or monitor any fraudulent or illegal activity on the Platform.
 <br>
-<strong>4.	DISCLOSURE OF INFORMATION COLLECTED</strong>
+<strong>4.      DISCLOSURE OF INFORMATION COLLECTED</strong>
 <br>
 We may, from time to time, be required to disclose the information collected from you in following situations:
 <br>
-4.1.1	Third party service providers, to monitor and analyse the use of our service, for payment processing, to contact you;
-4.1.2	Law or judicial authority, deem it necessary in order to protect our rights or the rights of other Users, to prevent harm to persons or property, to fight fraud and credit risk;
-4.1.3	Business transfers, as a part of reorganization or a sale of the assets, division or transfer of a part or whole of us;
-4.1.4	Business Partner, to offer you certain products, services and/or promotions;
-4.1.5	Other Purpose, with your consent
+4.1.1   Third party service providers, to monitor and analyse the use of our service, for payment processing, to contact you;
+4.1.2   Law or judicial authority, deem it necessary in order to protect our rights or the rights of other Users, to prevent harm to persons or property, to fight fraud and credit risk;
+4.1.3   Business transfers, as a part of reorganization or a sale of the assets, division or transfer of a part or whole of us;
+4.1.4   Business Partner, to offer you certain products, services and/or promotions;
+4.1.5   Other Purpose, with your consent
 <br>
 
-<strong>5.	SECURITY</strong>
+<strong>5.      SECURITY</strong>
 <br>
-5.1	Your information is contained within secured networks and is only accessible by a limited number of authorized persons who have access rights to such systems or otherwise require such information for the purposes provided in this Privacy Policy. These authorized persons are also under an obligation to keep such information confidential.
+5.1     Your information is contained within secured networks and is only accessible by a limited number of authorized persons who have access rights to such systems or otherwise require such information for the purposes provided in this Privacy Policy. These authorized persons are also under an obligation to keep such information confidential.
 <br>
-5.3	Although we make best possible efforts to transmit and store all the information provided by you in a secure operating environment that is not open to public, you understand and acknowledge that there is no such thing as complete security and we do not guarantee that there will be no unintended disclosures of any information and potential security breaches. You agree not to hold us responsible for any breach of security or for any action of any third parties that receive your Personal Information or events that are beyond our reasonable control including, acts of government, computer hacking, unauthorized access to computer data and storage device, computer crashes, breach of security and encryption, etc.
+5.3     Although we make best possible efforts to transmit and store all the information provided by you in a secure operating environment that is not open to public, you understand and acknowledge that there is no such thing as complete security and we do not guarantee that there will be no unintended disclosures of any information and potential security breaches. You agree not to hold us responsible for any breach of security or for any action of any third parties that receive your Personal Information or events that are beyond our reasonable control including, acts of government, computer hacking, unauthorized access to computer data and storage device, computer crashes, breach of security and encryption, etc.
 <br>
-<strong>6.	COOKIES POLICY</strong>
+<strong>6.      COOKIES POLICY</strong>
 <br>
-6.1	Due to the communications standards on the Internet, when you visits, access or browse the 
+6.1     Due to the communications standards on the Internet, when you visits, access or browse the 
 Platform, we automatically receive the uniform resource locator of the site from which such you visit, access or browse the Platform, details of the website you visit on leaving the Platform, the internet protocol (“IP”) address of each user’s computer operating system, type of web browser the user is using, email patterns, and the name of the user’s internet service provider. This information is used solely to analyse overall user trends and to help us improve our services. Please note that the link between the user’s IP address and the user’s personally identifiable information is not shared with third parties without such user’s permission or except when required by law or to provide or facilitate the user with the services. 
 <br>
-6.2	Please note that cookies don't allow us to gain control of your computer in any way. They are strictly used to monitor which pages you find useful and which you do not so that we can provide a better experience for you.
+6.2     Please note that cookies don't allow us to gain control of your computer in any way. They are strictly used to monitor which pages you find useful and which you do not so that we can provide a better experience for you.
 <br>
-6.3	If you want to disable cookies, you can do it by accessing the settings of your internet browser.
+6.3     If you want to disable cookies, you can do it by accessing the settings of your internet browser.
 
 <br>
-<strong>7.	OPT-OUT POLICY</strong>
+<strong>7.      OPT-OUT POLICY</strong>
 <br>
-You have the right to opt-out of the sale of your Personal Information, Sensitive Personal Data or Information. Once We receive and confirm a verifiable consumer request from You, we will stop processing your information. To exercise Your right to opt-out, please contact us at ________________. 	
+You have the right to opt-out of the sale of your Personal Information, Sensitive Personal Data or Information. Once We receive and confirm a verifiable consumer request from You, we will stop processing your information. To exercise Your right to opt-out, please contact us at ________________. 
 <br>
-<strong>8.	RETENTION OF INFORMATION</strong> 
+<strong>8.      RETENTION OF INFORMATION</strong> 
 
 We will retain your information and any data for the period necessary to fulfil the purposes outlined in this Privacy Policy unless a longer retention period is required or permitted under the applicable law. 
 <br>
-<strong>9. 	MODIFICATION</strong>
+<strong>9.      MODIFICATION</strong>
 <br>
 
 We reserve the right to amend this Privacy Policy at any time. The Privacy Policy, as and when modified, shall be updated on the Platform. We encourage you to review this Privacy Policy whenever you visit our Platform to understand how your Personal Information is used.
 <br>
-<strong>10	GRIEVANCE REDRESSAL</strong>
+<strong>10      GRIEVANCE REDRESSAL</strong>
 <br>
 In case, you have any questions, grievance or complaints about this Privacy Policy, or the Platform, you may contact us at ___________
 <br>
-<strong>11.	GOVERNING LAW</strong>
+<strong>11.     GOVERNING LAW</strong>
 <br>
 The terms of this Privacy Policy shall be governed and construed in accordance with the laws of India. Any dispute regarding or arising out of this Privacy Policy shall be subject to the exclusive jurisdiction of the courts in Mumbai, Maharashtra.
 <br>
-<strong>12.	SEVERABILITY 	</strong>
+<strong>12.     SEVERABILITY    </strong>
 <br>
 Whenever possible, each section of this Privacy Policy shall be interpreted in a manner so as to be valid under applicable law. However, in the event any provision is held to be prohibited or invalid, such provision shall be ineffective only to the extent of such prohibition or invalidity, without invalidating the remainder of such provision or other remaining provisions of this Privacy Policy.
 <br>
-<strong>13.	FEEDBACK OR CONCERN</strong> 
+<strong>13.     FEEDBACK OR CONCERN</strong> 
 <br>
 If the User has any concerns, feedback, review or any request, the User is free to contact the at __________.
 

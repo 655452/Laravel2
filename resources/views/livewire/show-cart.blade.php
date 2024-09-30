@@ -73,7 +73,7 @@
                             </div>
                         @endif
 
-                        <div class="product-modal-group">
+                        <!-- <div class="product-modal-group">
                             <dl class="product-modal-subset">
                                 <dt>{{ __('frontend.special_instructions') }} </dt>
                                 <dd class="option">{{ __('frontend.optional') }}</dd>
@@ -81,7 +81,7 @@
                             <input class="product-modal-instruct WYSIWYG" name="instructions" cols="40"
                                 rows="3" id="instructions" wire:model.live="instructions" spellcheck="true"
                                 placeholder="Ex: Special Instructions">
-                        </div>
+                        </div> -->
 
                         <!-- <div class="product-modal-footer">
                             <div class="cart-counter">

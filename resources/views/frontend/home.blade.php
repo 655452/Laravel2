@@ -2,7 +2,6 @@
 @push('meta')
     <meta property="og:url" content="{{ route('home') }}" />
     <meta property="og:type" content="Woich" />
-    <meta property="og:title" content="{{ setting('banner_title') }}">
     <meta property="og:description" content="Explore top-rated attractions, activities and more">
     <meta property="og:image" content="{{ asset('images/' . setting('site_logo')) }}">
 @endpush
@@ -77,58 +76,124 @@
 
 
 
-<section class=" section-gap-90" style=" background-color: #f0f0f0;  margin:0px;padding:0px;">
+<section class=" section-gap-90" style=" background-color: #f0f0f0; margin:0px;padding:0px;">
+<style>
+@media (max-width: 867px) {
+        .carousel{
+            height:65vh
 
+        }
+        .carousel-inner{
+            margin: 0px;
+        }
+
+    }
+</style>
+<style>
+    
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.2);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        border-radius: 10px;
+        pointer-events: none;
+
+    }
+
+    .overlay2-1 {
+        top: 0;
+        height: 50%;
+    }
+
+    .overlay2-2 {
+       top: 50%;
+        height: 50%;
+    }
+
+    .show-overlay {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+
+</style>
 <section class="carousel">
-<div class="carousel-inner">
+    <div class="carousel-inner">
         <div class="cara">
-            <img src="https://media.istockphoto.com/id/506903162/photo/luxurious-villa-with-pool.jpg?s=612x612&w=0&k=20&c=Ek2P0DQ9nHQero4m9mdDyCVMVq3TLnXigxNPcZbgX2E=" alt="Image 1">
+            <img src="https://woich.in/frontend/main_banner/Image_003.png" alt="Image 1">
+            <div class="overlay">Luxurious Villa</div>
         </div>
         <div class="cara cara2">
-            <img src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 2 Upper">
-            <img src="https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 2 Lower">
+         
+            <img src="https://woich.in/frontend/main_banner/Image_001.png" alt="Image 2 Upper">
+            <div class="overlay overlay2-1">Beautiful Scenery Upper</div>
+         
+         
+                <img src="https://woich.in/frontend/main_banner/Image_002.png" alt="Image 2 Lower">
+            <div class="overlay overlay2-2">Beautiful Scenery Lower</div>
+         
         </div>
         <div class="cara">
-            <img src="https://images.pexels.com/photos/297984/pexels-photo-297984.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 1">
+            <img src="https://woich.in/frontend/main_banner/Image_004.png" alt="Image 1">
+            <div class="overlay">Mountain View</div>
         </div>
         <div class="cara cara2">
-            <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?fm=jpg&w=3000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZmVycmFyaSUyMGNhcnxlbnwwfHwwfHx8MA%3D%3D" alt="Image 2 Upper">
-            <img src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?cs=srgb&dl=pexels-mikebirdy-170811.jpg&fm=jpg" alt="Image 2 Lower">
+            <img src="https://woich.in/frontend/main_banner/Image_006.png" alt="Image 2 Upper">
+            <div class="overlay overlay2-1">Ferrari Car Upper</div>
+            <img src="https://woich.in/frontend/main_banner/Image_005.png" alt="Image 2 Lower">
+            <div class="overlay overlay2-2">Ferrari Car Lower</div>
         </div>
         <div class="cara">
-            <img src="https://images.pexels.com/photos/1320686/pexels-photo-1320686.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 1">
+            <img src="https://woich.in/frontend/main_banner/Image_003.png" alt="Image 1">
+            <div class="overlay">Beach View</div>
         </div>
         <div class="cara cara2">
-            <img src="https://images.pexels.com/photos/1134175/pexels-photo-1134175.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 2 Upper">
-            <img src="https://images.pexels.com/photos/32870/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600" alt="Image 2 Lower">
+            <img src="https://woich.in/frontend/main_banner/Image_007.png" alt="Image 2 Upper">
+            <div class="overlay overlay2-1">Cityscape Upper</div>
+            <img src="https://woich.in/frontend/main_banner/Image_008.png" alt="Image 2 Lower">
+            <div class="overlay overlay2-2">Cityscape Lower</div>
         </div>
         <div class="cara">
-            <img src="https://images.pexels.com/photos/5997993/pexels-photo-5997993.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 1">
+            <img src="https://woich.in/frontend/main_banner/Image_009.png" alt="Image 1">
+            <div class="overlay">Sunset</div>
         </div>
         <div class="cara cara2">
-            <img src="https://images.pexels.com/photos/5997994/pexels-photo-5997994.jpeg?auto=compress&cs=tinysrgb&w=600">
-            <img src="https://images.pexels.com/photos/259580/pexels-photo-259580.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 2 Lower">
+            <img src="https://woich.in/frontend/main_banner/Image_010.png">
+            <div class="overlay overlay2-1">Countryside Upper</div>
+            <img src="https://woich.in/frontend/main_banner/Image_011.png" alt="Image 2 Lower">
+            <div class="overlay overlay2-2">Countryside Lower</div>
         </div>
         <div class="cara">
-            <img src="https://images.pexels.com/photos/14464638/pexels-photo-14464638.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 1">
+            <img src="https://woich.in/frontend/main_banner/Image_012.png" alt="Image 1">
+            <div class="overlay">Forest</div>
         </div>
-
         <div class="cara cara2">
-            <img src="https://images.pexels.com/photos/12835315/pexels-photo-12835315.jpeg?auto=compress&cs=tinysrgb&w=600">
-            <img src="https://images.pexels.com/photos/17630869/pexels-photo-17630869/free-photo-of-timex-expedition-on-hand-of-groom.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 2 Lower">
+            <img src="https://woich.in/frontend/main_banner/Image_013.png">
+            <div class="overlay overlay2-1">Adventure Upper</div>
+            <img src="https://woich.in/frontend/main_banner/Image_014.png" alt="Image 2 Lower">
+            <div class="overlay overlay2-2">Adventure Lower</div>
         </div>
         <div class="cara">
-            <img src="https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 1">
+            <img src="https://woich.in/frontend/main_banner/Image_015.png"  alt="Image 1">
+            <div class="overlay">Night Sky</div>
         </div>
-
     </div>
 </section>
-
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const carouselInner = document.querySelector(".carousel-inner");
         const carouselItems = carouselInner.querySelectorAll(".cara");
-        const totalItems = carouselItems.length-6;
+        const totalItems = carouselItems.length - 7;
         const itemWidth = carouselItems[0].clientWidth;
         let currentIndex = 0;
 
@@ -137,9 +202,24 @@
             carouselInner.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
         }
 
-        setInterval(slideNext, 3000); // Change slide every 1 second
+        setInterval(slideNext, 3000); // Change slide every 3 seconds
+
+       // const images = document.querySelectorAll('.cara img, .cara2 img');
+     //   images.forEach(image => {
+        //    image.addEventListener('click', () => {
+          //      const overlay = image.nextElementSibling;
+            //    if (overlay) {
+            //        overlay.classList.toggle('show-overlay');
+              //  }
+            //    overlay.addEventListener("click",()=>{
+          //          overlay.classList.remove('show-overlay');
+        //        })
+      //      });
+    //    });
     });
 </script>
+
+
 </section>
 
 <!-- section styling -->
@@ -150,7 +230,7 @@
     <!--========  FEATURE PART START ========-->
     <section class="feature">
         <div class="container">
-            <span class="section-subtitle" style="margin-top: 2vh;"> {{ __('How to Order') }} </span>
+            <span class="section-subtitle" style="margin-top: 5vh;"> {{ __("How to order from our woicher's locally?") }} </span>
             <h2 class="section-title"> {{ __('It’s as easy as this ') }} </h2>
 
             <div class="swiper feature-swiper">
@@ -219,7 +299,6 @@
         </div>
     </section>
     <!--======== FEATURE PART END =======-->
-
 
 
 <!-- handpicked for you section -->
@@ -302,7 +381,7 @@
 
 <center>
 <div class="handpicked-section">
-    <h2>Handpicked for you</h2>
+    <h2>Trending around you</h2>
     <div class="categories">
         <div class="category-item">
         <a href="{{ route('collection')}}">
@@ -350,12 +429,11 @@
 </center>
 
 
-<!-- end of  handpicked for you section -->
 
 
     <!--========= Cusines PART START ========-->
     @if (!blank($bestSellingCuisines))
-        <section class="category section-gap-66">
+        <section class="category section-gap-66" style="margin-top: 30px;">
             <div class="container">
                 <!-- <h2 class="section-title borderd">{{ __('frontend.popular_cuisines') }} </h2> -->
                 <h2 class="section-title borderd">Popular Categories </h2>
@@ -383,14 +461,7 @@
     <!--=========  RESTAURANT PART START ========-->
 
     @if (!blank($bestSellingRestaurants))
-    <style>
-     @media (max-width: 767px) {
-    .section-gap-66 {
-        margin-bottom: 16px;
-        margin-top: 12vh;
-    }
-}
-   </style>
+
         <section class="restaurant section-gap-66"  >
             <div class="container">
                 <!-- <h2 class="section-title borderd">{{ __('frontend.most_visited_restaurants') }}</h2> -->
@@ -476,6 +547,9 @@
                         <div class="app-content">
                             <h2>{{ __('Download the app') }} </h2>
                             <p> {{ __('Click, sit back, and enjoy.') }}</p>
+                            <p style="
+                                height: 25px;
+                            "> </p>
 
                             <nav>
                                 @if (setting('android_app_link'))
@@ -483,18 +557,20 @@
                                         <img src="{{ asset('frontend/images/play.png') }}" alt="play">
                                     </a>
                                 @endif
+                                <!--
                                 @if (setting('ios_app_link'))
                                     <a href="{{ setting('ios_app_link') }}" target="_blank">
                                         <img src="{{ asset('frontend/images/app.png') }}" alt="">
                                     </a>
                                 @endif
+                                -->
                             </nav>
 
                         </div>
                     </div>
                     <div class="col-12 col-sm-6">
                         <div class="app-image">
-                            <img src="{{ asset('images/' . setting('app_mockup')) }}" alt="mockup">
+                            <img src="https://woich.in/frontend/main_banner/mockup.png" alt="mockup">
                         </div>
                     </div>
                 </div>

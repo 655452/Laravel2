@@ -74,7 +74,7 @@
         <h3>
         Email - 
 <a href="#" style="color: gray;">
-mugdha.khandekar@gmail.com</a>
+support@woich.in</a>
         </h3>
 <h3>
 Call us -<a style="color: gray;" href="#"> 9833891281</a></h3>
