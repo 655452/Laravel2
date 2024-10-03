@@ -14,12 +14,12 @@
                         @if (setting('instagram'))
                             <a href="{{ url(setting('instagram')) }}" class="fa-brands fa-instagram"></a>
                         @endif
-                        @if (setting('twitter'))
+                        <!-- @if (setting('twitter'))
                             <a href="{{ url(setting('twitter')) }}" class="fa-brands fa-twitter"></a>
                         @endif
                         @if (setting('youtube'))
                             <a href="{{ url(setting('youtube')) }}" class="fa-brands fa-youtube"></a>
-                        @endif
+                        @endif -->
                     </nav>
                 </div>
             </div>

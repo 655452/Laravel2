@@ -94,6 +94,7 @@ Route::group(['prefix' => 'v1'], function () {
 
     Route::get('/restaurant/index/{id?}/{status?}/{applied?}',  [RestaurantController::class, 'index']); //done
     Route::get('restaurant/{id}',                               [RestaurantController::class, 'show']); //done
+    Route::get('restaurantm',                               [RestaurantController::class, 'getStaticMenuItem']); //done
     Route::get('/search',                                       [SearchController::class, 'index']); //done
 
     Route::post('coupon',                                       [CouponController::class, 'apply']);

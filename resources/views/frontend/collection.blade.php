@@ -381,9 +381,10 @@
                                     <p style="background-color: #d4541b; border-radius:20px; width:20px; height:20px; text-align:center; color:white; font-weight:500;">{{ $menuItem->total_reviews }}</p>
                                 </div>
                             </p>
-                            @if($menuItem->unit_price > 0)
-    <p class="card-text">Price: <strong>₹{{ number_format($menuItem->unit_price, 2) }}</strong></p>
-@endif
+                        @if($menuItem->unit_price > 0)
+                            <p class="card-text">Price: <strong>₹{{ number_format($menuItem->unit_price, 2) }}</strong>
+                            </p>
+                        @endif
 
                         </div>
                         </a>
