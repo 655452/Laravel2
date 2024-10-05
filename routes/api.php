@@ -35,6 +35,10 @@ use App\Http\Controllers\Api\v1\WithdrawController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Api\v1\Auth\CodeCheckController;
+use App\Http\Controllers\Api\v1\Auth\ResetPasswordController;
+use App\Http\Controllers\Api\v1\Auth\ForgotPasswordController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -52,7 +56,12 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('social-login',                                 [SocialLoginController::class, 'action']);
     Route::post('logout',                                       [LogoutController::class, 'action']);
     Route::post('reg',                                          [RegisterController::class, 'action']);
+    // Password reset routes
+Route::post('password/email',  ForgotPasswordController::class);
+Route::post('password/code/check', CodeCheckController::class);
+Route::post('password/reset', ResetPasswordController::class);
     //push notification
+
     Route::post('fcm-subscribe',                                [PushNotificationController::class, 'fcmSubscribe']);
     Route::post('fcm-unsubscribe',                              [PushNotificationController::class, 'fcmUnsubscribe']);
 
