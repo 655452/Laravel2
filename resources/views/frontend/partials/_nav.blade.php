@@ -187,11 +187,17 @@
     <img src="https://cdn-icons-png.flaticon.com/128/1156/1156949.png" title="bell icons" alt="" style="max-width: 60%; max-height: 60%;">
 </a>
 <!-- whishlist icon added -->
+@if (Auth::guest())
+<a href="{{ route('login') }}" class="header-cart" id="cartLink" style="display: flex; justify-content: center; align-items: center; ">
+    <img src="https://cdn-icons-png.flaticon.com/128/9368/9368214.png" title="bell icons" alt="" style="max-width: 60%; max-height: 60%;">
+   
+</a>
+@else
 <a href="#" class="header-cart" id="cartLink" style="display: flex; justify-content: center; align-items: center; ">
     <img src="https://cdn-icons-png.flaticon.com/128/9368/9368214.png" title="bell icons" alt="" style="max-width: 60%; max-height: 60%;">
    
 </a>
-
+@endif
   <!-- cart icon commented -->
                     
                     <!-- <a href="{{ $href }}" class="header-cart" id="cartLink">

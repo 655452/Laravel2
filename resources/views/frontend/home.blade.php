@@ -4,6 +4,9 @@
     <meta property="og:type" content="Woich" />
     <meta property="og:description" content="Explore top-rated attractions, activities and more">
     <meta property="og:image" content="{{ asset('images/' . setting('site_logo')) }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 @endpush
 
 @section('main-content')
@@ -124,18 +127,21 @@
         opacity: 1;
         pointer-events: auto;
     }
+    .car{
+        transition: 1s ease-in-out;
+    }
 
 
 </style>
 <section class="carousel">
     <div class="carousel-inner">
         <div class="cara">
-            <img src="https://woich.in/frontend/main_banner/Image_003.png" alt="Image 1">
+            <img src="https://www.kidsbookcafe.com/wp-content/uploads/2023/07/Tinkle-Little-Shambu-Cover-243x400.jpg" alt="Image 1">
             <div class="overlay">Luxurious Villa</div>
         </div>
         <div class="cara cara2">
          
-            <img src="https://woich.in/frontend/main_banner/Image_001.png" alt="Image 2 Upper">
+            <img src="https://images2.naintrading.com/data/carpets/2x/207-18246-243x196-04.jpg" alt="Image 2 Upper">
             <div class="overlay overlay2-1">Beautiful Scenery Upper</div>
          
          
@@ -177,50 +183,51 @@
             <img src="https://woich.in/frontend/main_banner/Image_012.png" alt="Image 1">
             <div class="overlay">Forest</div>
         </div>
-        <div class="cara cara2">
-            <img src="https://woich.in/frontend/main_banner/Image_013.png">
-            <div class="overlay overlay2-1">Adventure Upper</div>
-            <img src="https://woich.in/frontend/main_banner/Image_014.png" alt="Image 2 Lower">
-            <div class="overlay overlay2-2">Adventure Lower</div>
-        </div>
-        <div class="cara">
-            <img src="https://woich.in/frontend/main_banner/Image_015.png"  alt="Image 1">
-            <div class="overlay">Night Sky</div>
-        </div>
+       
     </div>
 </section>
-<script>
+<!-- <script>
     document.addEventListener("DOMContentLoaded", function() {
         const carouselInner = document.querySelector(".carousel-inner");
         const carouselItems = carouselInner.querySelectorAll(".cara");
-        const totalItems = carouselItems.length - 7;
-        const itemWidth = carouselItems[0].clientWidth;
-        let currentIndex = 0;
+        let isSliding = false;
 
         function slideNext() {
-            currentIndex = (currentIndex + 1) % totalItems;
-            carouselInner.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+            if (isSliding) return; // Prevent overlapping transitions
+            isSliding = true;
+
+            const firstItem = carouselInner.firstElementChild;
+
+            // Step 1: Reduce the width to 0 to hide it smoothly
+            firstItem.style.transition = "width 0.5s ease"; // Smooth transition for width
+            firstItem.style.width = "0px"; // Reduce width to 0
+
+            // Step 2: After the width is reduced, move it to the back
+            setTimeout(() => {
+                carouselInner.appendChild(firstItem); // Append to the back
+
+                // Step 3: Reset width back to normal (100%) after appending
+                firstItem.style.transition = "none"; // Temporarily disable transition for appending
+                firstItem.style.width = ""; // Reset the width (remove inline style)
+
+                // Step 4: Re-enable the width transition and restore to full width
+                setTimeout(() => {
+                    firstItem.style.transition = "width 0.5s ease"; // Re-enable transition
+                    firstItem.style.width = "256"; // Set back to full width
+                    isSliding = false; // Allow sliding again
+                }, 20); // Small delay to allow appending before restoring width
+
+            }, 500); // Match this with the width transition duration (0.5s)
         }
 
         setInterval(slideNext, 3000); // Change slide every 3 seconds
-
-       // const images = document.querySelectorAll('.cara img, .cara2 img');
-     //   images.forEach(image => {
-        //    image.addEventListener('click', () => {
-          //      const overlay = image.nextElementSibling;
-            //    if (overlay) {
-            //        overlay.classList.toggle('show-overlay');
-              //  }
-            //    overlay.addEventListener("click",()=>{
-          //          overlay.classList.remove('show-overlay');
-        //        })
-      //      });
-    //    });
     });
-</script>
+</script> -->
 
 
 </section>
+
+
 
 <!-- section styling -->
 
@@ -381,7 +388,7 @@
 
 <center>
 <div class="handpicked-section">
-    <h2>Trending around you</h2>
+    <h2>Handpicked for you</h2>
     <div class="categories">
         <div class="category-item">
         <a href="{{ route('collection')}}">

@@ -8,11 +8,7 @@
     <meta property="og:image" content="{{ asset('images/' . setting('site_logo')) }}">
 
     <link rel="stylesheet" href="https://andreruffert.github.io/rangeslider.js/assets/rangeslider.js/dist/rangeslider.css">
-    <style>
-        /* Custom CSS for the Menu Items Section */
-
-
-    </style>
+    
 @endpush
 
 @section('main-content')

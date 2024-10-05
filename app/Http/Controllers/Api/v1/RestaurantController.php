@@ -80,7 +80,8 @@ class RestaurantController extends BackendController
         ->get();
 
     // Fetch ratings and reviews for menu items
-    $menuItemRatings = MenuItemRating::whereIn('menu_item_id', $this->data['menuItemsX']->pluck('id'))
+    $menuItemRatings = MenuItemRating::with('user')
+        ->whereIn('menu_item_id', $this->data['menuItemsX']->pluck('id'))
         ->where('status', RatingStatus::ACTIVE)
         ->get()
         ->groupBy('menu_item_id');
