@@ -21,6 +21,8 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\Api\ProfileUpdateRequest;
 use App\Http\Requests\Api\PasswordUpdateRequest;
 use Tymon\JWTAuth\Exceptions\TokenInvalidException;
+use App\Models\MenuItemRating;
+
 
 class MeController extends Controller
 {
@@ -180,6 +182,56 @@ class MeController extends Controller
         ], 200);
     }
 
+
+    public function saveMenuItemReview(Request $request)
+{
+    // Validate the request
+    $validator = Validator::make($request->all(), [
+        'menu_item_id' => 'required|exists:menu_items,id', // Ensure the menu item exists
+        'rating' => 'required|integer|min:1|max:5', // Rating should be between 1 and 5
+        'review' => 'nullable|string|max:500', // Optional review with max 500 characters
+    ]);
+
+    if ($validator->fails()) {
+        return response()->json([
+            'status'  => 422,
+            'message' => $validator->errors(),
+        ], 422);
+    }
+
+    // Check if the user has already rated the menu item
+    $menuItemRating = MenuItemRating::where([
+        'user_id' => auth()->id(),
+        'menu_item_id' => $request->menu_item_id
+    ])->first();
+
+    // If the rating exists, update it
+    if ($menuItemRating) {
+        $menuItemRating->rating = $request->rating;
+        $menuItemRating->review = $request->review;
+        $menuItemRating->status = RatingStatus::ACTIVE; // Assuming there's a status field
+        $menuItemRating->save();
+
+        return response()->json([
+            'status'  => 200,
+            'message' => 'Your rating was updated successfully.',
+        ], 200);
+    }
+
+    // Otherwise, create a new rating
+    $menuItemRating = new MenuItemRating;
+    $menuItemRating->user_id = auth()->id();
+    $menuItemRating->menu_item_id = $request->menu_item_id;
+    $menuItemRating->rating = $request->rating;
+    $menuItemRating->review = $request->review;
+    $menuItemRating->status = RatingStatus::ACTIVE; // Assuming status field
+    $menuItemRating->save();
+
+    return response()->json([
+        'status'  => 200,
+        'message' => 'Your rating was added successfully.',
+    ], 200);
+}
     public function review($id)
     {
         $ratingReview = RestaurantRating::where(['user_id' => auth()->user()->id, 'restaurant_id' => $id])->first();

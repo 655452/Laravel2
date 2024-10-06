@@ -72,6 +72,7 @@ Route::post('password/reset', ResetPasswordController::class);
     Route::put('device',                                        [MeController::class, 'device']);
     Route::get('review/{id}',                                   [MeController::class, 'review']);
     Route::post('review',                                       [MeController::class, 'saveReview']);
+    Route::post('MenuItemreview',                                       [MeController::class, 'saveMenuItemReview']);
     Route::get('report/{id}',                                   [MeController::class, 'reportCheck']);
     Route::post('report',                                       [MeController::class, 'storeReport']);
 
