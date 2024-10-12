@@ -63,6 +63,7 @@
                     <style>
                         .desktop-screen{
                           width: 40vw;
+                        height:6vh;
                         }
                         @media (max-width: 767px) {
                             .desktop-screen{
@@ -72,7 +73,7 @@
                             }    
                         }
                     </style>
-                <form class="desktop-screen"  method="GET" action="{{ route('search', Request::query()) }}" id="myForm">
+<form class="desktop-screen" style="margin-top: 10px;"   method="GET" action="{{ route('search', Request::query()) }}" id="myForm">
                     <input type="hidden" class="form-control" id="lat" name="lat"
                         value="{{ Request::get('lat') }}">
                     <input type="hidden" class="form-control" id="long" name="long"
@@ -85,7 +86,7 @@
                             placeholder="{{ __('frontend.search_placeholder') }}" value="{{ Request::get('query') }}"> -->
                             <!-- changes made -->
                             <input type="text" name="query" id="search"
-                            placeholder="Search by business" value="{{ Request::get('query') }}">
+                            placeholder="Search " value="{{ Request::get('query') }}">
                             
                             <!-- Disable location icon -->
                             <a href="javascript:void(0)">
@@ -120,49 +121,6 @@
  
                     </div>
                 </form>
-                <!-- <form class="desktop-screen" method="GET" action="{{ route('search') }}">
-                        <div   class="main-search-input">
-                            <input type="hidden" id="lat" name="lat" required="" value="">
-                            <input type="hidden" id="long" name="long" required="" value="">
-                            <input type="hidden" id="expedition" name="expedition" value="{{ __('all') }}">
-
-                            <div style="height: 45px;" class="banner-search main-search-input-item location">
-                                <div id="autocomplete-container" class="me-auto ms-2 w-100">
-                                    <input id="autocomplete-input" type="text" placeholder="{{ __('frontend.search') }}">
-                                </div>
-                                
-                                <a href="javascript:void(0)">
-                                    <span id="locationIcon" onclick="getLocation()">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M12 19.5C16.1421 19.5 19.5 16.1421 19.5 12C19.5 7.85786 16.1421 4.5 12 4.5C7.85786 4.5 4.5 7.85786 4.5 12C4.5 16.1421 7.85786 19.5 12 19.5Z"
-                                                stroke="#e86121" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z"
-                                                stroke="#e86121" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path d="M12 4V2" stroke="#e86121" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path d="M4 12H2" stroke="#e86121" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path d="M12 20V22" stroke="#e86121" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path d="M20 12H22" stroke="#e86121" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                    </span>
-                                </a>
-                               
-                                <button type="submit" style="font-size: 15px; height: 30px; width: 30px; display: flex; align-items: center; justify-content: center; padding: 0; border: none; ">
-                        <img src="https://cdn-icons-png.flaticon.com/128/10934/10934545.png" alt="" style="height: 60%; width: 60%;">
-                    </button>
-
-                                
-                            </div>
-                        </div>
-            </form> -->
                     <!-- search bar  ended -->
 
 <!-- second section navbar -->
@@ -178,6 +136,7 @@
             justify-content: end;
             gap: 10px; 
             width:40%;
+        margin-top: 10px;
         }
     </style>
 <div class="responsive-element" style="">
@@ -317,10 +276,12 @@
                             <nav class="header-account-navs">
                                 <a href="{{ route('account.profile') }}"><i
                                         class="lni lni-cog"></i><span>{{ __('topbar.account') }}</span></a>
-                                <!-- <a href="{{ route('account.order') }}"><i
+                                <!-- 
+                                <a href="{{ route('account.order') }}"><i
                                         class="lni lni-cart-full"></i><span>{{ __('topbar.my_orders') }}</span></a>
                                 <a href="{{ route('account.reservations') }}"><i
-                                        class="lni lni-coffee-cup"></i><span>{{ __('topbar.reservations') }}</span></a> -->
+                                        class="lni lni-coffee-cup"></i><span>{{ __('topbar.reservations') }}</span></a>
+                                -->
                                 <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="lni lni-lock-alt"></i><span>{{ __('topbar.logout') }}</span>
@@ -383,17 +344,17 @@
         </div>
     </div>
 </header>
-<style>
 
+  <img class="top-banner-upper-strip" src="https://655452.github.io/Gallery/TopBanner.jpg" style="width:100%;object-fit: contain;padding-top:2vh;" alt="">
+<style>
     @media (min-width: 867px) {
         .mobile-screen{
             display: none;
-            padding-top:5vh;
         }
     }
 </style>
 
-<form  class="mobile-screen" style="  padding-top:5vh;"  method="GET" action="{{ route('search', Request::query()) }}" id="myForm">
+<form  class="mobile-screen" style="  padding-top:0px;"  method="GET" action="{{ route('search', Request::query()) }}" id="myForm">
                     <input type="hidden" class="form-control" id="lat" name="lat"
                         value="{{ Request::get('lat') }}">
                     <input type="hidden" class="form-control" id="long" name="long"
@@ -406,7 +367,7 @@
                             placeholder="{{ __('frontend.search_placeholder') }}" value="{{ Request::get('query') }}"> -->
                             <!-- changes made -->
                             <input type="text" name="query" id="search"
-                            placeholder="Search by business" value="{{ Request::get('query') }}">
+                            placeholder="Search " value="{{ Request::get('query') }}">
                             
                             <!-- Disable location icon -->
                             <a href="javascript:void(0)">
@@ -443,3 +404,4 @@
 </form>
 
 <!--===== HEADER PART END ========-->
+root@instance-20240705-082813:/var/www/woich.
